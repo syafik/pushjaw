@@ -1,6 +1,21 @@
 Pushjaw::Application.routes.draw do
-  get "home/index"
+  resources :requests
 
+
+  resources :comments
+
+
+  resources :profiles
+
+
+  resources :teams
+
+
+  devise_for :users
+
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
+  get "home/index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en-US">
   <head>
+    
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -11,7 +12,7 @@
     <link rel="shortcut icon" href="images/favicon.gif">
     <link rel="icon" href="images/favicon.ico">
 
-    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    
 
     <script type="text/javascript" src="javascripts/jquery.js"></script>
     <script type="text/javascript" src="javascripts/modernizr.js"></script>
@@ -118,13 +119,13 @@
           <div class="slides slider">
             <div>
               <%= image_tag "sample-web.png" %>
-              
+
               <div class="Description">
                 <a href="">Mozilla.org</a>
               </div>
             </div>
             <div>
-             <%= image_tag "sample-web.png" %>
+              <%= image_tag "sample-web.png" %>
               <div class="Description">
                 <a href="">Mozilla2.org</a>
               </div>
@@ -174,97 +175,114 @@
     <div class="aboutwraper">
       <div class="abwrap">
         <h2>About Us</h2>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when an unknown printer took a galley of type and scrambledmake a type specimen book.</p>
+
+        <p><%= @profile.content %></p>
+
         <h3>What people sayings about us ?</h3>
         <div class="testimonial">
-          “Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum has been the industry's standard dummy text ever 1500s, when an unknown printer took a galley of type and scrammake a type specimen book...”
+          <%= @comment.comment %>
         </div>
-        <p>- Andreas Kisser, Developer in StablesConfusion, CA</p>
+        <p>-<%= @comment.name %>, <%= @comment.title %>,<%= @comment.address %></p>
       </div>
       <div class="teamwrap">
         <h3>Our Teams</h3>
 
-        <%= image_tag "sample2.png", :class=>"tooltips", :title=>"David Bowie / ROR Developer", :width=>""  %>
-        <%= image_tag "sample2.png", :class=>"tooltips", :title=>"David Bowie / ROR Developer", :width=>""  %>
-        <%= image_tag "sample2.png", :class=>"tooltips", :title=>"David Bowie / ROR Developer", :width=>""  %>
-        <%= image_tag "sample2.png", :class=>"tooltips", :title=>"David Bowie / ROR Developer", :width=>""  %>
-        <%= image_tag "sample2.png", :class=>"tooltips", :title=>"David Bowie / ROR Developer", :width=>""  %>
-        <%= image_tag "sample2.png", :class=>"tooltips", :title=>"David Bowie / ROR Developer", :width=>""  %>
-        <%= image_tag "sample2.png", :class=>"tooltips", :title=>"David Bowie / ROR Developer", :width=>""  %>
-        <%= image_tag "sample2.png", :class=>"tooltips", :title=>"David Bowie / ROR Developer", :width=>""  %>
-        <%= image_tag "sample2.png", :class=>"tooltips", :title=>"David Bowie / ROR Developer", :width=>""  %>
-        <%= image_tag "sample2.png", :class=>"tooltips", :title=>"David Bowie / ROR Developer", :width=>""  %>
-    </div>
-  </div>
-  <%= image_tag 'reef.png', :class=>'reef',:width=>"100%" %>
-</div>
-<div id="Contact">
-  <div class="border"></div>
-  <div class="border3"></div>
-  <div class="cyrcle"></div>
-  <div class="cyrcle2"></div>
-  <div class="cyrcle3"></div>
-  <div class="cyrcle4"></div>
-  <div class="contactwrap">
-    <div class="contactform">
-      <%= image_tag 'contacttext.png', :width=>"178" %>
-      <form>
-        <input type="text" placeholder="Your name"></input>
-        <input type="text" placeholder="Your email"></input>
-        <input type="text" placeholder="Your Subject"></input>
-        <textarea placeholder=""></textarea>
-        <input type="button" value="Send" class="btnsend"/>
-      </form>
-    </div>
-    <div class="mapwraper">
-      <div class="maptag">
-        <%= image_tag 'sample_map.png', :width=>"345" %>
-      </div>
-      <div class="descmap">
-        <h2>Here We Are !</h2>
-        Kompleks Melong Green Garden <br />
-        Jl. Mig 3 No. 1 <br />
-        Cimahi, West Java - Indonesia <br />
-        +6281809466884 <br />
-        +622260001425
-        <h3>Find Us :</h3>
-        <ul class="socialtag">
-          <li><a title="Follow us on Pushjaw" href="" class="fb tooltips"></a></li>
-          <li><a title="Follow us on @Pushjaw" href="" class="tw tooltips"></a></li>
-        </ul>
+
+        <% @teams.each do |team| %>
+          <% a= team.name,team.title  %>
+          <%= image_tag team.avatar.url(:thumb), :class=>"tooltips", :title=>a %>
+        <%end%>
+
       </div>
     </div>
+    <%= image_tag 'reef.png', :class=>'reef',:width=>"100%" %>
   </div>
-  <div class="worm"></div>
-  <div class="border2"></div>
-</div>
-<footer>
-  &copy; copyright pushjaw 2012
-</footer>
+  <div id="Contact">
+    <div class="border"></div>
+    <div class="border3"></div>
+    <div class="cyrcle"></div>
+    <div class="cyrcle2"></div>
+    <div class="cyrcle3"></div>
+    <div class="cyrcle4"></div>
+    <div class="contactwrap">
+      <div class="contactform">
+        <%= image_tag 'contacttext.png', :width=>"178" %>
+        <%  @request = Request.new %>
+        <%= form_for(@request, :url => requests_path) do |f| %>
+          <div class="field">
+            <%= f.text_field :name, :placeholder=>"Your name" %>
+          </div>
+          <div class="field">
+            <%= f.text_field :email, :placeholder=>"Your Email" %>
+          </div>
+          <div class="field">
+            <%= f.text_field :subject , :placeholder=>"Your Subject"%>
+          </div>
+          <div class="field">
+            <%= f.text_area :request, rows: 3 %>
+          </div>
+          <div class="actions">
+            <%= f.submit "send", :class=>"btnsend" %>
+          </div>
+        <% end %>
+
+<%#*<form>%>
+<%#*<input type="text" placeholder="Your name"></input>%>
+<%#*<input type="text" placeholder="Your email"></input>%>
+<%#*<input type="text" placeholder="Your Subject"></input>%>
+<%#*<textarea placeholder=""></textarea>%>
+<%#*<input type="button" value="Send" class="btnsend"/>%>
+<%#*</form>%>
+      </div>
+      <div class="mapwraper">
+        <div class="maptag">
+          <%= image_tag 'sample_map.png', :width=>"345" %>
+        </div>
+        <div class="descmap">
+          <h2>Here We Are !</h2>
+          Kompleks Melong Green Garden <br />
+          Jl. Mig 3 No. 1 <br />
+          Cimahi, West Java - Indonesia <br />
+          +6281809466884 <br />
+          +622260001425
+          <h3>Find Us :</h3>
+          <ul class="socialtag">
+            <li><a title="Follow us on Pushjaw" href="" class="fb tooltips"></a></li>
+            <li><a title="Follow us on @Pushjaw" href="" class="tw tooltips"></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="worm"></div>
+    <div class="border2"></div>
+  </div>
+  <footer>
+    &copy; copyright pushjaw 2012
+  </footer>
 
 
-<script type="text/javascript" src="javascripts/jquery.poshytip.js"></script>
-<script type="text/javascript" src="javascripts/imgpreload.js"></script>
-<script type="text/javascript" src="javascripts/parallax.js"></script>
-<script type="text/javascript" src="javascripts/easing.js"></script>
-<script type="text/javascript" src="javascripts/jcontent.js"></script>
-<script type="text/javascript" src="javascripts/tabs.js"></script>
-<script type="text/javascript" src="javascripts/parallax.lib.js"></script>
-<script type="text/javascript" src="javascripts/jquery.clouds.js"></script>
-<script type="text/javascript">  
-  $('.tooltips').poshytip({className: 'tip-twitter',showTimeout: 1,alignTo: 'target',alignX: 'center',offsetY: 5,allowTipHover: false,fade: false,slide: false});
-  $("document").ready(function(){$("div#sliderwraper").jContent({orientation: 'horizontal', easing: "easeOutCirc", duration: 500,auto: true});});
-  $('.cloudmoving').clouds({xmlMap: 'images/clouds.xml',bobHeight: 0,speed: 20});
-  function init() {
-    $('html, body').animate({
-      scrollTop:$('#home').offset().top
-    }, 5000, function() {
-      parallaxScroll(); // Callback is required for iOS
-    });
-    return false;
-  }
-  window.onload = init; 
-</script> 
+  <script type="text/javascript" src="javascripts/jquery.poshytip.js"></script>
+  <script type="text/javascript" src="javascripts/imgpreload.js"></script>
+  <script type="text/javascript" src="javascripts/parallax.js"></script>
+  <script type="text/javascript" src="javascripts/easing.js"></script>
+  <script type="text/javascript" src="javascripts/jcontent.js"></script>
+  <script type="text/javascript" src="javascripts/tabs.js"></script>
+  <script type="text/javascript" src="javascripts/parallax.lib.js"></script>
+  <script type="text/javascript" src="javascripts/jquery.clouds.js"></script>
+  <script type="text/javascript">  
+    $('.tooltips').poshytip({className: 'tip-twitter',showTimeout: 1,alignTo: 'target',alignX: 'center',offsetY: 5,allowTipHover: false,fade: false,slide: false});
+    $("document").ready(function(){$("div#sliderwraper").jContent({orientation: 'horizontal', easing: "easeOutCirc", duration: 500,auto: true});});
+    $('.cloudmoving').clouds({xmlMap: 'images/clouds.xml',bobHeight: 0,speed: 20});
+    function init() {
+      $('html, body').animate({
+        scrollTop:$('#home').offset().top
+      }, 5000, function() {
+        parallaxScroll(); // Callback is required for iOS
+      });
+      return false;
+    }
+    window.onload = init; 
+  </script> 
 
 </body>
 </html>
