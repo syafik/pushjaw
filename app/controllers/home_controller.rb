@@ -4,7 +4,7 @@ class HomeController < ApplicationController
     @profile = Profile.last
     @comment = Comment.last
     @home = Home.first
-    
+    @portfolios = Portfolio.all 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @teams }

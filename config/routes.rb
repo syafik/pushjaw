@@ -1,4 +1,7 @@
 Pushjaw::Application.routes.draw do
+  resources :portfolios
+
+
   resources :requests
 
 
