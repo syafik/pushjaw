@@ -1,3 +1,9 @@
-ContactNotifier#received
+<% @request = Request.last %>
 
-<%= @greeting %>, find me in app/views/app/views/contact_notifier/received.text.erb
+
+ name: <%= @request.name %>
+ email: <%= @request.email %>
+ subject: <%= @request.subject %>
+ request: <%= @request.request %>
+ 
+

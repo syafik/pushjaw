@@ -3,12 +3,12 @@ class ContactNotifier < ActionMailer::Base
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
-  #
   #   en.contact_notifier.received.subject
-  #
-  def received
-    @greeting = "Hi"
+  
+  def received(home)
+    @home = home
 
-    mail to: "to@example.org"
+    mail to: home.email, subject: 'your contact'
   end
+  
 end

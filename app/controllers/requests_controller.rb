@@ -41,12 +41,13 @@ class RequestsController < ApplicationController
   # POST /requests.json
   def create
     @request = Request.new(params[:request])
+    @home = Home.find_by_id(1)
 
     respond_to do |format|
       if @request.save
         format.html { redirect_to root_path, notice: 'Request was successfully created.' }
         format.json { render json: @request, status: :created, location: @request }
-       
+        ContactNotifier.received(@home).deliver
       else
         format.html { render action: "new" }
         format.json { render json: @request.errors, status: :unprocessable_entity }
