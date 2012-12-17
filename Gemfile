@@ -13,3 +13,5 @@ gem 'pg', '~> 0.14.1'
 gem 'fastercsv'
 gem 'rails_admin'
 gem "paperclip", "~> 3.0"
+gem 'settler'
+gem 'setler'

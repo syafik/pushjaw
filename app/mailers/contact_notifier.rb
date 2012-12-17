@@ -5,10 +5,8 @@ class ContactNotifier < ActionMailer::Base
   # with the following lookup:
   #   en.contact_notifier.received.subject
   
-  def received(home)
-    @home = home
-
-    mail to: home.email, subject: 'your contact'
+  def received
+    mail to: 'adika.pj@gmail.com', subject: 'your contact'
   end
   
 end

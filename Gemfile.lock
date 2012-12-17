@@ -132,6 +132,11 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    setler (0.0.10)
+      activerecord (>= 3.0.0)
+      rails (>= 3.0.0)
+    settler (1.2.3)
+      rails
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -162,4 +167,6 @@ DEPENDENCIES
   rails (= 3.2.9)
   rails_admin
   sass-rails (~> 3.2.3)
+  setler
+  settler
   uglifier (>= 1.0.3)

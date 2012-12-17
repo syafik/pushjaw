@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121215034802) do
+ActiveRecord::Schema.define(:version => 20121217023959) do
 
   create_table "comments", :force => true do |t|
     t.string   "name"
@@ -20,15 +20,6 @@ ActiveRecord::Schema.define(:version => 20121215034802) do
     t.text     "comment"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "homes", :force => true do |t|
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.string   "email"
-    t.string   "address"
-    t.string   "phone"
-    t.string   "mobile_phone"
   end
 
   create_table "portfolios", :force => true do |t|
@@ -40,12 +31,6 @@ ActiveRecord::Schema.define(:version => 20121215034802) do
     t.text     "description"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
-  end
-
-  create_table "profiles", :force => true do |t|
-    t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -69,6 +54,34 @@ ActiveRecord::Schema.define(:version => 20121215034802) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "service_images", :force => true do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.integer  "service_id"
+  end
+
+  create_table "services", :force => true do |t|
+    t.string   "service"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "settings", :force => true do |t|
+    t.string   "var",                      :null => false
+    t.text     "value"
+    t.integer  "thing_id"
+    t.string   "thing_type", :limit => 30
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  add_index "settings", ["thing_type", "thing_id", "var"], :name => "index_settings_on_thing_type_and_thing_id_and_var", :unique => true
 
   create_table "teams", :force => true do |t|
     t.string   "name"

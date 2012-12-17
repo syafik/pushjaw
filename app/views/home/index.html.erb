@@ -44,58 +44,63 @@
         </ul>
         <div class="tab-container">
           <div id="tab1" class="tab-content">
+            <% @service = Service.find_by_service('web design') %>
             <div class="ct_services">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+              <%= @service.description %> 
               <div class="service_img">
-                <%= image_tag 'sample.png' %>
-                <%= image_tag 'sample.png' %>
-                <%= image_tag 'sample.png' %>
-                <%= image_tag 'sample.png' %>
-
+                <% @image = @service.service_images %>
+                <% @image.each do |image| %>
+                <%= image_tag image.image.url(:medium) , :width => 128, :height => 61 %>
+                <% end %>
               </div>
             </div>
+            
           </div>	
           <div id="tab2" class="tab-content">
             <div class="ct_services">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+              <% @service = Service.find_by_service('graphic design') %>
+              <%= @service.description %> 
               <div class="service_img">
-                <%= image_tag 'sample.png' %>
-                <%= image_tag 'sample.png' %>
-                <%= image_tag 'sample.png' %>
-                <%= image_tag 'sample.png' %>
+                <% @image = @service.service_images %>
+                <% @image.each do |image| %>
+                <%= image_tag image.image.url(:medium) , :width => 128, :height => 61 %>
+                <% end %>
               </div>
             </div>
           </div>	
           <div id="tab3" class="tab-content">
             <div class="ct_services">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+              <% @service = Service.find_by_service('mobile apps') %>
+              <%= @service.description   %> 
               <div class="service_img">
-                <%= image_tag 'sample.png' %>
-                <%= image_tag 'sample.png' %>
-                <%= image_tag 'sample.png' %>
-                <%= image_tag 'sample.png' %>
+                <% @image = @service.service_images %>
+                <% @image.each do |image| %>
+                <%= image_tag image.image.url(:medium) , :width => 128, :height => 61 %>
+                <% end %>
               </div>
             </div>
           </div>					
           <div id="tab4" class="tab-content">
             <div class="ct_services">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+              <% @service = Service.find_by_service('cloud') %>
+              <%= @service.description %> 
               <div class="service_img">
-                <%= image_tag 'sample.png' %>
-                <%= image_tag 'sample.png' %>
-                <%= image_tag 'sample.png' %>
-                <%= image_tag 'sample.png' %>
+                <% @image = @service.service_images %>
+                <% @image.each do |image| %>
+                <%= image_tag image.image.url(:medium) , :width => 128, :height => 61 %>
+                <% end %>
               </div>
             </div>
           </div>
           <div id="tab5" class="tab-content">
             <div class="ct_services">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+             <% @service = Service.find_by_service('web developer') %>
+              <%= @service.description %> 
               <div class="service_img">
-                <%= image_tag 'sample.png' %>
-                <%= image_tag 'sample.png' %>
-                <%= image_tag 'sample.png' %>
-                <%= image_tag 'sample.png' %>
+                <% @image = @service.service_images %>
+                <% @image.each do |image| %>
+                <%= image_tag image.image.url(:medium) , :width => 128, :height => 61 %>
+                <% end %>
               </div>
             </div>
           </div>
@@ -172,9 +177,7 @@
     <div class="aboutwraper">
       <div class="abwrap">
         <h2>About Us</h2>
-
-        <p><%= @profile.content %></p>
-
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when an unknown printer took a galley of type and scrambledmake a type specimen book.</p>
         <h3>What people sayings about us ?</h3>
         <div class="testimonial">
           <%= @comment.comment %>
@@ -183,12 +186,10 @@
       </div>
       <div class="teamwrap">
         <h3>Our Teams</h3>
-
-
         <% @teams.each do |team| %>
           <% a= team.name,team.title  %>
-          <%= image_tag team.avatar.url(:thumb), :class=>"tooltips", :title=>a %>
-        <%end%>
+          <%= image_tag team.avatar.url, :width=>89, :height=> 105, :class=>"tooltips", :title=>a %>
+        <% end %>
 
       </div>
     </div>
@@ -223,13 +224,7 @@
           </div>
         <% end %>
 
-<%#*<form>%>
-<%#*<input type="text" placeholder="Your name"></input>%>
-<%#*<input type="text" placeholder="Your email"></input>%>
-<%#*<input type="text" placeholder="Your Subject"></input>%>
-<%#*<textarea placeholder=""></textarea>%>
-<%#*<input type="button" value="Send" class="btnsend"/>%>
-<%#*</form>%>
+
       </div>
       <div class="mapwraper">
         <div class="maptag">
@@ -238,9 +233,11 @@
         </div>
         <div class="descmap">
           <h2>Here We Are !</h2>
-          <%= @home.address %>
-          <%= @home.mobile_phone %> </br>
-          <%= @home.phone %> </br>
+          Kompleks Melong Green Garden <br />
+          Jl. Mig 3 No. 1 <br />
+          Cimahi, West Java - Indonesia <br />
+          +6281809466884 <br />
+          +622260001425
           <h3>Find Us :</h3>
           <ul class="socialtag">
             <li><a title="Follow us on Pushjaw" href="https://www.facebook.com/pushjaws" class="fb tooltips"></a></li>
