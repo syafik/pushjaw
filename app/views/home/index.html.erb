@@ -33,7 +33,7 @@
         <li><a class="contact" href="#Contact">Contact Us</a></li>
       </ul>
     </div>
-    
+
     <div id="services">
       <div class="page">
         <ul class="tabs">
@@ -52,7 +52,7 @@
             </div>
           <% end %>
         </div>
-        
+
         <div class="moon"></div>
         <div class="ufo"></div>
         <div class="rocket"></div>
@@ -91,7 +91,7 @@
     <div class="birds"></div>
     <div class="page">
       <div class="content">
-<%#= image_tag "title.png", :width=>457, :height => 67 %>
+        <%= image_tag "title.png", :width=>457, :height => 67 %>
         <p>
           a Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the 
           industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type 
@@ -126,18 +126,18 @@
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when an unknown printer took a galley of type and scrambledmake a type specimen book.</p>
         <h3>What people sayings about us ?</h3>
         <div class="testimonial">
-
-        </div>
-        <p>-</p>
+          <%= @comment.comment %>
+				</div>
+				<p>- <%= @comment.name %>, <%= @comment.title %>, <%= @comment.address %></p>
       </div>
       <div class="teamwrap">
         <h3>Our Teams</h3>
 
         <% @teams.each do |team| %>
           <% a= team.name,team.title  %>
-          <%= image_tag team.images, :width=>89, :height=> 105, :class=>"tooltips", :title=>a %>
+          <%= image_tag team.picture.url(:thumb), :width=>89, :height=> 105, :class=>"tooltips", :title=>a  %>
         <% end %>
-        
+
       </div>
     </div>
     <%= image_tag 'reef.png', :class=>'reef',:width=>"100%" %>
@@ -152,7 +152,24 @@
     <div class="contactwrap">
       <div class="contactform">
         <%= image_tag 'contacttext.png', :width=>"178" %>
-
+        <%  @contact = Contact.new %>
+        <%= form_for(@contact, :url => contacts_path) do |f| %>
+          <div class="field">
+            <%= f.text_field :name, :placeholder=>"Your name" %>
+          </div>
+          <div class="field">
+            <%= f.text_field :email, :placeholder=>"Your Email" %>
+          </div>
+          <div class="field">
+            <%= f.text_field :subject , :placeholder=>"Your Subject"%>
+          </div>
+          <div class="field">
+            <%= f.text_area :request, rows: 3 %>
+          </div>
+          <div class="actions">
+            <%= f.submit "send", :class=>"btnsend" %>
+          </div>
+        <% end %>
       </div>
       <div class="mapwraper">
         <div class="maptag">
