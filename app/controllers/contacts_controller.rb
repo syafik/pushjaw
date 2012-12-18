@@ -46,7 +46,7 @@ class ContactsController < ApplicationController
       if @contact.save
         format.html { redirect_to root_path, notice: 'Contact was successfully created.' }
         format.json { render json: @contact, status: :created, location: @contact }
-        Notifier.received.deliver
+        Notifier.received(@contact).deliver
       else
         format.html { render action: "new" }
         format.json { render json: @contact.errors, status: :unprocessable_entity }

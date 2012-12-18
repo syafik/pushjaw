@@ -1,7 +1,8 @@
 class Notifier < ActionMailer::Base
  default from: "from@example.com"
   
-  def received
-    mail to: 'adikahavittia@gmail.com', subject: 'your contact'
+  def received(email)
+    @contact = email
+    mail to: email.email, subject: 'your contact'
   end
 end
