@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Pushjaw::Application.load_tasks
+Inheritance::Application.load_tasks

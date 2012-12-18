@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Pushjaw::Application.config.secret_token = 'cf41791432d04975361c956eb034809f1e4b54fc081eac1e0d465a8bad967535053c43e656ae78ed6179a91b073ac2a628bc7f1264b1848e36e01be10ca43f50'
+Inheritance::Application.config.secret_token = '1f9aa2042a04af5799f5a8ca385a3d723637ace0c2f2fe22b0d2518964059f2a0b95ebd0d099ac4d5da8d2ccf8ce333594cae1077ad0bbb33a00253c98a32a6a'

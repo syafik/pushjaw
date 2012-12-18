@@ -1,4 +1,3 @@
-class Service < ActiveRecord::Base
-  attr_accessible :service, :description
-  has_many :service_images, :dependent => :destroy
+class Service < Feature
+  # attr_accessible :title, :body
 end

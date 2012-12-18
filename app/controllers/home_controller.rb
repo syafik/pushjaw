@@ -1,14 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @teams = Team.all
-    @comment = Comment.last
-    @portfolios = Portfolio.all 
-  
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @teams }
-      
-    end
-    
+    @teams=Team.all
+    @services = Service.last(5)
   end
 end
