@@ -38,16 +38,19 @@
       <div class="page">
         <ul class="tabs">
           <% @services.each_with_index do |service, i|%>
-            <li><a href="#tab<%=i+1%>"><%= service.title %></a></li>
+            <li><a href="#tab<%=  i+1 %>"><%= service.title %></a></li>
           <% end %>
         </ul>
         <div class="tab-container">
           <% @services.each_with_index do |service, i|%>
-            <div id="tab<%=i+1%>" class="tab-content">
+            <div id="tab<%=  i+1 %>" class="tab-content">
               <div class="ct_services">
                 <%= service.content %>
-                <div class="service_img">
-                </div>       
+                <% service.images.each do |image| %>
+                  <div class="service_img">
+                    <div><%= image_tag image.image.url(:thumb), :width=>"120px", :height=>"80px" %></div>
+                  </div>       
+                <% end %>
               </div>
             </div>
           <% end %>
@@ -71,14 +74,14 @@
         <div id="sliderwraper">
 
           <div class="slides slider">
-<%# @portfolios.each do |portfolio| %>
-            <div>
-<%#= image_tag portfolio.image.url, :width=>641, :height=> 399 %>
-              <div class="Description">
-<%#*<a href=""><%= portfolio.projectname %></a>%>
+            <% @portfolios.each do |portfolio| %>
+              <div>
+                <%= image_tag portfolio.picture.url, :width=>"641", :height=>"399" %>
+                <div class="Description">
+                  <a href=""><%= portfolio.title %></a>
+                </div>
               </div>
-            </div>
-<%# end %>
+            <% end %>
           </div>
         </div>
       </div>
@@ -93,20 +96,17 @@
       <div class="content">
         <%= image_tag "title.png", :width=>457, :height => 67 %>
         <p>
-          a Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the 
-          industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type 
-          and scrambled it to make a type specimen book. It has survived not only five centuries, but also the 
-          leap into electronic typesetting...
+          <%= @home.content %>
         </p>
       </div>
       <div class="stork">
         <div class="blogwraper">
-<%# @blogs.each do |blog| %>
-          <div class="blogspotlight">
-<%#*<h3><%= truncate blog.title, length: 20 %></h3>%>
-<%#*<p><%= truncate blog.content, length: 30 %><a href="">more</a></p>%>
-          </div>
-<%# end %>
+          <% @blog.each do |blog| %>
+            <div class="blogspotlight">
+              <h3><%= truncate blog.title, length: 20 %></h3>
+              <p><%= truncate blog.content, length: 60 %><a href="">more</a></p>
+            </div>
+          <% end %>
         </div>
 
       </div>
