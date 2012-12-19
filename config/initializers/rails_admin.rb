@@ -104,4 +104,18 @@ RailsAdmin.config do |config|
     field :content 
     field :images
   end
+  
+  config.model Blog do
+    field :title
+    field :content
+  end
+  
+  config.model Home do
+    field :content
+  end
+  
+  config.model Portfolio do
+    field :title
+    field :picture
+  end
 end
