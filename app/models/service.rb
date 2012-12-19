@@ -1,4 +1,8 @@
 class Service < Feature
   # attr_accessible :title, :body
-  has_many :images
+  has_many :images, :dependent => :destroy, :inverse_of => :service
+  
+  accepts_nested_attributes_for :images, :allow_destroy => true
+    attr_accessible :images_attributes, :allow_destroy => true
+    attr_accessible :image_ids
 end
