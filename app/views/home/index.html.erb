@@ -134,8 +134,8 @@
         <h3>Our Teams</h3>
 
         <% @teams.each do |team| %>
-          <% a= team.name,team.title  %>
-          <%= image_tag team.picture.url(:thumb), :width=>89, :height=> 105, :class=>"tooltips", :title=>a  %>
+          <% a= team.name,team.title %>
+          <%= image_tag team.picture.url, :width=>89, :height=> 105, :class=>"tooltips", :title=>a  %>
         <% end %>
 
       </div>

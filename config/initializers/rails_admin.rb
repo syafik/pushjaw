@@ -97,7 +97,7 @@ RailsAdmin.config do |config|
   # end
   config.model Service do
     configure :images do
-      # configuration here  
+      
     end
     field :name
     field :title
@@ -116,6 +116,13 @@ RailsAdmin.config do |config|
   
   config.model Portfolio do
     field :title
+    field :picture
+  end
+  
+  config.model Team do
+    field :name
+    field :title
+    field :content
     field :picture
   end
 end
