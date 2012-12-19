@@ -95,5 +95,13 @@ RailsAdmin.config do |config|
   #     # you can override a cross-section field configuration in any section with the same syntax `configure :field_name do ... end`
   #     # using `field` instead of `configure` will exclude all other fields and force the ordering
   # end
-
+  config.model Service do
+    configure :images do
+      # configuration here  
+    end
+    field :name
+    field :title
+    field :content 
+    field :images
+  end
 end
