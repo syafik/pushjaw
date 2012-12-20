@@ -125,4 +125,13 @@ RailsAdmin.config do |config|
     field :content
     field :picture
   end
+  
+  config.model Location do
+    field :address
+  end
+  
+  config.model About do
+    field :content
+  end
+  
 end

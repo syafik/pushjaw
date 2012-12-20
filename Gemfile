@@ -42,3 +42,5 @@ gem "paperclip", "~> 3.0"
 
 
 gem "devise"
+gem 'geokit-rails3'
+gem 'gmaps4rails'

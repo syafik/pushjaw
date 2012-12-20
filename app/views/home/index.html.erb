@@ -8,14 +8,45 @@
     <meta name="HandheldFriendly" content="true">
 
     <title>Pushjaw</title>
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="shortcut icon" href="images/favicon.gif">
+    <link rel="shortcut icon" href="../assets/favicon.ico">
+    <link rel="shortcut icon" href="../assets/favicon.gif">
     <link rel="icon" href="images/favicon.ico">
 
 
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOXOBmlC8dhsb4hNqiCJJQe-orUQvRrbo&sensor=true">
+    </script>
 
-    <script type="text/javascript" src="javascripts/jquery.js"></script>
-    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript">
+      function initialize() {
+        var myLatlng = new google.maps.LatLng(<%= @res.lat %>,<%= @res.lng %>);
+        var mapOptions = {
+          zoom: 18,
+          center: myLatlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+        var marker = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+          title:"Hello World!"
+        });
+      }
+    </script>
+
+    <script>
+      jQuery(document).ready(function() {
+        initialize();
+      });
+    </script>
+    
+    <script>
+      $('#example').tooltip(options)
+    </script>
+
+    <script type="text/javascript" src="../assets/jquery.js"></script>
+    <script type="text/javascript" src="../assets/modernizr.js"></script>
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -24,6 +55,7 @@
   </head>
 
   <body onload="#home">
+
     <div class="nav">
       <ul class="navigation">
         <li><a class="home" href="#home">Home</a></li> 
@@ -66,7 +98,7 @@
     <div id="portfolio" class="clearfix">
       <div class="cloud"></div>
       <div class="page">
-        <div class="shadow"><img src="images/shadow.png" width="100%" height=""/></div>
+        <div class="shadow"><img src="../assets/shadow.png" width="100%" height=""/></div>
         <div class="balloon1"></div>
         <div class="balloon2"></div>
         <div class="balloon3"></div>
@@ -123,21 +155,15 @@
     <div class="aboutwraper">
       <div class="abwrap">
         <h2>About Us</h2>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when an unknown printer took a galley of type and scrambledmake a type specimen book.</p>
+        <p><%= @about.try(:content) %></p>
         <h3>What people sayings about us ?</h3>
         <div class="testimonial">
           <%= @comment.comment %>
-				</div>
-				<p>- <%= @comment.name %>, <%= @comment.title %>, <%= @comment.address %></p>
+        </div>
+        <p>- <%= @comment.name %>, <%= @comment.title %>, <%= @comment.address %></p>
       </div>
       <div class="teamwrap">
-        <h3>Our Teams</h3>
-
-        <% @teams.each do |team| %>
-          <% a= team.name,team.title %>
-          <%= image_tag team.picture.url, :width=>89, :height=> 105, :class=>"tooltips", :title=>a  %>
-        <% end %>
-
+        <%= show_team @teams %>
       </div>
     </div>
     <%= image_tag 'reef.png', :class=>'reef',:width=>"100%" %>
@@ -171,9 +197,10 @@
           </div>
         <% end %>
       </div>
+
       <div class="mapwraper">
-        <div class="maptag">
-          <iframe width="300" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.id/maps/ms?msa=0&amp;msid=201358137352960845404.0004d0dba3602e2f5d4b7&amp;ie=UTF8&amp;t=m&amp;ll=-6.925578,107.552611&amp;spn=0,0&amp;output=embed"></iframe><br /><small>View <a href="https://maps.google.co.id/maps/ms?msa=0&amp;msid=201358137352960845404.0004d0dba3602e2f5d4b7&amp;ie=UTF8&amp;t=m&amp;ll=-6.925578,107.552611&amp;spn=0,0&amp;source=embed" style="color:#0000FF;text-align:left">My Saved Places</a> in a larger map</small>
+        <div class="maptag" >
+          <div id="map_canvas" style="width: 300px; height: 300px" ></div>
         </div>
         <div class="descmap">
           <h2>Here We Are !</h2>
@@ -197,16 +224,15 @@
     &copy; copyright pushjaw 2012
   </footer>
 
-
-  <script type="text/javascript" src="javascripts/jquery.poshytip.js"></script>
-  <script type="text/javascript" src="javascripts/imgpreload.js"></script>
-  <script type="text/javascript" src="javascripts/parallax.js"></script>
-  <script type="text/javascript" src="javascripts/easing.js"></script>
-  <script type="text/javascript" src="javascripts/jcontent.js"></script>
-  <script type="text/javascript" src="javascripts/tabs.js"></script>
-  <script type="text/javascript" src="javascripts/parallax.lib.js"></script>
-  <script type="text/javascript" src="javascripts/jquery.clouds.js"></script>
-  <script type="text/javascript">  
+  <script type="text/javascript" src="../assets/jquery.poshytip.js"></script>
+  <script type="text/javascript" src="../assets/imgpreload.js"></script>
+  <script type="text/javascript" src="../assets/parallax.js"></script>
+  <script type="text/javascript" src="../assets/easing.js"></script>
+  <script type="text/javascript" src="../assets/jcontent.js"></script>
+  <script type="text/javascript" src="../assets/tabs.js"></script>
+  <script type="text/javascript" src="../assets/parallax.lib.js"></script>
+  <script type="text/javascript" src="../assets/jquery.clouds.js"></script>
+  <script type="text/javascript">
     $('.tooltips').poshytip({className: 'tip-twitter',showTimeout: 1,alignTo: 'target',alignX: 'center',offsetY: 5,allowTipHover: false,fade: false,slide: false});
     $("document").ready(function(){$("div#sliderwraper").jContent({orientation: 'horizontal', easing: "easeOutCirc", duration: 500,auto: true});});
     $('.cloudmoving').clouds({xmlMap: 'images/clouds.xml',bobHeight: 0,speed: 20});
