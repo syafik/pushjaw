@@ -25,6 +25,7 @@ gem 'pg', '~> 0.14.1'
 gem 'fastercsv'
 gem 'rails_admin'
 gem "paperclip", "~> 3.0"
+gem 'paperclip-ffmpeg'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
