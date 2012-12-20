@@ -45,4 +45,6 @@ Inheritance::Application.configure do
   password: "pushjaw21",
   enable_starttls_auto: true
   }
+  
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 end
