@@ -10,6 +10,7 @@ class HomeController < ApplicationController
     @location = Location.last
     @res=GeoKit::Geocoders::GoogleGeocoder.geocode(@location.address)
     @about=About.last
+    @video= Video.last
   end
   
 end
