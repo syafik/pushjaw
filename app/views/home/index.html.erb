@@ -14,46 +14,11 @@
     <link rel="shortcut icon" href="../assets/favicon.gif">
     <link rel="icon" href="images/favicon.ico">
 
-
-    <script type="text/javascript"
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOXOBmlC8dhsb4hNqiCJJQe-orUQvRrbo&sensor=true">
-    </script>
-
-    <script type="text/javascript">
-      function initialize() {
-        var myLatlng = new google.maps.LatLng(<%= @res.lat %>,<%= @res.lng %>);
-        var mapOptions = {
-          zoom: 18,
-          center: myLatlng,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-
-        var marker = new google.maps.Marker({
-          position: myLatlng,
-          map: map,
-          title:"Hello World!"
-        });
-      }
-    </script>
-
-    <script>
-      jQuery(document).ready(function() {
-        initialize();
-      });
-    </script>
-
-    <script>
-      $('#example').tooltip(options)
-    </script>
-
     <script type="text/javascript" src="../assets/jquery.js"></script>
     <script type="text/javascript" src="../assets/modernizr.js"></script>
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-
   </head>
 
   <body onload="#home">
@@ -94,6 +59,7 @@
         <div class="ufo"></div>
         <div class="rocket"></div>
         <div class="rocket2"></div>
+
         <!--<img src="images/rocket.png" width="216"/>-->
       </div>
     </div>
@@ -121,11 +87,6 @@
       </div>
       <div class="cloud2"></div>
     </div>
-    <video id="my_video_1" class="video-js vjs-default-skin" controls
-           preload="auto" width="400" height="350" poster="my_video_poster.png"
-           data-setup="{}">
-      <source src="<%= @video.video.url %>" type='video/mp4'>
-    </video>
 
     <div id="home" class="clearfix">
       <div class="cloudmoving"/></div>
@@ -139,6 +100,7 @@
           <%= @home.content %>
         </p>
       </div>
+
       <div class="stork">
         <div class="blogwraper">
           <% @blog.each do |blog| %>
@@ -168,6 +130,11 @@
           <%= @comment.comment %>
         </div>
         <p>- <%= @comment.name %>, <%= @comment.title %>, <%= @comment.address %></p>
+        <video id="my_video_1" class="video-js vjs-default-skin" controls
+               preload="auto" width="350" height="200" poster="my_video_poster.png"
+               data-setup="{}">
+          <source src=<%= @video.video.url %> type='video/mp4'>
+        </video>
       </div>
       <div class="teamwrap">
         <%= show_team @teams %>
@@ -253,5 +220,30 @@
     }
     window.onload = init; 
   </script> 
+  <script type="text/javascript"
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOXOBmlC8dhsb4hNqiCJJQe-orUQvRrbo&sensor=true">
+  </script>
+  <script type="text/javascript">
+    function initialize() {
+      var myLatlng = new google.maps.LatLng(<%= @res.lat %>,<%= @res.lng %>);
+      var mapOptions = {
+        zoom: 18,
+        center: myLatlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+      var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title:"Hello World!"
+      });
+    }
+  </script>
+  <script>
+    jQuery(document).ready(function() {
+      initialize();
+    });
+  </script>
 </body>
 </html>

@@ -46,5 +46,5 @@ Inheritance::Application.configure do
   enable_starttls_auto: true
   }
   
-  Paperclip.options[:command_path] = "/usr/local/bin/"
+#  Paperclip.options[:command_path] = "/usr/local/bin"
 end
