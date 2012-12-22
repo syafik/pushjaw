@@ -22,7 +22,7 @@
   </head>
 
   <body onload="#home">
-
+    
     <div class="nav">
       <ul class="navigation">
         <li><a class="home" href="#home">Home</a></li> 
@@ -76,7 +76,7 @@
           <div class="slides slider">
             <% @portfolios.each do |portfolio| %>
               <div>
-                <%= image_tag portfolio.picture.url, :width=>"641", :height=>"399" %>
+                <%= image_tag portfolio.image.image.url, :width=>"641", :height=>"399" %>
                 <div class="Description">
                   <a href=""><%= portfolio.title %></a>
                 </div>

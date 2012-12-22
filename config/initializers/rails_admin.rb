@@ -97,7 +97,9 @@ RailsAdmin.config do |config|
   # end
   config.model Service do
     configure :images do
-      
+      config.model Image do
+        field :image
+      end
     end
     field :name
     field :title
@@ -113,17 +115,17 @@ RailsAdmin.config do |config|
   config.model Home do
     field :content
   end
-  
-  config.model Portfolio do
-    field :title
-    field :picture
-  end
-  
+   
   config.model Team do
+    configure :image do
+      config.model Image do
+        field :image
+      end
+    end
     field :name
     field :title
     field :content
-    field :picture
+    field :image
   end
   
   config.model Location do
@@ -132,6 +134,24 @@ RailsAdmin.config do |config|
   
   config.model About do
     field :content
+  end
+  
+  config.model Image do
+    visible false
+  end
+  
+  config.model Portfolio do
+    configure :image do
+      config.model Image do
+        field :image
+      end
+    end
+    field :name
+    field :title
+    field :content
+    field :url
+    field :active
+    field :image
   end
   
 end
