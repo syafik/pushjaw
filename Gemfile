@@ -26,10 +26,10 @@ gem 'fastercsv'
 gem 'rails_admin'
 gem "paperclip"
 gem 'paperclip-ffmpeg'
-gem 'jw_player_helper'
-gem 'mime'
-gem 'mime-types'
-gem 'cocaine'
+#gem 'jw_player_helper'
+#gem 'mime'
+#gem 'mime-types'
+#gem 'cocaine'
 gem 'ffmpeg'
 
 # To use ActiveModel has_secure_password
@@ -51,5 +51,5 @@ gem 'ffmpeg'
 gem "devise"
 gem 'geokit-rails3'
 gem 'gmaps4rails'
-gem 'vimeo'
-gem 'flowplayer' 
+#gem 'vimeo'
+
