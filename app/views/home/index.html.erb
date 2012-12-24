@@ -1,27 +1,3 @@
-<!doctype html>
-<html lang="en-US">
-  <head>
-    <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
-    <script src="http://vjs.zencdn.net/c/video.js"></script>
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="HandheldFriendly" content="true">
-
-    <title>Pushjaw</title>
-    <link rel="shortcut icon" href="../assets/favicon.ico">
-    <link rel="shortcut icon" href="../assets/favicon.gif">
-    <link rel="icon" href="images/favicon.ico">
-
-    <script type="text/javascript" src="../assets/jquery.js"></script>
-    <script type="text/javascript" src="../assets/modernizr.js"></script>
-    <!--[if lt IE 9]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-
-  <body onload="#home">
 
     <div class="nav">
       <ul class="navigation">
@@ -35,12 +11,15 @@
 
     <div id="services">
       <div class="page">
+        
         <ul class="tabs">
           <% @services.each_with_index do |service, i|%>
             <li><a href="#tab<%=  i+1 %>"><%= service.title %></a></li>
           <% end %>
         </ul>
+        
         <div class="tab-container">
+          
           <% @services.each_with_index do |service, i|%>
             <div id="tab<%=  i+1 %>" class="tab-content">
               <div class="ct_services">
@@ -53,6 +32,7 @@
               </div>
             </div>
           <% end %>
+          
         </div>
 
         <div class="moon"></div>
@@ -83,16 +63,19 @@
               </div>
             <% end %>
           </div>
+          
         </div>
       </div>
+      
       <div class="cloud2"></div>
+      
     </div>
 
     <div id="home" class="clearfix">
       <div class="cloudmoving"/></div>
     <div class="cloud3"></div>
     <div class="birds"></div>
-    <div class="page">
+    <div class="page"> 
 
       <div class="content">
         <%= image_tag "title.png", :width=>457, :height => 67 %>
@@ -111,17 +94,22 @@
           <% end %>
         </div>
       </div>
+      
       <div class="tree"></div>
     </div>
   </div>
+    
   <div id="About" class="clearfix">
+    
     <div class="water">
       <%= image_tag 'jawshadow.png', :class => 'pos' %>
       <%= image_tag 'jawshadow.png', :width=>"70", :class=>"pos2" %>
       <%= image_tag 'jawshadow.png', :width=>"", :class=>"pos3" %>
       <%= image_tag 'jawshadow.png', :width=>"50", :class=>"pos4" %>s
     </div>
+    
     <div class="aboutwraper">
+      
       <div class="abwrap">
         <h2>About Us</h2>
         <p><%= @about.try(:content) %></p>
@@ -130,15 +118,18 @@
           <%= @comment.comment %>
         </div>
         <p>- <%= @comment.name %>, <%= @comment.title %>, <%= @comment.address %></p>
-        <video id="my_video_1" class="video-js vjs-default-skin" controls
-               preload="auto" width="350" height="200" poster="my_video_poster.png"
-               data-setup="{}">
-          <source src=<%= @video.video.url %> type='video/mp4'>
-        </video>
+        
+          <video id="my_video_1" class="video-js vjs-default-skin" controls
+                 preload="auto" width="350" height="200" poster="../assets/messi.png"
+                 data-setup="{}">
+            <source src=<%= @video.video.url %> type='video/mp4'>
+          </video>
       </div>
+      
       <div class="teamwrap">
         <%= show_team @teams %>
       </div>
+      
     </div>
     <%= image_tag 'reef.png', :class=>'reef',:width=>"100%" %>
   </div>
@@ -150,6 +141,7 @@
     <div class="cyrcle3"></div>
     <div class="cyrcle4"></div>
     <div class="contactwrap">
+      
       <div class="contactform">
         <%= image_tag 'contacttext.png', :width=>"178" %>
         <%  @contact = Contact.new %>
@@ -190,60 +182,14 @@
           </ul>
         </div>
       </div>
+      
     </div>
     <div class="worm"></div>
     <div class="border2"></div>
   </div>
+    
   <footer>
     &copy; copyright pushjaw 2012
   </footer>
-
-  <script type="text/javascript" src="../assets/jquery.poshytip.js"></script>
-  <script type="text/javascript" src="../assets/imgpreload.js"></script>
-  <script type="text/javascript" src="../assets/parallax.js"></script>
-  <script type="text/javascript" src="../assets/easing.js"></script>
-  <script type="text/javascript" src="../assets/jcontent.js"></script>
-  <script type="text/javascript" src="../assets/tabs.js"></script>
-  <script type="text/javascript" src="../assets/parallax.lib.js"></script>
-  <script type="text/javascript" src="../assets/jquery.clouds.js"></script>
-  <script type="text/javascript">
-    $('.tooltips').poshytip({className: 'tip-twitter',showTimeout: 1,alignTo: 'target',alignX: 'center',offsetY: 5,allowTipHover: false,fade: false,slide: false});
-    $("document").ready(function(){$("div#sliderwraper").jContent({orientation: 'horizontal', easing: "easeOutCirc", duration: 500,auto: true});});
-    $('.cloudmoving').clouds({xmlMap: 'images/clouds.xml',bobHeight: 0,speed: 20});
-    function init() {
-      $('html, body').animate({
-        scrollTop:$('#home').offset().top
-      }, 5000, function() {
-        parallaxScroll(); // Callback is required for iOS
-      });
-      return false;
-    }
-    window.onload = init; 
-  </script> 
-  <script type="text/javascript"
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOXOBmlC8dhsb4hNqiCJJQe-orUQvRrbo&sensor=true">
-  </script>
-  <script type="text/javascript">
-    function initialize() {
-      var myLatlng = new google.maps.LatLng(<%= @res.lat %>,<%= @res.lng %>);
-      var mapOptions = {
-        zoom: 18,
-        center: myLatlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      }
-      var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-
-      var marker = new google.maps.Marker({
-        position: myLatlng,
-        map: map,
-        title:"Hello World!"
-      });
-    }
-  </script>
-  <script>
-    jQuery(document).ready(function() {
-      initialize();
-    });
-  </script>
-</body>
-</html>
+    
+  
