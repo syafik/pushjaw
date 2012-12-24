@@ -1,14 +1,82 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Inheritance</title>
-  <%= stylesheet_link_tag    "style", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
+    <script src="http://vjs.zencdn.net/c/video.js"></script>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "style", :media => "all" %>
 
-<%= yield %>
 
-</body>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+
+    <title>Pushjaw</title>
+    <link rel="shortcut icon" href="../assets/favicon.ico">
+    <link rel="shortcut icon" href="../assets/favicon.gif">
+    <link rel="icon" href="../assets/favicon.ico">
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body onload="#home">
+
+    <%= javascript_include_tag "application" %>
+    <%= yield %>
+
+    <script type="text/javascript" src="../assets/jquery.poshytip.js"></script>
+    <script type="text/javascript" src="../assets/imgpreload.js"></script>
+    <script type="text/javascript" src="../assets/parallax.js"></script>
+    <script type="text/javascript" src="../assets/easing.js"></script>
+    <script type="text/javascript" src="../assets/jcontent.js"></script>
+    <script type="text/javascript" src="../assets/tabs.js"></script>
+    <script type="text/javascript" src="../assets/parallax.lib.js"></script>
+    <script type="text/javascript" src="../assets/jquery.clouds.js"></script>
+    <script type="text/javascript">
+      $('.tooltips').poshytip({className: 'tip-twitter',showTimeout: 1,alignTo: 'target',alignX: 'center',offsetY: 5,allowTipHover: false,fade: false,slide: false});
+      $("document").ready(function(){$("div#sliderwraper").jContent({orientation: 'horizontal', easing: "easeOutCirc", duration: 500,auto: true});});
+      $('.cloudmoving').clouds({xmlMap: 'images/clouds.xml',bobHeight: 0,speed: 20});
+      function init() {
+        $('html, body').animate({
+          scrollTop:$('#home').offset().top
+        }, 5000, function() {
+          parallaxScroll(); // Callback is required for iOS
+        });
+        return false;
+      }
+      window.onload = init; 
+    </script> 
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOXOBmlC8dhsb4hNqiCJJQe-orUQvRrbo&sensor=true">
+    </script>
+
+    <script type="text/javascript">
+      function initialize() {
+        var myLatlng = new google.maps.LatLng(<%= @res.lat %>,<%= @res.lng %>);
+        var mapOptions = {
+          zoom: 18,
+          center: myLatlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+        var marker = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+          title:"Hello World!"
+        });
+      }
+    </script>
+
+    <script>
+      jQuery(document).ready(function() {
+        initialize();
+      });
+    </script>
+
+
+  </body>
 </html>

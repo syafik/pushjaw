@@ -52,4 +52,6 @@ gem "devise"
 gem 'geokit-rails3'
 gem 'gmaps4rails'
 #gem 'vimeo'
+gem "twitter-bootstrap-rails"
+gem 'kaminari'
 

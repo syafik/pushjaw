@@ -1,249 +1,201 @@
-<!doctype html>
-<html lang="en-US">
-  <head>
-    <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
-    <script src="http://vjs.zencdn.net/c/video.js"></script>
+<script type="text/javascript">
+  function initialize() {
+    var myLatlng = new google.maps.LatLng(<%= @res.lat %>,<%= @res.lng %>);
+    var mapOptions = {
+      zoom: 18,
+      center: myLatlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="HandheldFriendly" content="true">
+    var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title:"Hello World!"
+    });
+  }
+</script>
 
-    <title>Pushjaw</title>
-    <link rel="shortcut icon" href="../assets/favicon.ico">
-    <link rel="shortcut icon" href="../assets/favicon.gif">
-    <link rel="icon" href="images/favicon.ico">
+<div class="nav">
+  <ul class="navigation">
+    <li><a class="home" href="#home">Home</a></li> 
+    <li><a class="services" href="#services">Services</a></li>
+    <li><a class="portfolio" href="#portfolio">Portfolio</a></li>
+    <li><a class="about" href="#About">About Us</a></li>
+    <li><a class="contact" href="#Contact">Contact Us</a></li>
+  </ul>
+</div>
 
-    <script type="text/javascript" src="../assets/jquery.js"></script>
-    <script type="text/javascript" src="../assets/modernizr.js"></script>
-    <!--[if lt IE 9]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-
-  <body onload="#home">
-    
-    <div class="nav">
-      <ul class="navigation">
-        <li><a class="home" href="#home">Home</a></li> 
-        <li><a class="services" href="#services">Services</a></li>
-        <li><a class="portfolio" href="#portfolio">Portfolio</a></li>
-        <li><a class="about" href="#About">About Us</a></li>
-        <li><a class="contact" href="#Contact">Contact Us</a></li>
-      </ul>
-    </div>
-
-    <div id="services">
-      <div class="page">
-        <ul class="tabs">
-          <% @services.each_with_index do |service, i|%>
-            <li><a href="#tab<%=  i+1 %>"><%= service.title %></a></li>
-          <% end %>
-        </ul>
-        <div class="tab-container">
-          <% @services.each_with_index do |service, i|%>
-            <div id="tab<%=  i+1 %>" class="tab-content">
-              <div class="ct_services">
-                <%= service.content %>
-                <% service.images.each do |image| %>
-                  <div class="service_img">
-                    <div><%= image_tag image.image.url(:thumb), :width=>"120px", :height=>"80px" %></div>
-                  </div>       
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-        </div>
-
-        <div class="moon"></div>
-        <div class="ufo"></div>
-        <div class="rocket"></div>
-        <div class="rocket2"></div>
-
-        <!--<img src="images/rocket.png" width="216"/>-->
-      </div>
-    </div>
-    <div id="portfolio" class="clearfix">
-      <div class="cloud"></div>
-      <div class="page">
-        <div class="shadow"><img src="../assets/shadow.png" width="100%" height=""/></div>
-        <div class="balloon1"></div>
-        <div class="balloon2"></div>
-        <div class="balloon3"></div>
-        <div class="balloon4"></div>
-        <div id="sliderwraper">
-
-          <div class="slides slider">
-            <% @portfolios.each do |portfolio| %>
-              <div>
-                <%= image_tag portfolio.image.image.url, :width=>"641", :height=>"399" %>
-                <div class="Description">
-                  <a href=""><%= portfolio.title %></a>
-                </div>
-              </div>
+<div id="services">
+  <div class="page">
+    <ul class="tabs">
+      <% @services.each_with_index do |service, i|%>
+        <li><a href="#tab<%=  i+1 %>"><%= service.title %></a></li>
+      <% end %>
+    </ul>
+    <div class="tab-container">
+      <% @services.each_with_index do |service, i|%>
+        <div id="tab<%=  i+1 %>" class="tab-content">
+          <div class="ct_services">
+            <%= service.content %>
+            <% service.images.each do |image| %>
+              <div class="service_img">
+                <div><%= image_tag image.image.url(:thumb), :width=>"120px", :height=>"80px" %></div>
+              </div>       
             <% end %>
           </div>
         </div>
-      </div>
-      <div class="cloud2"></div>
+      <% end %>
     </div>
 
-    <div id="home" class="clearfix">
-      <div class="cloudmoving"/></div>
-    <div class="cloud3"></div>
-    <div class="birds"></div>
-    <div class="page">
+    <div class="moon"></div>
+    <div class="ufo"></div>
+    <div class="rocket"></div>
+    <div class="rocket2"></div>
 
-      <div class="content">
-        <%= image_tag "title.png", :width=>457, :height => 67 %>
-        <p>
-          <%= @home.content %>
-        </p>
-      </div>
+    <!--<img src="images/rocket.png" width="216"/>-->
+  </div>
+</div>
+<div id="portfolio" class="clearfix">
+  <div class="cloud"></div>
+  <div class="page">
+    <div class="shadow"><img src="../assets/shadow.png" width="100%" height=""/></div>
+    <div class="balloon1"></div>
+    <div class="balloon2"></div>
+    <div class="balloon3"></div>
+    <div class="balloon4"></div>
+    <div id="sliderwraper">
 
-      <div class="stork">
-        <div class="blogwraper">
-          <% @blog.each do |blog| %>
-            <div class="blogspotlight">
-              <h3><%= truncate blog.title, length: 20 %></h3>
-              <p><%= truncate blog.content, length: 60 %><a href="">more</a></p>
+      <div class="slides slider">
+        <% @portfolios.each do |portfolio| %>
+          <div>
+            <%= image_tag portfolio.image.image.url, :width=>"641", :height=>"399" %>
+            <div class="Description">
+              <a href=""><%= portfolio.title %></a>
             </div>
-          <% end %>
-        </div>
-      </div>
-      <div class="tree"></div>
-    </div>
-  </div>
-  <div id="About" class="clearfix">
-    <div class="water">
-      <%= image_tag 'jawshadow.png', :class => 'pos' %>
-      <%= image_tag 'jawshadow.png', :width=>"70", :class=>"pos2" %>
-      <%= image_tag 'jawshadow.png', :width=>"", :class=>"pos3" %>
-      <%= image_tag 'jawshadow.png', :width=>"50", :class=>"pos4" %>s
-    </div>
-    <div class="aboutwraper">
-      <div class="abwrap">
-        <h2>About Us</h2>
-        <p><%= @about.try(:content) %></p>
-        <h3>What people sayings about us ?</h3>
-        <div class="testimonial">
-          <%= @comment.comment %>
-        </div>
-        <p>- <%= @comment.name %>, <%= @comment.title %>, <%= @comment.address %></p>
-        <video id="my_video_1" class="video-js vjs-default-skin" controls
-               preload="auto" width="350" height="200" poster="my_video_poster.png"
-               data-setup="{}">
-          <source src=<%= @video.video.url %> type='video/mp4'>
-        </video>
-      </div>
-      <div class="teamwrap">
-        <%= show_team @teams %>
-      </div>
-    </div>
-    <%= image_tag 'reef.png', :class=>'reef',:width=>"100%" %>
-  </div>
-  <div id="Contact">
-    <div class="border"></div>
-    <div class="border3"></div>
-    <div class="cyrcle"></div>
-    <div class="cyrcle2"></div>
-    <div class="cyrcle3"></div>
-    <div class="cyrcle4"></div>
-    <div class="contactwrap">
-      <div class="contactform">
-        <%= image_tag 'contacttext.png', :width=>"178" %>
-        <%  @contact = Contact.new %>
-        <%= form_for(@contact, :url => contacts_path) do |f| %>
-          <div class="field">
-            <%= f.text_field :name, :placeholder=>"Your name" %>
-          </div>
-          <div class="field">
-            <%= f.text_field :email, :placeholder=>"Your Email" %>
-          </div>
-          <div class="field">
-            <%= f.text_field :subject , :placeholder=>"Your Subject"%>
-          </div>
-          <div class="field">
-            <%= f.text_area :request, rows: 3 %>
-          </div>
-          <div class="actions">
-            <%= f.submit "send", :class=>"btnsend" %>
           </div>
         <% end %>
       </div>
+    </div>
+  </div>
+  <div class="cloud2"></div>
+</div>
 
-      <div class="mapwraper">
-        <div class="maptag" >
-          <div id="map_canvas" style="width: 300px; height: 300px" ></div>
+<div id="home" class="clearfix">
+  <div class="cloudmoving"/></div>
+<div class="cloud3"></div>
+<div class="birds"></div>
+<div class="page">
+
+  <div class="content">
+    <%= image_tag "title.png", :width=>457, :height => 67 %>
+    <p>
+      <%= @home.content %>
+    </p>
+  </div>
+
+  <div class="stork">
+    <div class="blogwraper">
+      <% @blog.each do |blog| %>
+        <div class="blogspotlight">
+          <h3><%= truncate blog.title, length: 20 %></h3>
+          <p><%= truncate blog.content, length: 60 %><a href="">more</a></p>
         </div>
-        <div class="descmap">
-          <h2>Here We Are !</h2>
-          Kompleks Melong Green Garden <br />
-          Jl. Mig 3 No. 1 <br />
-          Cimahi, West Java - Indonesia <br />
-          +6281809466884 <br />
-          +622260001425
-          <h3>Find Us :</h3>
-          <ul class="socialtag">
-            <li><a title="Follow us on Pushjaw" href="https://www.facebook.com/pushjaws" class="fb tooltips"></a></li>
-            <li><a title="Follow us on @Pushjaw" href="" class="tw tooltips"></a></li>
-          </ul>
-        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="tree"></div>
+</div>
+</div>
+<div id="About" class="clearfix">
+  <div class="water">
+    <%= image_tag 'jawshadow.png', :class => 'pos' %>
+    <%= image_tag 'jawshadow.png', :width=>"70", :class=>"pos2" %>
+    <%= image_tag 'jawshadow.png', :width=>"", :class=>"pos3" %>
+    <%= image_tag 'jawshadow.png', :width=>"50", :class=>"pos4" %>s
+  </div>
+  <div class="aboutwraper">
+    <div class="abwrap">
+      <h2>About Us</h2>
+      <p><%= @about.try(:content) %></p>
+      <h3>What people sayings about us ?</h3>
+      <div class="testimonial">
+        <%= @comment.comment %>
+      </div>
+      <p>- <%= @comment.name %>, <%= @comment.title %>, <%= @comment.address %></p>
+      <video id="my_video_1" class="video-js vjs-default-skin" controls
+             preload="auto" width="350" height="200" poster="my_video_poster.png"
+             data-setup="{}">
+        <source src=<%= @video.video.url %> type='video/mp4'>
+      </video>
+    </div>
+    <div class="teamwrap">
+      <h3>Our Teams</h3>
+      <div class="teamwrap_team">
+        <%= render 'index' %>
+      </div>
+      <div id="paginator">
+        <%= paginate @teams, :remote => true %>
       </div>
     </div>
-    <div class="worm"></div>
-    <div class="border2"></div>
+
   </div>
-  <footer>
-    &copy; copyright pushjaw 2012
-  </footer>
+  <%= image_tag 'reef.png', :class=>'reef',:width=>"100%" %>
+</div>
+<div id="Contact">
+  <div class="border"></div>
+  <div class="border3"></div>
+  <div class="cyrcle"></div>
+  <div class="cyrcle2"></div>
+  <div class="cyrcle3"></div>
+  <div class="cyrcle4"></div>
+  <div class="contactwrap">
+    <div class="contactform">
+      <%= image_tag 'contacttext.png', :width=>"178" %>
+      <%  @contact = Contact.new %>
+      <%= form_for(@contact, :url => contacts_path) do |f| %>
+        <div class="field">
+          <%= f.text_field :name, :placeholder=>"Your name" %>
+        </div>
+        <div class="field">
+          <%= f.text_field :email, :placeholder=>"Your Email" %>
+        </div>
+        <div class="field">
+          <%= f.text_field :subject , :placeholder=>"Your Subject"%>
+        </div>
+        <div class="field">
+          <%= f.text_area :request, rows: 3 %>
+        </div>
+        <div class="actions">
+          <%= f.submit "send", :class=>"btnsend" %>
+        </div>
+      <% end %>
+    </div>
 
-  <script type="text/javascript" src="../assets/jquery.poshytip.js"></script>
-  <script type="text/javascript" src="../assets/imgpreload.js"></script>
-  <script type="text/javascript" src="../assets/parallax.js"></script>
-  <script type="text/javascript" src="../assets/easing.js"></script>
-  <script type="text/javascript" src="../assets/jcontent.js"></script>
-  <script type="text/javascript" src="../assets/tabs.js"></script>
-  <script type="text/javascript" src="../assets/parallax.lib.js"></script>
-  <script type="text/javascript" src="../assets/jquery.clouds.js"></script>
-  <script type="text/javascript">
-    $('.tooltips').poshytip({className: 'tip-twitter',showTimeout: 1,alignTo: 'target',alignX: 'center',offsetY: 5,allowTipHover: false,fade: false,slide: false});
-    $("document").ready(function(){$("div#sliderwraper").jContent({orientation: 'horizontal', easing: "easeOutCirc", duration: 500,auto: true});});
-    $('.cloudmoving').clouds({xmlMap: 'images/clouds.xml',bobHeight: 0,speed: 20});
-    function init() {
-      $('html, body').animate({
-        scrollTop:$('#home').offset().top
-      }, 5000, function() {
-        parallaxScroll(); // Callback is required for iOS
-      });
-      return false;
-    }
-    window.onload = init; 
-  </script> 
-  <script type="text/javascript"
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOXOBmlC8dhsb4hNqiCJJQe-orUQvRrbo&sensor=true">
-  </script>
-  <script type="text/javascript">
-    function initialize() {
-      var myLatlng = new google.maps.LatLng(<%= @res.lat %>,<%= @res.lng %>);
-      var mapOptions = {
-        zoom: 18,
-        center: myLatlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      }
-      var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+    <div class="mapwraper">
+      <div class="maptag" >
+        <div id="map_canvas" style="width: 300px; height: 300px" ></div>
+      </div>
+      <div class="descmap">
+        <h2>Here We Are !</h2>
+        Kompleks Melong Green Garden <br />
+        Jl. Mig 3 No. 1 <br />
+        Cimahi, West Java - Indonesia <br />
+        +6281809466884 <br />
+        +622260001425
+        <h3>Find Us :</h3>
+        <ul class="socialtag">
+          <li><a title="Follow us on Pushjaw" href="https://www.facebook.com/pushjaws" class="fb tooltips"></a></li>
+          <li><a title="Follow us on @Pushjaw" href="" class="tw tooltips"></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="worm"></div>
+  <div class="border2"></div>
+</div>
 
-      var marker = new google.maps.Marker({
-        position: myLatlng,
-        map: map,
-        title:"Hello World!"
-      });
-    }
-  </script>
-  <script>
-    jQuery(document).ready(function() {
-      initialize();
-    });
-  </script>
-</body>
-</html>
+<footer>
+  &copy; copyright pushjaw 2012
+</footer>
+

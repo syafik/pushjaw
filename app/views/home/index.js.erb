@@ -1,0 +1,2 @@
+$('.teamwrap_team').html('<%=j (render 'index') %>');
+$('#paginator').html('<%=j (paginate(@teams, :remote => true).to_s) %>');

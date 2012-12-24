@@ -154,4 +154,12 @@ RailsAdmin.config do |config|
     field :image
   end
   
+  config.model Comment do
+    field :name
+    field :title
+    field :address
+    field :comment
+    field :active
+  end
+  
 end
