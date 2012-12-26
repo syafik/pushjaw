@@ -105,6 +105,7 @@ RailsAdmin.config do |config|
     field :title
     field :content 
     field :images
+    field :active
   end
   
   config.model Blog do

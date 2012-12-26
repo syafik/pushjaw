@@ -1,26 +1,27 @@
 <script type="text/javascript">
-      function initialize() {
-        var myLatlng = new google.maps.LatLng(<%= @res.lat %>,<%= @res.lng %>);
-        var mapOptions = {
-          zoom: 18,
-          center: myLatlng,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        }
-        var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+  function initialize() {
+    var myLatlng = new google.maps.LatLng(<%= @res.lat %>,<%= @res.lng %>);
+    var mapOptions = {
+      zoom: 18,
+      center: myLatlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
-        var marker = new google.maps.Marker({
-          position: myLatlng,
-          map: map,
-          title:"Hello World!"
-        });
-      }
-    </script>
+    var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title:"Hello World!"
+    });
+  }
+</script>
 
 <div class="nav">
   <ul class="navigation">
     <li><a class="home" href="#home">Home</a></li> 
     <li><a class="services" href="#services">Services</a></li>
     <li><a class="portfolio" href="#portfolio">Portfolio</a></li>
+    <li><a class="Blogs" href="#Blogs">Blog</a></li>
     <li><a class="about" href="#About">About Us</a></li>
     <li><a class="contact" href="#Contact">Contact Us</a></li>
   </ul>
@@ -71,7 +72,8 @@
           <div>
             <%= image_tag portfolio.image.image.url, :width=>"641", :height=>"399" %>
             <div class="Description">
-              <a href=""><%= portfolio.title %></a>
+              <a href="<%= portfolio.url %>" target="_blank"><%= portfolio.title %></a>
+              <p><%= truncate(strip_tags(portfolio.content), length: 70 ) %></p>
             </div>
           </div>
         <% end %>
