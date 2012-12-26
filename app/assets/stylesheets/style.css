@@ -944,3 +944,14 @@ ul.tabs li.current a
   border-bottom-color: #000000;
   border-width: 0 5px 5px;
 }
+
+.page-header {
+  padding-bottom: 9px;
+  margin: 20px 0 30px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.page-header h1 small {
+    display: block;
+    line-height: 20px;
+  }

@@ -1,4 +1,9 @@
 Inheritance::Application.routes.draw do
+  mount Rich::Engine => '/rich', :as => 'rich'
+
+  get "blog/index"
+  get "blog/show"
+  
   get "home/index"
 
   devise_for :users
@@ -8,6 +13,7 @@ Inheritance::Application.routes.draw do
   resources :features
 
   resources :contacts
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -57,7 +63,7 @@ Inheritance::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-    root :to => 'home#index'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

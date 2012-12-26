@@ -110,7 +110,12 @@ RailsAdmin.config do |config|
   
   config.model Blog do
     field :title
-    field :content
+    field :content, :rich_editor do
+      config({
+          :insert_many => true
+        })
+    end
+    field :active
   end
   
   config.model Home do
@@ -141,6 +146,10 @@ RailsAdmin.config do |config|
   end
   
   config.model Image do
+    visible false
+  end
+  
+  config.model Rich do
     visible false
   end
   

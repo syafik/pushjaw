@@ -54,4 +54,4 @@ gem 'gmaps4rails'
 #gem 'vimeo'
 gem "twitter-bootstrap-rails"
 gem 'kaminari'
-
+gem 'rich'
