@@ -1,20 +1,20 @@
 <script type="text/javascript">
-  function initialize() {
-    var myLatlng = new google.maps.LatLng(<%= @res.lat %>,<%= @res.lng %>);
-    var mapOptions = {
-      zoom: 18,
-      center: myLatlng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
-    var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+      function initialize() {
+        var myLatlng = new google.maps.LatLng(<%= @res.lat %>,<%= @res.lng %>);
+        var mapOptions = {
+          zoom: 18,
+          center: myLatlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
-    var marker = new google.maps.Marker({
-      position: myLatlng,
-      map: map,
-      title:"Hello World!"
-    });
-  }
-</script>
+        var marker = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+          title:"Hello World!"
+        });
+      }
+    </script>
 
 <div class="nav">
   <ul class="navigation">
@@ -112,7 +112,7 @@
     <%= image_tag 'jawshadow.png', :class => 'pos' %>
     <%= image_tag 'jawshadow.png', :width=>"70", :class=>"pos2" %>
     <%= image_tag 'jawshadow.png', :width=>"", :class=>"pos3" %>
-    <%= image_tag 'jawshadow.png', :width=>"50", :class=>"pos4" %>s
+    <%= image_tag 'jawshadow.png', :width=>"50", :class=>"pos4" %>
   </div>
   <div class="aboutwraper">
     <div class="abwrap">
@@ -179,10 +179,10 @@
       <div class="descmap">
         <h2>Here We Are !</h2>
         Kompleks Melong Green Garden <br />
-        Jl. Mig 3 No. 1 <br />
-        Cimahi, West Java - Indonesia <br />
-        +6281809466884 <br />
-        +622260001425
+        <%=  @location.address %>  <br />
+        <%=  @location.city %>  <br />
+        <%=  @location.mobile_phone %> <br />
+        <%=  @location.phone %> 
         <h3>Find Us :</h3>
         <ul class="socialtag">
           <li><a title="Follow us on Pushjaw" href="https://www.facebook.com/pushjaws" class="fb tooltips"></a></li>
@@ -198,4 +198,3 @@
 <footer>
   &copy; copyright pushjaw 2012
 </footer>
-

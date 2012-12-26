@@ -130,6 +130,9 @@ RailsAdmin.config do |config|
   
   config.model Location do
     field :address
+    field :phone
+    field :mobile_phone
+    field :city
   end
   
   config.model About do

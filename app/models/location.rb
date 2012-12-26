@@ -1,5 +1,5 @@
 class Location < ActiveRecord::Base
-  attr_accessible :address
+  attr_accessible :address, :phone, :mobile_phone, :city
   
   acts_as_mappable
   before_validation :geocode_address, :on => :create
