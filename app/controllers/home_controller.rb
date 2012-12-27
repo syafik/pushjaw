@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   
   def index
-    @teams = Team.page(params[:page]).per(10)
+    @teams = Team.page(params[:page]).per(5)
     @services = Service.where(:active=>true).first(5) 
     @home = Home.where(:active=>true).first
     @blog = Blog.where(:active=>true).first(2)
@@ -11,6 +11,7 @@ class HomeController < ApplicationController
     @res=GeoKit::Geocoders::GoogleGeocoder.geocode(@location.address)
     @videos = Video.page(params[:page]).per(4)
     @about=About.where(:active=>true).first
+    @video = Video.last
   end
 
 end

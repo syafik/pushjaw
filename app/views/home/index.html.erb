@@ -88,9 +88,6 @@
           <div>
             <%= image_tag portfolio.image.image.url, :width=>"641", :height=>"399" %>
             <div class="Description">
-<%#*<<<<<<< HEAD%>
-              <%#= link_to portfolio.url, portfolio.url %></a>
-<%#*=======%>
               <a href="<%= portfolio.url %>" target="_blank"><%= portfolio.title %></a>
               <p><%= truncate(strip_tags(portfolio.content), length: 70 ) %></p>
             </div>
@@ -152,12 +149,12 @@
       </div>
       <p>- <%= @comment.name %>, <%= @comment.title %>, <%= @comment.address %></p>
 
-      <a href="#myModal" role="button" class="btn" data-toggle="modal">
-        <%= image_tag ("../assets/messi.png") %>
+      <a href="#myModal" class="btn" data-toggle="modal">
+        <%= image_tag @video.image.image, :width=>"300", :height=>"200" %>
       </a>
 
       <!-- Modal -->
-      <div id="myModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div id="myModal" class="modal hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-body">
           <p>  
           <div id="container">
@@ -196,6 +193,7 @@
       </div>
 
     </div>
+
   </div>
   <%= image_tag 'reef.png', :class=>'reef',:width=>"100%" %>
 </div>
