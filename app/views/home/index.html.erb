@@ -16,8 +16,7 @@
   }
 </script>
 
-
-<script>
+<script type="text/javascript">
   $(function(){
     $('#products').slides({
       preload: true,
@@ -31,7 +30,6 @@
     });
   });
 </script>
-
 
 <div class="nav">
   <ul class="navigation">
@@ -137,22 +135,22 @@
     <%= image_tag 'jawshadow.png', :width=>"50", :class=>"pos4" %>
   </div>
 
-  <div class="aboutwraper">
-
-    <div class="abwrap">
-      <h2>About Us</h2>
-      <p><%= @about.try(:content) %></p>
-      <h3>What people sayings about us ?</h3>
-      <div class="testimonial">
-        <%= @comment.comment %>
-
-      </div>
-      <p>- <%= @comment.name %>, <%= @comment.title %>, <%= @comment.address %></p>
-
-      <a href="#myModal" class="btn" data-toggle="modal">
-        <%= image_tag @video.image.image, :width=>"300", :height=>"200" %>
-      </a>
-
+  <div class="aboutwraper content_6 content">
+    <div class="images_container">
+   
+        <div class="abwrap">
+          <h2>About Us</h2>
+          <p><%= @about.try(:content) %></p>
+          <h3>What people sayings about us ?</h3>
+          <div class="testimonial">
+            <%= @comment.comment %>
+          </div>
+          <p>- <%= @comment.name %>, <%= @comment.title %>, <%= @comment.address %></p>
+        </div>
+        <%#*<a href="#myModal" role="button" class="btn" data-toggle="modal">%>
+          <%#= image_tag @video.image.image, :width=>"300", :height=>"200" %>
+        <%#*</a>%>
+    
       <!-- Modal -->
       <div id="myModal" class="modal hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-body">
@@ -182,14 +180,33 @@
           <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
         </div>
       </div>
-    </div>
-    <div class="teamwrap">
-      <h3>Our Teams</h3>
-      <div class="teamwrap_team">
-        <%= render 'index' %>
+
+      <div class="teamwrap">
+        <h3>Our Teams</h3>
+        <div class="teamwrap_team">
+          <%= render 'index' %>
+        </div>
+        <div id="paginator">
+          <%= paginate @teams, :remote => true %>
+        </div>
       </div>
-      <div id="paginator">
-        <%= paginate @teams, :remote => true %>
+
+      <div class="gall">
+        <h3>Gallery</h3>
+        <div class="gall_desc">
+          <a class="video"  title="Pushjaw Bersama Ariel Noah" href="http://www.youtube.com/v/ZeStnz5c2GI?fs=1&amp;autoplay=1"><img src="images/thumb.jpg" width="120" height="66"/></a>
+          <span>
+            <h1>Pushjaw Bersama Ariel Noah</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+          </span>
+        </div>
+        <div class="gall_desc">
+          <a class="video"  title="Pushjaw Bersama Ariel Noah" href="http://www.youtube.com/v/ZeStnz5c2GI?fs=1&amp;autoplay=1"><img src="images/thumb.jpg" width="120" height="66"/></a>
+          <span>
+            <h1>Pushjaw Bersama Ariel Noah</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+          </span>
+        </div>
       </div>
 
     </div>

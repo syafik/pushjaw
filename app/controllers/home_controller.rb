@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   
   def index
-    @teams = Team.page(params[:page]).per(5)
+    @teams = Team.page(params[:page]).per(10)
     @services = Service.where(:active=>true).first(5) 
     @home = Home.where(:active=>true).first
     @blog = Blog.where(:active=>true).first(2)

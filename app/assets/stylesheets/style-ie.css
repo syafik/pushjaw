@@ -1,0 +1,20 @@
+/* pushjaw-ie */
+
+#Contact {
+	margin-top: 80px !important;
+}
+
+.worm {
+	margin-left: 700px !Important;
+}
+.blogspotlight {
+	-ms-transform:rotate(5deg);
+	filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=0.5);
+}
+.maptag {
+	float: none !important;
+	width: 345px;
+}
+.descmap {
+	margin-top: -200px;
+}
