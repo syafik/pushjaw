@@ -1,0 +1,6 @@
+<% @videos.collect do |video| %>
+  <ul class="pagination">
+    <%= video_tag (video.video), :poster => video.image.image, :width => "70", :height => "50" %>     
+  </ul>
+<li><a href="#"></a></li>
+<% end %>
