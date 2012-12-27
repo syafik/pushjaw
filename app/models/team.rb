@@ -1,4 +1,5 @@
 class Team < Feature
+   
   has_one :image, :dependent => :destroy, :inverse_of => :team
   
   # for nested fields: (natural choice for a has_one association)
@@ -14,7 +15,10 @@ class Team < Feature
   def image_id
     self.image.try :id
   end
+  
   def image_id=(id)
     self.image = Image.find_by_id(id)
   end
+  
+  paginates_per 5
 end

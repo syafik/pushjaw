@@ -31,6 +31,7 @@ gem 'paperclip-ffmpeg'
 #gem 'mime-types'
 #gem 'cocaine'
 gem 'ffmpeg'
+gem 'kaminari'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -52,4 +53,6 @@ gem "devise"
 gem 'geokit-rails3'
 gem 'gmaps4rails'
 #gem 'vimeo'
+gem "twitter-bootstrap-rails"
+gem 'kaminari'
 

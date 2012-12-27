@@ -1,0 +1,5 @@
+$('.teamwrap_team').html('<%=j (render 'index') %>');
+$('#paginator').html('<%=j (paginate(@teams, :remote => true).to_s) %>');
+
+$('.pfv').html('<%=j (render 'video') %>');
+$('#pgn').html('<%=j paginate(@videos, :remote=>true).to_s %>');

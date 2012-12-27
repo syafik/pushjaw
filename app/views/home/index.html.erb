@@ -16,6 +16,23 @@
   }
 </script>
 
+
+<script>
+  $(function(){
+    $('#products').slides({
+      preload: true,
+      preloadImage: '../assets/slide/loading.gif',
+      effect: 'slide, fade',
+      crossfade: true,
+      slideSpeed: 350,
+      fadeSpeed: 500,
+      generateNextPrev: true,
+      generatePagination: false
+    });
+  });
+</script>
+
+
 <div class="nav">
   <ul class="navigation">
     <li><a class="home" href="#home">Home</a></li> 
@@ -28,15 +45,12 @@
 
 <div id="services">
   <div class="page">
-
     <ul class="tabs">
       <% @services.each_with_index do |service, i|%>
         <li><a href="#tab<%=  i+1 %>"><%= service.title %></a></li>
       <% end %>
     </ul>
-
     <div class="tab-container">
-
       <% @services.each_with_index do |service, i|%>
         <div id="tab<%=  i+1 %>" class="tab-content">
           <div class="ct_services">
@@ -49,7 +63,6 @@
           </div>
         </div>
       <% end %>
-
     </div>
 
     <div class="moon"></div>
@@ -92,7 +105,7 @@
   <div class="cloudmoving"/></div>
 <div class="cloud3"></div>
 <div class="birds"></div>
-<div class="page"> 
+<div class="page">
 
   <div class="content">
     <%= image_tag "title.png", :width=>457, :height => 67 %>
@@ -111,11 +124,9 @@
       <% end %>
     </div>
   </div>
-
   <div class="tree"></div>
 </div>
 </div>
-
 <div id="About" class="clearfix">
 
   <div class="water">
@@ -133,6 +144,7 @@
       <h3>What people sayings about us ?</h3>
       <div class="testimonial">
         <%= @comment.comment %>
+
       </div>
       <p>- <%= @comment.name %>, <%= @comment.title %>, <%= @comment.address %></p>
 
@@ -144,12 +156,39 @@
       <div id="myModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-body">
           <p>  
-            <%= video_tag(@video.video.url, :controls => true, :autobuffer => true, :poster=>"../assets/messi.png", :width=>"520", :height=>"380") %>
+          <div id="container">
+            <div id="products_example">
+              <div id="products">
+                <div class="slides_container">
+                  <% @videos.each do |video| %>           
+                    <a target="_blank">
+                      <%= video_tag(video.video.url, :poster => video.image.image, :controls => true, :autobuffer => true, :width=>"400", :height=>"350") %>
+                    </a>
+                  <% end %>
+                </div>
+                <div class="pfv">
+                  <%= render 'video' %>
+                </div>
+                <div id="pgn">
+                  <%= paginate @videos, :remote => true %>
+                </div>
+              </div>
+            </div>
+          </div>
           </p>
         </div>
         <div class="modal-footer">
           <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
         </div>
+      </div>
+    </div>
+    <div class="teamwrap">
+      <h3>Our Teams</h3>
+      <div class="teamwrap_team">
+        <%= render 'index' %>
+      </div>
+      <div id="paginator">
+        <%= paginate @teams, :remote => true %>
       </div>
 
     </div>
@@ -219,5 +258,4 @@
 <footer>
   &copy; copyright pushjaw 2012
 </footer>
-
 
