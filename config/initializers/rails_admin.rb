@@ -105,15 +105,22 @@ RailsAdmin.config do |config|
     field :title
     field :content 
     field :images
+    field :active
   end
   
   config.model Blog do
     field :title
-    field :content
+    field :content, :rich_editor do
+      config({
+          :insert_many => true
+        })
+    end
+    field :active
   end
   
   config.model Home do
     field :content
+    field :active
   end
    
   config.model Team do
@@ -130,13 +137,21 @@ RailsAdmin.config do |config|
   
   config.model Location do
     field :address
+    field :phone
+    field :mobile_phone
+    field :city
   end
   
   config.model About do
     field :content
+    field :active
   end
   
   config.model Image do
+    visible false
+  end
+  
+  config.model Rich do
     visible false
   end
   

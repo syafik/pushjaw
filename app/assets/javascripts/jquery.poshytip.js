@@ -166,16 +166,14 @@
                 // save current position as we will need to animate
                 var currPos = {
                     left: this.$tip.css('left'), 
-                    top: this.$tip.css('top'),
-                    bottom: this.$tip.css('bottom')
+                    top: this.$tip.css('top')
                     };
             }
 
             // reset position to avoid text wrapping, etc.
             this.$tip.css({
                 left: 0, 
-                top: 0,
-                bottom: 0
+                top: 0
             }).appendTo(document.body);
 
             // save default opacity

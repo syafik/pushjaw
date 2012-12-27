@@ -38,6 +38,7 @@
     <li><a class="home" href="#home">Home</a></li> 
     <li><a class="services" href="#services">Services</a></li>
     <li><a class="portfolio" href="#portfolio">Portfolio</a></li>
+    <li><a class="Blogs" href=<%= blog_index_path %>>Blog</a></li>
     <li><a class="about" href="#About">About Us</a></li>
     <li><a class="contact" href="#Contact">Contact Us</a></li>
   </ul>
@@ -79,7 +80,6 @@
     <div class="shadow"><img src="../assets/shadow.png" width="100%" height=""/></div>
     <div class="balloon1"></div>
     <div class="balloon2"></div>
-    <div class="balloon3"></div>
     <div class="balloon4"></div>
     <div id="sliderwraper">
 
@@ -88,7 +88,11 @@
           <div>
             <%= image_tag portfolio.image.image.url, :width=>"641", :height=>"399" %>
             <div class="Description">
-              <%= link_to portfolio.url, portfolio.url %></a>
+<%#*<<<<<<< HEAD%>
+              <%#= link_to portfolio.url, portfolio.url %></a>
+<%#*=======%>
+              <a href="<%= portfolio.url %>" target="_blank"><%= portfolio.title %></a>
+              <p><%= truncate(strip_tags(portfolio.content), length: 70 ) %></p>
             </div>
           </div>
         <% end %>
@@ -119,7 +123,7 @@
       <% @blog.each do |blog| %>
         <div class="blogspotlight">
           <h3><%= truncate blog.title, length: 20 %></h3>
-          <p><%= truncate blog.content, length: 60 %><a href="">more</a></p>
+          <p><%= sanitize(truncate blog.content, length: 60) %><a href="<%= blog_show_path(:id=>blog) %>" target="_blank">more</a></p>
         </div>
       <% end %>
     </div>
@@ -133,7 +137,7 @@
     <%= image_tag 'jawshadow.png', :class => 'pos' %>
     <%= image_tag 'jawshadow.png', :width=>"70", :class=>"pos2" %>
     <%= image_tag 'jawshadow.png', :width=>"", :class=>"pos3" %>
-    <%= image_tag 'jawshadow.png', :width=>"50", :class=>"pos4" %>s
+    <%= image_tag 'jawshadow.png', :width=>"50", :class=>"pos4" %>
   </div>
 
   <div class="aboutwraper">
@@ -237,11 +241,10 @@
       </div>
       <div class="descmap">
         <h2>Here We Are !</h2>
-        Kompleks Melong Green Garden <br />
-        Jl. Mig 3 No. 1 <br />
-        Cimahi, West Java - Indonesia <br />
-        +6281809466884 <br />
-        +622260001425
+        <%=  @location.address %>  <br />
+        <%=  @location.city %>  <br />
+        <%=  @location.mobile_phone %> <br />
+        <%=  @location.phone %> 
         <h3>Find Us :</h3>
         <ul class="socialtag">
           <li><a title="Follow us on Pushjaw" href="https://www.facebook.com/pushjaws" class="fb tooltips"></a></li>
@@ -258,4 +261,3 @@
 <footer>
   &copy; copyright pushjaw 2012
 </footer>
-
