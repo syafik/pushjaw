@@ -20,5 +20,5 @@ class Team < Feature
     self.image = Image.find_by_id(id)
   end
   
-  paginates_per 5
+#  paginates_per 5
 end

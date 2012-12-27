@@ -120,6 +120,7 @@ RailsAdmin.config do |config|
   
   config.model Home do
     field :content
+    field :active
   end
    
   config.model Team do
@@ -143,6 +144,7 @@ RailsAdmin.config do |config|
   
   config.model About do
     field :content
+    field :active
   end
   
   config.model Image do

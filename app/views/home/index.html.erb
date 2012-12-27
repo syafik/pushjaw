@@ -100,7 +100,7 @@
       <% @blog.each do |blog| %>
         <div class="blogspotlight">
           <h3><%= truncate blog.title, length: 20 %></h3>
-          <p><%= truncate blog.content.html_safe, length: 60 %><a href="<%= blog_show_path(:id=>blog) %>" target="_blank">more</a></p>
+          <p><%= sanitize(truncate blog.content, length: 60) %><a href="<%= blog_show_path(:id=>blog) %>" target="_blank">more</a></p>
         </div>
       <% end %>
     </div>
@@ -179,7 +179,6 @@
       </div>
       <div class="descmap">
         <h2>Here We Are !</h2>
-        Kompleks Melong Green Garden <br />
         <%=  @location.address %>  <br />
         <%=  @location.city %>  <br />
         <%=  @location.mobile_phone %> <br />
