@@ -133,6 +133,7 @@ RailsAdmin.config do |config|
     field :title
     field :content
     field :image
+      
   end
   
   config.model Location do
