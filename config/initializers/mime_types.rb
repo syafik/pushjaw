@@ -9,3 +9,9 @@ Mime::Type.register "video/mp4", :m4v
 
 # register MIME type with MIME::Type gem 
 MIME::Types.add(MIME::Type.from_array("video/mp4", %(m4v)))
+
+
+Mime::Type.register "video/x-flv", :flv
+
+# register MIME type with MIME::Type gem 
+MIME::Types.add(MIME::Type.from_array("video/x-flv", %(flv)))

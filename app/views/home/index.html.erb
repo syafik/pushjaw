@@ -16,7 +16,8 @@
   }
 </script>
 
-<script type="text/javascript">
+
+<script>
   $(function(){
     $('#products').slides({
       preload: true,
@@ -150,37 +151,6 @@
         <p>- <%= @comment.name %>, <%= @comment.title %>, <%= @comment.address %></p>
       </div>
 
-
-      <!-- Modal -->
-      <div id="myModal" class="modal hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-body">
-          <p>  
-          <div id="container">
-            <div id="products_example">
-              <div id="products">
-                <div class="slides_container">
-                  <% @videos.each do |video| %>           
-                    <a target="_blank">
-                      <%= video_tag(video.video.url, :poster => video.image.image, :controls => true, :autobuffer => true, :width=>"400", :height=>"350") %>
-                    </a>
-                  <% end %>
-                </div>
-                <div class="pfv">
-                  <%= render 'video' %>
-                </div>
-                <div id="pgn">
-                  <%= paginate @videos, :remote => true %>
-                </div>
-              </div>
-            </div>
-          </div>
-          </p>
-        </div>
-        <div class="modal-footer">
-          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-        </div>
-      </div>
-
       <div class="teamwrap">
         <h3>Our Teams</h3>
         <div class="teamwrap_team">
@@ -193,24 +163,20 @@
 
       <div class="gall">
         <h3>Gallery</h3>
-        <div class="gall_desc">
-          <a href="#myModal" role="button" class="btn" data-toggle="modal">
-            <%= image_tag @video.image.image, :width=>"120", :height=>"66" %>
-          </a>
-          <span>
-            <h1>Pushjaw Bersama Ariel Noah</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-          </span>
-        </div>
-        <div class="gall_desc">
-          <a class="video"  title="Pushjaw Bersama Ariel Noah" href="http://www.youtube.com/v/ZeStnz5c2GI?fs=1&amp;autoplay=1"><img src="images/thumb.jpg" width="120" height="66"/></a>
-          <span>
-            <h1>Pushjaw Bersama Ariel Noah</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-          </span>
-        </div>
+        <% @video_images.each do |video| %>
+          <div class="gall_desc">
+            <a class="video"  title=<%= video.title %> >
+              <a href="#myModal" role="button" class="btn" data-toggle="modal">
+                <%= image_tag video.image.image, :height=>"66" %>
+              </a>
+            </a>
+            <span>
+              <h1><%= video.title %></h1>
+              <p><%= video.description %></p>
+            </span>
+          </div>
+        <% end %>
       </div>
-
     </div>
 
   </div>
@@ -273,3 +239,20 @@
 <footer>
   &copy; copyright pushjaw 2012
 </footer>
+
+<!-- Modal -->
+<div id="myModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-body">
+    <div id="container">
+        <div id="products">
+          <div class="slides_container">
+            <%# @videos.each do |video| %>           
+                <%= video_tag(@video.video.url, :poster => @video.image.image, :controls => true, :autobuffer => true, :width=>"800", :height=>"500") %>
+            <%# end %>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
