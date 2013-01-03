@@ -3,7 +3,13 @@
   <div id="myModal<%= i+1 %>" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-body">
       <div id="container">      
-        <%= video_tag(video.video.url, :poster => video.image.image, :controls => true, :autobuffer => true, :width=>"800", :height=>"500") %>
+
+        <video id="my_video_<%= i %>" class="video-js vjs-default-skin" controls
+               preload="auto" width="800" height="500" poster="<%= video.video.url(:thumb) %>"
+               data-setup="{}">
+          <source src="<%= video.video.url %> " type='video/mp4'>
+        </video>
+
       </div>
     </div>
     <div class="modal-footer">

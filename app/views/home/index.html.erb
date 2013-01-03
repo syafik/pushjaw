@@ -16,24 +16,6 @@
   }
 </script>
 
-
-<script>
-  $(function(){
-    $('#products').slides({
-      preload: true,
-      preloadImage: '../assets/slide/loading.gif',
-      effect: 'slide, fade',
-      crossfade: true,
-      slideSpeed: 350,
-      fadeSpeed: 500,
-      generateNextPrev: true,
-      generatePagination: false
-    });
-  });
-</script>
-
-
-
 <div class="nav">
   <ul class="navigation">
     <li><a class="home" href="#home">Home</a></li> 
@@ -167,7 +149,7 @@
           <div class="gall_desc">
             <a class="video" title=<%= video.title %> >
               <a href="#myModal<%= i+1 %>" role="button" class="btn" data-toggle="modal">
-                <%= image_tag video.image.image, :height => "66" %>
+                <%= image_tag video.video.url(:thumb), :width => "100" , :height => "66" %>
               </a>
             </a>
             <span>
@@ -175,7 +157,6 @@
               <p><%= video.description %></p>
             </span>
           </div>
-        <%#= debug @video_images %>
         <% end %>
       </div>
     </div>

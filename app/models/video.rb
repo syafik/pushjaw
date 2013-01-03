@@ -1,8 +1,9 @@
 class Video < ActiveRecord::Base
 
-  attr_accessible :video, :title, :image_id, :description, :active
-  has_one :image, :dependent => :destroy, :inverse_of => :video
+  attr_accessible :video, :title, :description, :active
 
+  validates :video, :title, :description, :presence => true
+  
   validates_length_of :description, :maximum => 100
   
   validates_attachment_content_type :video,
@@ -16,20 +17,9 @@ class Video < ActiveRecord::Base
     end
   end
   
-  attr_accessible :image_attributes
-  accepts_nested_attributes_for :image, :allow_destroy => true 
-
-  attr_accessible :image_id
-
-  def image_id
-    self.image.try :id
-  end
-  def image_id=(id)
-    self.image = Image.find_by_id(id)
-  end
-  
   has_attached_file :video, :styles => { 
-    :medium => { :geometry => "800x600", :format => 'mp4', :rate => "48000" }
+    :medium => { :geometry => "800x600", :format => 'mp4', :rate => "48000" },
+    :thumb => { :geometry => "800x600#", :format => 'jpg', :time => 50 }
   }, :processors => [:ffmpeg]
   
   protected
