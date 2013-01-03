@@ -1,6 +1,13 @@
-<% @videos.collect do |video| %>
-  <ul class="pagination">
-    <%= video_tag (video.video), :poster => video.image.image, :width => "70", :height => "50" %>     
-  </ul>
-<li><a href="#"></a></li>
+<!-- Modal -->
+<% @videos.each_with_index do |video,i| %>
+  <div id="myModal<%= i+1 %>" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-body">
+      <div id="container">      
+        <%= video_tag(video.video.url, :poster => video.image.image, :controls => true, :autobuffer => true, :width=>"800", :height=>"500") %>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    </div>
+  </div>
 <% end %>

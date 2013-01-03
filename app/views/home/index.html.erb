@@ -121,7 +121,7 @@
       <% @blog.each do |blog| %>
         <div class="blogspotlight">
           <h3><%= truncate blog.title, length: 20 %></h3>
-          <p><%= sanitize(truncate blog.content, length: 60) %><a href="<%= blog_show_path(:id=>blog) %>" target="_blank">more</a></p>
+          <p><%= sanitize(truncate blog.content, length: 60) %><a href="<%= blog_show_path(:id => blog) %>" target="_blank">more</a></p>
         </div>
       <% end %>
     </div>
@@ -163,11 +163,11 @@
 
       <div class="gall">
         <h3>Gallery</h3>
-        <% @video_images.each do |video| %>
+        <% @videos.each_with_index do |video,i| %>
           <div class="gall_desc">
-            <a class="video"  title=<%= video.title %> >
-              <a href="#myModal" role="button" class="btn" data-toggle="modal">
-                <%= image_tag video.image.image, :height=>"66" %>
+            <a class="video" title=<%= video.title %> >
+              <a href="#myModal<%= i+1 %>" role="button" class="btn" data-toggle="modal">
+                <%= image_tag video.image.image, :height => "66" %>
               </a>
             </a>
             <span>
@@ -175,6 +175,7 @@
               <p><%= video.description %></p>
             </span>
           </div>
+        <%#= debug @video_images %>
         <% end %>
       </div>
     </div>
@@ -240,19 +241,5 @@
   &copy; copyright pushjaw 2012
 </footer>
 
-<!-- Modal -->
-<div id="myModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-body">
-    <div id="container">
-        <div id="products">
-          <div class="slides_container">
-            <%# @videos.each do |video| %>           
-                <%= video_tag(@video.video.url, :poster => @video.image.image, :controls => true, :autobuffer => true, :width=>"800", :height=>"500") %>
-            <%# end %>
-          </div>
-        </div>
-    </div>
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-  </div>
+<%= render 'video' %>
+

@@ -1151,26 +1151,26 @@ ul.tabs li.current a
 /* video slider*/
 
 #container {
-	width:580px;
-	padding:10px;
+	width:800px;
+	padding:0px;
 	margin:0 auto;
 	position:relative;
 	z-index:0;
 }
 
-#products_example {
+/*#products_example {
 	width:800px;
 	height:550px;
 	position:relative;
-}
+}*/
 
 /*
 	Slideshow
 */
 
-#products {
+/*#products {
 	margin-left:-110px;
-}
+}*/
 
 /*
 	Slides container
@@ -1179,15 +1179,15 @@ ul.tabs li.current a
 	Set to display none, prevents content flash
 */
 
-#products .slides_container {
+/*#products .slides_container {
 	width:800px;
 	overflow:hidden;
 	float:left;
 	position:relative;
-/*	border:1px solid #dfdfdf;*/
+	border:1px solid #dfdfdf;
 	border:none;
 	display:none;
-}
+}*/
 
 /*
 	Each slide
@@ -1196,12 +1196,12 @@ ul.tabs li.current a
 	If height not specified height will be set by the slide content
 	Set to display block
 */
-
+/*
 .slides_container a {
 	width:700px;
 	height:500px;
 	display:block;
-}
+}*/
 
 /*
 	Next/prev buttons
