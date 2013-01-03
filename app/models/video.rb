@@ -1,5 +1,4 @@
 class Video < ActiveRecord::Base
-
   attr_accessible :video, :title, :description, :active
 
   validates :video, :title, :description, :presence => true

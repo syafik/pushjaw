@@ -1,3 +1,7 @@
 class Feature < ActiveRecord::Base
-  attr_accessible :content, :name, :title, :url, :active
+  
+  attr_accessible :content, :name, :title, :url, :active, :type
+  
+  
+  
 end

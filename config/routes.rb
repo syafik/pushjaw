@@ -1,8 +1,7 @@
 Inheritance::Application.routes.draw do
   mount Rich::Engine => '/rich', :as => 'rich'
-
-  get "blog/index"
-  get "blog/show"
+  
+  resources :blogs
   
   get "home/index"
 
@@ -11,7 +10,7 @@ Inheritance::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   resources :features
-
+  
   resources :contacts
   
   # The priority is based upon order of creation:

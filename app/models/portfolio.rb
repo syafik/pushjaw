@@ -1,6 +1,9 @@
 class Portfolio < Feature
   # attr_accessible :title, :body
-   has_one :image, :dependent => :destroy, :inverse_of => :portfolio
+  
+  validates :name, :content, :title, :url, presence: true
+   
+  has_one :image, :dependent => :destroy, :inverse_of => :portfolio
   
   # for nested fields: (natural choice for a has_one association)
 

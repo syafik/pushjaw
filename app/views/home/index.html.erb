@@ -21,9 +21,9 @@
     <li><a class="home" href="#home">Home</a></li> 
     <li><a class="services" href="#services">Services</a></li>
     <li><a class="portfolio" href="#portfolio">Portfolio</a></li>
-    <li><a class="Blogs" href=<%= blog_index_path %>>Blog</a></li>
     <li><a class="about" href="#About">About Us</a></li>
     <li><a class="contact" href="#Contact">Contact Us</a></li>
+     <li><a class="Blogs" href=<%= blogs_path %> target="_blank">Blog</a></li>
   </ul>
 </div>
 
@@ -31,14 +31,14 @@
   <div class="page">
     <ul class="tabs">
       <% @services.each_with_index do |service, i|%>
-        <li><a href="#tab<%=  i+1 %>"><%= service.title %></a></li>
+        <li><a href="#tab<%=  i+1 %>"><%= service.try(:title) %></a></li>
       <% end %>
     </ul>
     <div class="tab-container">
       <% @services.each_with_index do |service, i|%>
         <div id="tab<%=  i+1 %>" class="tab-content">
           <div class="ct_services">
-            <%= service.content %>
+            <%= service.try(:content) %>
             <% service.images.each do |image| %>
               <div class="service_img">
                 <div><%= image_tag image.image.url(:thumb), :width=>"120px", :height=>"80px" %></div>
@@ -102,8 +102,10 @@
     <div class="blogwraper">
       <% @blog.each do |blog| %>
         <div class="blogspotlight">
-          <h3><%= truncate blog.title, length: 20 %></h3>
-          <p><%= sanitize(truncate blog.content, length: 60) %><a href="<%= blog_show_path(:id => blog) %>" target="_blank">more</a></p>
+
+          <h3><%= truncate blog.try(:title), length: 20 %></h3>
+          <p><%= sanitize(truncate blog.try(:content), length: 60) %><a href="<%= blog_path(:id=>blog) %>" target="_blank">more</a></p>
+
         </div>
       <% end %>
     </div>
@@ -128,9 +130,11 @@
         <p><%= @about.try(:content) %></p>
         <h3>What people sayings about us ?</h3>
         <div class="testimonial">
-          <%= @comment.comment %>
+
+          <%= @comment.try(:comment) %>
         </div>
-        <p>- <%= @comment.name %>, <%= @comment.title %>, <%= @comment.address %></p>
+        <p>- <%= @comment.try(:name) %>, <%= @comment.title %>, <%= @comment.address %></p>
+
       </div>
 
       <div class="teamwrap">
@@ -144,7 +148,7 @@
       </div>
 
       <div class="gall">
-        <h3>Gallery</h3>
+        <h3>Gallery Video</h3>
         <% @videos.each_with_index do |video,i| %>
           <div class="gall_desc">
             <a class="video" title=<%= video.title %> >
@@ -201,10 +205,9 @@
       </div>
       <div class="descmap">
         <h2>Here We Are !</h2>
-        <%=  @location.address %>  <br />
-        <%=  @location.city %>  <br />
-        <%=  @location.mobile_phone %> <br />
-        <%=  @location.phone %> 
+        <%=  @location.try(:address) %>  <br />
+        <%=  @location.try(:mobile_phone) %> <br />
+        <%=  @location.try(:phone) %>  <br />
         <h3>Find Us :</h3>
         <ul class="socialtag">
           <li><a title="Follow us on Pushjaw" href="https://www.facebook.com/pushjaws" class="fb tooltips"></a></li>
@@ -222,5 +225,7 @@
   &copy; copyright pushjaw 2012
 </footer>
 
+
 <%= render 'video' %>
+
 

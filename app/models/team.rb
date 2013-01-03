@@ -1,5 +1,5 @@
 class Team < Feature
-   
+  validates :name, :content,:title, presence: true
   has_one :image, :dependent => :destroy, :inverse_of => :team
   
   # for nested fields: (natural choice for a has_one association)
