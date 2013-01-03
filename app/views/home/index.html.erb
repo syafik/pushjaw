@@ -16,7 +16,8 @@
   }
 </script>
 
-<script type="text/javascript">
+
+<script>
   $(function(){
     $('#products').slides({
       preload: true,
@@ -119,8 +120,10 @@
     <div class="blogwraper">
       <% @blog.each do |blog| %>
         <div class="blogspotlight">
+
           <h3><%= truncate blog.try(:title), length: 20 %></h3>
           <p><%= sanitize(truncate blog.try(:content), length: 60) %><a href="<%= blog_path(:id=>blog) %>" target="_blank">more</a></p>
+
         </div>
       <% end %>
     </div>
@@ -145,9 +148,11 @@
         <p><%= @about.try(:content) %></p>
         <h3>What people sayings about us ?</h3>
         <div class="testimonial">
+
           <%= @comment.try(:comment) %>
         </div>
         <p>- <%= @comment.try(:name) %>, <%= @comment.title %>, <%= @comment.address %></p>
+
       </div>
 
       <div class="teamwrap">
@@ -161,11 +166,13 @@
       </div>
 
       <div class="gall">
-        <h3>Gallery</h3>
+        <h3>Gallery Video</h3>
         <% @videos.each_with_index do |video,i| %>
           <div class="gall_desc">
-            <a href= "#myModal<%= i+1 %>" role="button" class="btn" data-toggle="modal">
-              <%= image_tag video.image.image, :width=>"120", :height=>"66" %>
+            <a class="video" title=<%= video.title %> >
+              <a href="#myModal<%= i+1 %>" role="button" class="btn" data-toggle="modal">
+                <%= image_tag video.image.image(:thumb), :width=>"120px", :height=>"80px" %>
+              </a>
             </a>
             <span>
               <h1><%= video.title %></h1>
@@ -237,5 +244,6 @@
 </footer>
 
 
-<!-- Modal -->
 <%= render 'video' %>
+
+
