@@ -38,9 +38,9 @@
     <li><a class="home" href="#home">Home</a></li> 
     <li><a class="services" href="#services">Services</a></li>
     <li><a class="portfolio" href="#portfolio">Portfolio</a></li>
-    <li><a class="Blogs" href=<%= blog_index_path %>>Blog</a></li>
     <li><a class="about" href="#About">About Us</a></li>
     <li><a class="contact" href="#Contact">Contact Us</a></li>
+     <li><a class="Blogs" href=<%= blogs_path %> target="_blank">Blog</a></li>
   </ul>
 </div>
 
@@ -48,14 +48,14 @@
   <div class="page">
     <ul class="tabs">
       <% @services.each_with_index do |service, i|%>
-        <li><a href="#tab<%=  i+1 %>"><%= service.title %></a></li>
+        <li><a href="#tab<%=  i+1 %>"><%= service.try(:title) %></a></li>
       <% end %>
     </ul>
     <div class="tab-container">
       <% @services.each_with_index do |service, i|%>
         <div id="tab<%=  i+1 %>" class="tab-content">
           <div class="ct_services">
-            <%= service.content %>
+            <%= service.try(:content) %>
             <% service.images.each do |image| %>
               <div class="service_img">
                 <div><%= image_tag image.image.url(:thumb), :width=>"120px", :height=>"80px" %></div>
@@ -119,8 +119,8 @@
     <div class="blogwraper">
       <% @blog.each do |blog| %>
         <div class="blogspotlight">
-          <h3><%= truncate blog.title, length: 20 %></h3>
-          <p><%= sanitize(truncate blog.content, length: 60) %><a href="<%= blog_show_path(:id=>blog) %>" target="_blank">more</a></p>
+          <h3><%= truncate blog.try(:title), length: 20 %></h3>
+          <p><%= sanitize(truncate blog.try(:content), length: 60) %><a href="<%= blog_path(:id=>blog) %>" target="_blank">more</a></p>
         </div>
       <% end %>
     </div>
@@ -145,40 +145,9 @@
         <p><%= @about.try(:content) %></p>
         <h3>What people sayings about us ?</h3>
         <div class="testimonial">
-          <%= @comment.comment %>
+          <%= @comment.try(:comment) %>
         </div>
-        <p>- <%= @comment.name %>, <%= @comment.title %>, <%= @comment.address %></p>
-      </div>
-
-
-      <!-- Modal -->
-      <div id="myModal" class="modal hide in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-body">
-          <p>  
-          <div id="container">
-            <div id="products_example">
-              <div id="products">
-                <div class="slides_container">
-                  <% @videos.each do |video| %>           
-                    <a target="_blank">
-                      <%= video_tag(video.video.url, :poster => video.image.image, :controls => true, :autobuffer => true, :width=>"400", :height=>"350") %>
-                    </a>
-                  <% end %>
-                </div>
-                <div class="pfv">
-                  <%= render 'video' %>
-                </div>
-                <div id="pgn">
-                  <%= paginate @videos, :remote => true %>
-                </div>
-              </div>
-            </div>
-          </div>
-          </p>
-        </div>
-        <div class="modal-footer">
-          <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-        </div>
+        <p>- <%= @comment.try(:name) %>, <%= @comment.title %>, <%= @comment.address %></p>
       </div>
 
       <div class="teamwrap">
@@ -193,24 +162,18 @@
 
       <div class="gall">
         <h3>Gallery</h3>
-        <div class="gall_desc">
-          <a href="#myModal" role="button" class="btn" data-toggle="modal">
-            <%= image_tag @video.image.image, :width=>"120", :height=>"66" %>
-          </a>
-          <span>
-            <h1>Pushjaw Bersama Ariel Noah</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-          </span>
-        </div>
-        <div class="gall_desc">
-          <a class="video"  title="Pushjaw Bersama Ariel Noah" href="http://www.youtube.com/v/ZeStnz5c2GI?fs=1&amp;autoplay=1"><img src="images/thumb.jpg" width="120" height="66"/></a>
-          <span>
-            <h1>Pushjaw Bersama Ariel Noah</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-          </span>
-        </div>
+        <% @videos.each_with_index do |video,i| %>
+          <div class="gall_desc">
+            <a href= "#myModal<%= i+1 %>" role="button" class="btn" data-toggle="modal">
+              <%= image_tag video.image.image, :width=>"120", :height=>"66" %>
+            </a>
+            <span>
+              <h1><%= video.title %></h1>
+              <p><%= video.description %></p>
+            </span>
+          </div>
+        <% end %>
       </div>
-
     </div>
 
   </div>
@@ -253,10 +216,9 @@
       </div>
       <div class="descmap">
         <h2>Here We Are !</h2>
-        <%=  @location.address %>  <br />
-        <%=  @location.city %>  <br />
-        <%=  @location.mobile_phone %> <br />
-        <%=  @location.phone %> 
+        <%=  @location.try(:address) %>  <br />
+        <%=  @location.try(:mobile_phone) %> <br />
+        <%=  @location.try(:phone) %>  <br />
         <h3>Find Us :</h3>
         <ul class="socialtag">
           <li><a title="Follow us on Pushjaw" href="https://www.facebook.com/pushjaws" class="fb tooltips"></a></li>
@@ -273,3 +235,7 @@
 <footer>
   &copy; copyright pushjaw 2012
 </footer>
+
+
+<!-- Modal -->
+<%= render 'video' %>

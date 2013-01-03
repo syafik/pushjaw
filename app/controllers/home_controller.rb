@@ -9,9 +9,8 @@ class HomeController < ApplicationController
     @comment = Comment.where(:active=>true).first
     @location = Location.first
     @res=GeoKit::Geocoders::GoogleGeocoder.geocode(@location.address)
-    @videos = Video.page(params[:page]).per(4)
+    @videos = Video.last(3)
     @about=About.where(:active=>true).first
-    @video = Video.last
   end
 
 end

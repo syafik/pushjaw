@@ -1,0 +1,13 @@
+<div id="page">
+  <div id="content">
+    <div class="post">
+      <h2 class="title"><a href="#"><%= @blog.title %></a></h2>
+      <p class="meta"><span class="date"><%= @blog.created_at %></span></p>
+      <div style="clear: both;">&nbsp;</div>
+      <div class="entry">
+        <p><%= @blog.content.html_safe %></p>
+        <p class="links"><a href="#" title="b0x" class="comments">Comments</a></p>
+      </div>
+    </div>
+    <div style="clear: both;">&nbsp;</div>
+  </div>

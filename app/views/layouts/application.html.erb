@@ -28,23 +28,23 @@
     <%= yield %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="../assets/jquery.poshytip.js"></script>
-    <script type="text/javascript" src="../assets/imgpreload.js"></script>
-    <script type="text/javascript" src="../assets/parallax.js"></script>
+    <script type="text/javascript" src="../assets/slides.jquery.js"></script>
+    <script type="text/javascript" src="../assets/imgpreload.js"></script>    
     <script type="text/javascript" src="../assets/easing.js"></script>
     <script type="text/javascript" src="../assets/jcontent.js"></script>
     <script type="text/javascript" src="../assets/tabs.js"></script>
-    <script type="text/javascript" src="../assets/parallax.lib.js"></script>
+    
     <script type="text/javascript" src="../assets/jquery.clouds.js"></script>
     <script type="text/javascript" src="../assets/jquery.mCustomScrollbar.js"></script>
     <script type="text/javascript" src="../assets/jquery.mousewheel.min.js"></script>
     <script type="text/javascript" src="../assets/jquery.fancybox-1.3.4.pack.js"></script>
-    <script type="text/javascript" src="../assets/video.js"></script>
+    <%#*<script type="text/javascript" src="../assets/video.js"></script>%>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
     <script>!window.jQuery.ui && document.write(unescape('%3Cscript src="../assets/jquery-ui-1.8.21.custom.min.js"%3E%3C/script%3E'))</script>
     <script type="text/javascript">
       $('.tooltips').poshytip({className: 'tip-twitter',showTimeout: 1,alignTo: 'target',alignX: 'center',offsetY: 5,allowTipHover: false,fade: false,slide: false});
       $("document").ready(function(){$("div#sliderwraper").jContent({orientation: 'horizontal', easing: "easeOutCirc", duration: 500,auto: true});});
-      $('.cloudmoving').clouds({xmlMap: 'images/clouds.xml',bobHeight: 0,speed: 20});
+      $('.cloudmoving').clouds({xmlMap: '../assets/clouds.xml',bobHeight: 0,speed: 20});
       function init() {
         $('html, body').animate({
           scrollTop:$('#home').offset().top

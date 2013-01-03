@@ -1,0 +1,866 @@
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: comments; Type: TABLE; Schema: public; Owner: admin; Tablespace: 
+--
+
+CREATE TABLE comments (
+    id integer NOT NULL,
+    name character varying(255),
+    title character varying(255),
+    address character varying(255),
+    comment text,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    active boolean
+);
+
+
+ALTER TABLE public.comments OWNER TO admin;
+
+--
+-- Name: comments_id_seq; Type: SEQUENCE; Schema: public; Owner: admin
+--
+
+CREATE SEQUENCE comments_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.comments_id_seq OWNER TO admin;
+
+--
+-- Name: comments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: admin
+--
+
+ALTER SEQUENCE comments_id_seq OWNED BY comments.id;
+
+
+--
+-- Name: comments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
+--
+
+SELECT pg_catalog.setval('comments_id_seq', 2, true);
+
+
+--
+-- Name: contacts; Type: TABLE; Schema: public; Owner: admin; Tablespace: 
+--
+
+CREATE TABLE contacts (
+    id integer NOT NULL,
+    name character varying(255),
+    email character varying(255),
+    subject character varying(255),
+    request text,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE public.contacts OWNER TO admin;
+
+--
+-- Name: contacts_id_seq; Type: SEQUENCE; Schema: public; Owner: admin
+--
+
+CREATE SEQUENCE contacts_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.contacts_id_seq OWNER TO admin;
+
+--
+-- Name: contacts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: admin
+--
+
+ALTER SEQUENCE contacts_id_seq OWNED BY contacts.id;
+
+
+--
+-- Name: contacts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
+--
+
+SELECT pg_catalog.setval('contacts_id_seq', 12, true);
+
+
+--
+-- Name: features; Type: TABLE; Schema: public; Owner: admin; Tablespace: 
+--
+
+CREATE TABLE features (
+    id integer NOT NULL,
+    name character varying(255),
+    title character varying(255),
+    content text,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    type character varying(255),
+    url character varying(255),
+    active boolean
+);
+
+
+ALTER TABLE public.features OWNER TO admin;
+
+--
+-- Name: features_id_seq; Type: SEQUENCE; Schema: public; Owner: admin
+--
+
+CREATE SEQUENCE features_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.features_id_seq OWNER TO admin;
+
+--
+-- Name: features_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: admin
+--
+
+ALTER SEQUENCE features_id_seq OWNED BY features.id;
+
+
+--
+-- Name: features_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
+--
+
+SELECT pg_catalog.setval('features_id_seq', 43, true);
+
+
+--
+-- Name: images; Type: TABLE; Schema: public; Owner: admin; Tablespace: 
+--
+
+CREATE TABLE images (
+    id integer NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    image_file_name character varying(255),
+    image_content_type character varying(255),
+    image_file_size integer,
+    image_updated_at timestamp without time zone,
+    service_id integer,
+    team_id integer,
+    portfolio_id integer,
+    video_id integer
+);
+
+
+ALTER TABLE public.images OWNER TO admin;
+
+--
+-- Name: images_id_seq; Type: SEQUENCE; Schema: public; Owner: admin
+--
+
+CREATE SEQUENCE images_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.images_id_seq OWNER TO admin;
+
+--
+-- Name: images_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: admin
+--
+
+ALTER SEQUENCE images_id_seq OWNED BY images.id;
+
+
+--
+-- Name: images_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
+--
+
+SELECT pg_catalog.setval('images_id_seq', 49, true);
+
+
+--
+-- Name: locations; Type: TABLE; Schema: public; Owner: admin; Tablespace: 
+--
+
+CREATE TABLE locations (
+    id integer NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    address character varying(255),
+    lat double precision,
+    lng double precision,
+    geocode_address character varying(255),
+    city character varying(255),
+    state character varying(255),
+    country character varying(255),
+    phone character varying(255),
+    mobile_phone character varying(255)
+);
+
+
+ALTER TABLE public.locations OWNER TO admin;
+
+--
+-- Name: locations_id_seq; Type: SEQUENCE; Schema: public; Owner: admin
+--
+
+CREATE SEQUENCE locations_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.locations_id_seq OWNER TO admin;
+
+--
+-- Name: locations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: admin
+--
+
+ALTER SEQUENCE locations_id_seq OWNED BY locations.id;
+
+
+--
+-- Name: locations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
+--
+
+SELECT pg_catalog.setval('locations_id_seq', 6, true);
+
+
+--
+-- Name: rails_admin_histories; Type: TABLE; Schema: public; Owner: admin; Tablespace: 
+--
+
+CREATE TABLE rails_admin_histories (
+    id integer NOT NULL,
+    message text,
+    username character varying(255),
+    item integer,
+    "table" character varying(255),
+    month smallint,
+    year bigint,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE public.rails_admin_histories OWNER TO admin;
+
+--
+-- Name: rails_admin_histories_id_seq; Type: SEQUENCE; Schema: public; Owner: admin
+--
+
+CREATE SEQUENCE rails_admin_histories_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.rails_admin_histories_id_seq OWNER TO admin;
+
+--
+-- Name: rails_admin_histories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: admin
+--
+
+ALTER SEQUENCE rails_admin_histories_id_seq OWNED BY rails_admin_histories.id;
+
+
+--
+-- Name: rails_admin_histories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
+--
+
+SELECT pg_catalog.setval('rails_admin_histories_id_seq', 1, false);
+
+
+--
+-- Name: rich_rich_files; Type: TABLE; Schema: public; Owner: admin; Tablespace: 
+--
+
+CREATE TABLE rich_rich_files (
+    id integer NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    rich_file_file_name character varying(255),
+    rich_file_content_type character varying(255),
+    rich_file_file_size integer,
+    rich_file_updated_at timestamp without time zone,
+    owner_type character varying(255),
+    owner_id integer,
+    uri_cache text,
+    simplified_type character varying(255) DEFAULT 'file'::character varying
+);
+
+
+ALTER TABLE public.rich_rich_files OWNER TO admin;
+
+--
+-- Name: rich_rich_files_id_seq; Type: SEQUENCE; Schema: public; Owner: admin
+--
+
+CREATE SEQUENCE rich_rich_files_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.rich_rich_files_id_seq OWNER TO admin;
+
+--
+-- Name: rich_rich_files_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: admin
+--
+
+ALTER SEQUENCE rich_rich_files_id_seq OWNED BY rich_rich_files.id;
+
+
+--
+-- Name: rich_rich_files_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
+--
+
+SELECT pg_catalog.setval('rich_rich_files_id_seq', 1, false);
+
+
+--
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: admin; Tablespace: 
+--
+
+CREATE TABLE schema_migrations (
+    version character varying(255) NOT NULL
+);
+
+
+ALTER TABLE public.schema_migrations OWNER TO admin;
+
+--
+-- Name: users; Type: TABLE; Schema: public; Owner: admin; Tablespace: 
+--
+
+CREATE TABLE users (
+    id integer NOT NULL,
+    email character varying(255) DEFAULT ''::character varying NOT NULL,
+    encrypted_password character varying(255) DEFAULT ''::character varying NOT NULL,
+    reset_password_token character varying(255),
+    reset_password_sent_at timestamp without time zone,
+    remember_created_at timestamp without time zone,
+    sign_in_count integer DEFAULT 0,
+    current_sign_in_at timestamp without time zone,
+    last_sign_in_at timestamp without time zone,
+    current_sign_in_ip character varying(255),
+    last_sign_in_ip character varying(255),
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+ALTER TABLE public.users OWNER TO admin;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: admin
+--
+
+CREATE SEQUENCE users_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.users_id_seq OWNER TO admin;
+
+--
+-- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: admin
+--
+
+ALTER SEQUENCE users_id_seq OWNED BY users.id;
+
+
+--
+-- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
+--
+
+SELECT pg_catalog.setval('users_id_seq', 1, true);
+
+
+--
+-- Name: videos; Type: TABLE; Schema: public; Owner: admin; Tablespace: 
+--
+
+CREATE TABLE videos (
+    id integer NOT NULL,
+    video_file_name character varying(255),
+    video_content_type character varying(255),
+    video_file_size integer,
+    video_updated_at timestamp without time zone,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    title character varying(255),
+    description text
+);
+
+
+ALTER TABLE public.videos OWNER TO admin;
+
+--
+-- Name: videos_id_seq; Type: SEQUENCE; Schema: public; Owner: admin
+--
+
+CREATE SEQUENCE videos_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.videos_id_seq OWNER TO admin;
+
+--
+-- Name: videos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: admin
+--
+
+ALTER SEQUENCE videos_id_seq OWNED BY videos.id;
+
+
+--
+-- Name: videos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: admin
+--
+
+SELECT pg_catalog.setval('videos_id_seq', 9, true);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY comments ALTER COLUMN id SET DEFAULT nextval('comments_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY contacts ALTER COLUMN id SET DEFAULT nextval('contacts_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY features ALTER COLUMN id SET DEFAULT nextval('features_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY images ALTER COLUMN id SET DEFAULT nextval('images_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY locations ALTER COLUMN id SET DEFAULT nextval('locations_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY rails_admin_histories ALTER COLUMN id SET DEFAULT nextval('rails_admin_histories_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY rich_rich_files ALTER COLUMN id SET DEFAULT nextval('rich_rich_files_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: admin
+--
+
+ALTER TABLE ONLY videos ALTER COLUMN id SET DEFAULT nextval('videos_id_seq'::regclass);
+
+
+--
+-- Data for Name: comments; Type: TABLE DATA; Schema: public; Owner: admin
+--
+
+COPY comments (id, name, title, address, comment, created_at, updated_at, active) FROM stdin;
+1	Andreas Kisser	Developer in StablesConfusion	CA	Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum has been the industry's standard dummy text ever 1500s, when an unknown printer took a galley of type and scrammake a type specimen book..	2012-12-18 05:25:55.730732	2012-12-24 04:07:54.220005	t
+2	Dani	Developer	IND	Good	2012-12-24 04:07:46.965001	2012-12-24 04:08:19.245078	f
+\.
+
+
+--
+-- Data for Name: contacts; Type: TABLE DATA; Schema: public; Owner: admin
+--
+
+COPY contacts (id, name, email, subject, request, created_at, updated_at) FROM stdin;
+1	ad	ad@gmail.com	ad	adasfdfasfasfdsf	2012-12-18 06:22:49.179288	2012-12-18 06:22:49.179288
+2	a	ad@gmail.com	a	aaaa	2012-12-18 06:24:23.006464	2012-12-18 06:24:23.006464
+3	a	ad@gmail.com	adsf	adfasfasdfasf	2012-12-18 07:18:08.170415	2012-12-18 07:18:08.170415
+4	sd	sd	sd	sd	2012-12-18 09:40:04.145128	2012-12-18 09:40:04.145128
+5	cv	cv	cv	cv	2012-12-18 09:46:23.753135	2012-12-18 09:46:23.753135
+6	cv	cv	cv	cv	2012-12-18 09:47:57.258293	2012-12-18 09:47:57.258293
+7	df	df	df	df	2012-12-18 09:50:49.546641	2012-12-18 09:50:49.546641
+8	cv	cv	cv	cv	2012-12-18 09:52:55.641405	2012-12-18 09:52:55.641405
+9	asd	asd	asd	asd	2012-12-18 09:53:29.939982	2012-12-18 09:53:29.939982
+10	adika	adikahavittia@gmail.com	yoooo	yooooowesssss	2012-12-18 10:13:01.743798	2012-12-18 10:13:01.743798
+11	adika	adikahavittia@gmail.com	test	TEST	2012-12-26 04:17:04.795874	2012-12-26 04:17:04.795874
+12	your name	your email	your subject	desctription	2012-12-26 06:07:46.29301	2012-12-26 06:07:46.29301
+\.
+
+
+--
+-- Data for Name: features; Type: TABLE DATA; Schema: public; Owner: admin
+--
+
+COPY features (id, name, title, content, created_at, updated_at, type, url, active) FROM stdin;
+43	\N	\N	<p>\n        CoffeeScript is JavaScript done right. It provides all of JavaScript's\n\tfunctionality wrapped in a cleaner, more succinct syntax. In the first\n\tbook on this exciting new language, CoffeeScript guru Trevor Burnham\n\tshows you how to hold onto all the power and flexibility of JavaScript\n\twhile writing clearer, cleaner, and safer code.\n      </p>	2013-01-02 02:51:26.983065	2013-01-02 02:51:26.983065	About	\N	t
+8	Mobile Application	Mobile Application	CKEditor is a text editor to be used inside web pages. It’s a WYSIWYG editor, which means that the text being edited on it looks as similar as possible to the results users have when publishing it. It brings to the web common editing features found on desktop editing applications like Microsoft Word and OpenOffice.	2012-12-18 09:34:40.302008	2012-12-27 06:59:28.340986	Service	\N	t
+28	John	Web Design	Web Design	2012-12-24 04:25:19.510921	2012-12-24 04:25:19.510921	Team	\N	\N
+11	Ckeditor	Ckeditor	<p>\r\n\tCKEditor is a text editor to be used inside web pages. It&rsquo;s a WYSIWYG editor, which means that the text being edited on it looks as similar as possible to the results users have when publishing it. It brings to the web common editing features found on desktop editing applications like Microsoft Word and OpenOffice.</p>\r\n	2012-12-19 03:32:20.530111	2012-12-27 04:46:10.460935	Blog	\N	t
+29	Beck	Web Developer	web developer 	2012-12-24 06:03:40.658971	2012-12-24 06:03:40.658971	Team	\N	\N
+30	Janur	coach	jajang nurjaman	2012-12-24 07:16:17.82145	2012-12-24 07:16:17.82145	Team	\N	\N
+31	jasuk	wing	jajang sukmana	2012-12-24 07:17:22.72668	2012-12-24 07:17:22.72668	Team	\N	\N
+32	tom	designer	my name is tom 	2012-12-24 07:50:32.912314	2012-12-24 07:50:32.912314	Team	\N	\N
+24	smith	web developer	my name is john smit, you can call me john	2012-12-21 09:18:14.066745	2012-12-21 09:18:14.066745	Team	\N	\N
+33	jimmy	mobile developer	zuuuuuper sekaliii	2012-12-24 07:51:21.389364	2012-12-24 07:51:21.389364	Team	\N	\N
+9			it will be hidden (along with the optional asset_name column) and a field ... See the #image option in File Upload if you need to override this behavior. ... are provided by Dragonfly and used by RailsAdmin) attr_accessible	2012-12-18 09:36:24.810677	2012-12-27 04:31:24.315346	Home	\N	t
+34	joe	web developer	yoooooo	2012-12-24 09:01:16.392136	2012-12-24 09:01:16.392136	Team	\N	\N
+35	rooney	mobile developer	my name is	2012-12-24 09:02:07.003441	2012-12-24 09:02:07.003441	Team	\N	\N
+36	susie	web developer	my name is 	2012-12-24 09:02:33.530068	2012-12-24 09:02:33.530068	Team	\N	\N
+37	cuco	mobile developer	my name is cuco	2012-12-24 09:03:03.127924	2012-12-24 09:03:03.127924	Team	\N	\N
+26	mozilla	mozilla	We are \r\nDoing good is part of our code	2012-12-24 02:51:09.746444	2012-12-26 03:09:38.651817	Portfolio	http://www.mozilla.org/en-US/	t
+27	pushjaw	pushjaw	This pattern splits the view (also called the presentation) into “dumb” templates that are primarily responsible for inserting pre-built data in between HTML tags. The model contains the “smart” domain objects (such as Account, Product, Person, Post) that holds all the business logic and knows how to persist themselves to a database. The controller handles the incoming requests (such as Save New Account, Update Product, Show Post) by manipulating the model and directing data to the view.	2012-12-24 03:47:06.115387	2012-12-26 03:16:16.382009	Portfolio	pusjaw.com	t
+25	satu	satu	We are Doing good is part of our code	2012-12-21 09:38:48.034196	2012-12-26 03:22:16.567154	Portfolio		t
+13	Web Application	Web Application	Please don’t put feature requests in Github Issues. They will be closed as soon as they are reviewed by one of the core team members. If you would like a feature in Active Admin, please submit a well tested pull request with the desired changes. If you’re not a coder, then the mailing list may be a good place to try to convince someone to help you out with your cause.	2012-12-19 04:38:50.663023	2012-12-27 06:59:34.007764	Service	\N	t
+22	\N	\N	OAuth 2.0 allows users to share specific data with you (for example, contact lists) while keeping their usernames, passwords, and other information private. A single project may contain up to 20 client IDs.	2012-12-20 05:55:24.684315	2012-12-27 08:16:34.589173	About	\N	f
+40	\N	\N	Save videos to watch later, watch recommendations just for you, or subscribe to get ... See videos shared by your friends across all your social networks — all in ...	2012-12-27 04:23:51.711361	2012-12-27 08:17:03.083145	About	\N	t
+1	Graphic Design	Graphic Design	CKEditor is a text editor to be used inside web pages. It’s a WYSIWYG editor, which means that the text being edited on it looks as similar as possible to the results users have when publishing it. It brings to the web common editing features found on desktop editing applications like Microsoft Word and OpenOffice.	2012-12-18 04:56:11.444416	2012-12-26 03:38:47.671083	Service	\N	t
+15	Web	Web	First we will geolocate our position using the Google Map API and javascript. Then we will use those results to query our rails services API for ...	2012-12-19 05:24:20.769532	2012-12-26 03:39:31.829197	Service	\N	f
+38	Alif Fikri	Project Manager	hi everyone	2012-12-26 05:55:38.486296	2012-12-26 05:55:38.486296	Team	\N	\N
+41	\N	Conditional Validation	<blockquote>\r\n\t<p>\r\n\t\tSometimes <strong>it will make sense to validate an object just w</strong>hen a given predicate is satisfied. You can do that by using the :if and :unless options, which can take a symbol, a string or a Proc. You may use t<span class="highlight">he :if option when you want to specify w</span>hen the validation should happen. If you want to specify when the validation should not happen, then you may use the :unless option.</p>\r\n</blockquote>\r\n	2012-12-27 04:34:06.205789	2012-12-27 04:34:36.641204	Blog	\N	t
+10	Railsadmin DSL	Railsadmin DSL	<p>\r\n\tEach model configuration can alternatively be in two places:</p>\r\n	2012-12-18 09:39:31.959511	2012-12-28 02:48:29.688699	Blog	\N	f
+\.
+
+
+--
+-- Data for Name: images; Type: TABLE DATA; Schema: public; Owner: admin
+--
+
+COPY images (id, created_at, updated_at, image_file_name, image_content_type, image_file_size, image_updated_at, service_id, team_id, portfolio_id, video_id) FROM stdin;
+9	2012-12-19 03:37:19.731277	2012-12-19 03:37:19.731277	balloon3.png	image/png	9374	2012-12-19 03:37:19.475602	8	\N	\N	\N
+10	2012-12-19 03:37:28.831839	2012-12-19 03:37:28.831839	balloon2.png	image/png	14952	2012-12-19 03:37:28.621103	8	\N	\N	\N
+11	2012-12-19 03:38:33.435159	2012-12-19 03:38:33.435159	rocket2.png	image/png	5856	2012-12-19 03:38:33.172189	1	\N	\N	\N
+12	2012-12-19 03:38:46.33873	2012-12-19 03:38:46.33873	tree.png	image/png	14890	2012-12-19 03:38:46.058966	1	\N	\N	\N
+14	2012-12-19 04:38:50.679174	2012-12-19 04:38:50.679174	balloon2.png	image/png	14952	2012-12-19 04:38:49.729975	13	\N	\N	\N
+15	2012-12-19 04:38:50.705358	2012-12-19 04:38:50.705358	balloon3.png	image/png	9374	2012-12-19 04:38:50.182163	13	\N	\N	\N
+16	2012-12-19 04:38:50.726257	2012-12-19 04:38:50.726257	sample.png	image/png	44732	2012-12-19 04:38:50.429312	13	\N	\N	\N
+19	2012-12-19 05:24:20.773704	2012-12-19 05:24:20.773704	balloon4.png	image/png	5789	2012-12-19 05:24:19.045497	15	\N	\N	\N
+20	2012-12-19 05:24:20.796691	2012-12-19 05:24:20.796691	balloon3.png	image/png	9374	2012-12-19 05:24:19.7472	15	\N	\N	\N
+21	2012-12-19 05:24:20.816842	2012-12-19 05:24:20.816842	services_bg.png	image/png	55390	2012-12-19 05:24:19.962226	15	\N	\N	\N
+22	2012-12-19 05:24:20.886315	2012-12-19 05:24:20.886315	tree.png	image/png	14890	2012-12-19 05:24:20.512387	15	\N	\N	\N
+27	2012-12-21 09:18:14.099206	2012-12-21 09:18:14.099206	rockin_out_funny.jpg	image/jpeg	43834	2012-12-21 09:18:11.703648	\N	24	\N	\N
+29	2012-12-24 02:51:10.064631	2012-12-24 02:51:10.064631	m51_hallas_big.jpg	image/jpeg	59249	2012-12-24 02:51:07.902395	\N	\N	26	\N
+30	2012-12-24 03:47:06.143125	2012-12-24 03:47:06.143125	shark.jpg	image/jpeg	61110	2012-12-24 03:47:03.953596	\N	\N	27	\N
+31	2012-12-24 04:25:19.617643	2012-12-24 04:25:19.617643	shark.jpg	image/jpeg	61110	2012-12-24 04:25:17.150912	\N	28	\N	\N
+32	2012-12-24 06:03:40.920812	2012-12-24 06:03:40.920812	m51_hallas_big.jpg	image/jpeg	59249	2012-12-24 06:03:37.704598	\N	29	\N	\N
+33	2012-12-24 07:16:18.04186	2012-12-24 07:16:18.04186	rockin_out_funny.jpg	image/jpeg	43834	2012-12-24 07:16:15.632176	\N	30	\N	\N
+34	2012-12-24 07:17:22.862145	2012-12-24 07:17:22.862145	rockin_out_funny.jpg	image/jpeg	43834	2012-12-24 07:17:22.353821	\N	31	\N	\N
+35	2012-12-24 07:50:32.980943	2012-12-24 07:50:32.980943	shark.jpg	image/jpeg	61110	2012-12-24 07:50:27.830155	\N	32	\N	\N
+36	2012-12-24 07:51:21.394308	2012-12-24 07:51:21.394308	rockin_out_funny.jpg	image/jpeg	43834	2012-12-24 07:51:20.935791	\N	33	\N	\N
+37	2012-12-24 09:01:16.587049	2012-12-24 09:01:16.587049	m51_hallas_big.jpg	image/jpeg	59249	2012-12-24 09:01:12.524517	\N	34	\N	\N
+38	2012-12-24 09:02:07.008209	2012-12-24 09:02:07.008209	shark.jpg	image/jpeg	61110	2012-12-24 09:02:06.406595	\N	35	\N	\N
+39	2012-12-24 09:02:33.537555	2012-12-24 09:02:33.537555	rockin_out_funny.jpg	image/jpeg	43834	2012-12-24 09:02:33.22171	\N	36	\N	\N
+40	2012-12-24 09:03:03.131558	2012-12-24 09:03:03.131558	rockin_out_funny.jpg	image/jpeg	43834	2012-12-24 09:03:02.790471	\N	37	\N	\N
+28	2012-12-21 09:38:48.039147	2012-12-26 03:22:29.939015	rockin_out_funny.jpg	image/jpeg	43834	2012-12-26 03:22:28.473817	\N	\N	25	\N
+41	2012-12-26 05:55:38.85841	2012-12-26 05:55:38.85841	m51_hallas_big.jpg	image/jpeg	59249	2012-12-26 05:55:36.138819	\N	38	\N	\N
+47	2012-12-28 07:54:24.625799	2012-12-28 07:54:24.625799	shark.jpg	image/jpeg	61110	2012-12-28 07:54:22.948548	\N	\N	\N	7
+48	2012-12-28 08:45:11.719307	2012-12-28 08:45:11.719307	shark.jpg	image/jpeg	61110	2012-12-28 08:45:09.527383	\N	\N	\N	8
+49	2012-12-28 08:51:49.250022	2012-12-28 08:51:49.250022	shark.jpg	image/jpeg	61110	2012-12-28 08:51:48.744858	\N	\N	\N	9
+\.
+
+
+--
+-- Data for Name: locations; Type: TABLE DATA; Schema: public; Owner: admin
+--
+
+COPY locations (id, created_at, updated_at, address, lat, lng, geocode_address, city, state, country, phone, mobile_phone) FROM stdin;
+6	2012-12-26 02:21:49.654716	2012-12-28 08:00:15.964879	jln Mig 3 No 1 cimahi jawa barat indonesia	-6.92557840000000002	107.552610700000002	\N	Cimahi, West Java - Indonesia 	\N	\N	+6281809466884	+622260001425
+\.
+
+
+--
+-- Data for Name: rails_admin_histories; Type: TABLE DATA; Schema: public; Owner: admin
+--
+
+COPY rails_admin_histories (id, message, username, item, "table", month, year, created_at, updated_at) FROM stdin;
+\.
+
+
+--
+-- Data for Name: rich_rich_files; Type: TABLE DATA; Schema: public; Owner: admin
+--
+
+COPY rich_rich_files (id, created_at, updated_at, rich_file_file_name, rich_file_content_type, rich_file_file_size, rich_file_updated_at, owner_type, owner_id, uri_cache, simplified_type) FROM stdin;
+\.
+
+
+--
+-- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: admin
+--
+
+COPY schema_migrations (version) FROM stdin;
+20121218014706
+20121218015136
+20121218015137
+20121218015855
+20121218015912
+20121218015923
+20121218020803
+20121218021307
+20121218022026
+20121218031227
+20121218031624
+20121218032114
+20121218033148
+20121218051207
+20121218051849
+20121218061926
+20121218063236
+20121218073255
+20121218073542
+20121218073556
+20121218045747
+20121218045758
+20121218053741
+20121218053940
+20121218074801
+20121218081103
+20121218082044
+20121218084939
+20121219023531
+20121219023631
+20121219023936
+20121219024042
+20121219024447
+20121219024923
+20121219055151
+20121219061606
+20121219074414
+20121219081349
+20121219091704
+20121219091945
+20121220065210
+20121219075634
+20121220054519
+20121219080019
+20121220081725
+20121221085155
+20121221090217
+20121221092850
+20121221095328
+20121222015340
+20121222020851
+20121224040132
+20121226021848
+20121226064651
+20121226064652
+20121226064653
+20121226075712
+20121226080719
+20121226080843
+20121226080929
+20121226053312
+20121226054627
+20121228082917
+\.
+
+
+--
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: admin
+--
+
+COPY users (id, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at) FROM stdin;
+1	adika@pushjaw.com	$2a$10$xqnteIhWuzglwMvFJzPEK.XBVyGKeU5039FYp/ZcHtIQU9B41iqQa	\N	\N	\N	13	2013-01-02 02:29:14.79481	2012-12-28 02:34:08.839635	127.0.0.1	127.0.0.1	2012-12-18 04:55:44.607669	2013-01-02 02:29:14.821384
+\.
+
+
+--
+-- Data for Name: videos; Type: TABLE DATA; Schema: public; Owner: admin
+--
+
+COPY videos (id, video_file_name, video_content_type, video_file_size, video_updated_at, created_at, updated_at, title, description) FROM stdin;
+8	11.mp4	video/mp4	12810670	2012-12-28 08:44:37.838138	2012-12-28 08:45:11.475826	2012-12-28 08:45:11.475826	Pushjaw	Pushjaw 
+7	11.mp4	video/mp4	12810670	2012-12-28 07:53:51.50188	2012-12-28 07:54:24.622385	2012-12-28 08:47:17.29637	adsfas	dfdsfdfsdf
+9	11.mp4	video/mp4	12810670	2012-12-28 08:51:17.849621	2012-12-28 08:51:49.246877	2012-12-28 08:51:49.246877	1 jam bersama kami	asdfjalsjfkasjflkjsaklfjasklfjldsfsafdfsa
+\.
+
+
+--
+-- Name: comments_pkey; Type: CONSTRAINT; Schema: public; Owner: admin; Tablespace: 
+--
+
+ALTER TABLE ONLY comments
+    ADD CONSTRAINT comments_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: contacts_pkey; Type: CONSTRAINT; Schema: public; Owner: admin; Tablespace: 
+--
+
+ALTER TABLE ONLY contacts
+    ADD CONSTRAINT contacts_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: features_pkey; Type: CONSTRAINT; Schema: public; Owner: admin; Tablespace: 
+--
+
+ALTER TABLE ONLY features
+    ADD CONSTRAINT features_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: images_pkey; Type: CONSTRAINT; Schema: public; Owner: admin; Tablespace: 
+--
+
+ALTER TABLE ONLY images
+    ADD CONSTRAINT images_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: locations_pkey; Type: CONSTRAINT; Schema: public; Owner: admin; Tablespace: 
+--
+
+ALTER TABLE ONLY locations
+    ADD CONSTRAINT locations_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: rails_admin_histories_pkey; Type: CONSTRAINT; Schema: public; Owner: admin; Tablespace: 
+--
+
+ALTER TABLE ONLY rails_admin_histories
+    ADD CONSTRAINT rails_admin_histories_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: rich_rich_images_pkey; Type: CONSTRAINT; Schema: public; Owner: admin; Tablespace: 
+--
+
+ALTER TABLE ONLY rich_rich_files
+    ADD CONSTRAINT rich_rich_images_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: users_pkey; Type: CONSTRAINT; Schema: public; Owner: admin; Tablespace: 
+--
+
+ALTER TABLE ONLY users
+    ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: videos_pkey; Type: CONSTRAINT; Schema: public; Owner: admin; Tablespace: 
+--
+
+ALTER TABLE ONLY videos
+    ADD CONSTRAINT videos_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: index_rails_admin_histories; Type: INDEX; Schema: public; Owner: admin; Tablespace: 
+--
+
+CREATE INDEX index_rails_admin_histories ON rails_admin_histories USING btree (item, "table", month, year);
+
+
+--
+-- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: admin; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_users_on_email ON users USING btree (email);
+
+
+--
+-- Name: index_users_on_reset_password_token; Type: INDEX; Schema: public; Owner: admin; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_users_on_reset_password_token ON users USING btree (reset_password_token);
+
+
+--
+-- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: admin; Tablespace: 
+--
+
+CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (version);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+

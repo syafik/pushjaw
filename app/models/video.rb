@@ -1,6 +1,6 @@
 class Video < ActiveRecord::Base
   # attr_accessible :title, :body
-  attr_accessible :video, :title, :image_id
+  attr_accessible :video, :title, :image_id, :description
   has_one :image, :dependent => :destroy, :inverse_of => :video
 
   # for nested fields: (natural choice for a has_one association)
@@ -21,7 +21,6 @@ class Video < ActiveRecord::Base
     end
   
   has_attached_file :video, :styles => { 
-    :medium => { :geometry => "640x480", :format => 'mp4' },
-    :medium => { :geometry => "640x480", :format => 'flv' }
+    :medium => { :geometry => "800x600", :format => 'mp4', :rate => "48000" }
   }, :processors => [:ffmpeg]
 end
