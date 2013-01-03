@@ -178,4 +178,12 @@ RailsAdmin.config do |config|
     field :active
   end
   
+  config.model Video do
+    field :video
+    field :title
+    field :description
+    field :active
+    field :image
+  end
+  
 end
