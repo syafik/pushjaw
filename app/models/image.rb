@@ -4,5 +4,4 @@ class Image < ActiveRecord::Base
   belongs_to :service, :inverse_of => :images
   belongs_to :team, :inverse_of => :image
   belongs_to :portfolio, :inverse_of => :image
-  belongs_to :video, :inverse_of => :image
 end

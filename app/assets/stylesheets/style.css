@@ -207,12 +207,6 @@ a:hover { text-decoration: underline; }
     -moz-box-shadow: 1px 1px 3px #bbb;
     -webkit-box-shadow: 1px 1px 3px #888;
 }
-.slider img {
-<<<<<<< HEAD
-=======
-
->>>>>>> 4137aef5fd8dc46b055d860e02d6096188685a0e
-}
 
 div.Description {
     position: relative;
@@ -577,8 +571,7 @@ div.jc-horizontal div.Description p {
     font-family: 'Trebuchet MS',tahoma,arial;
     margin: 10px 10px 10px 0;
     padding: 10px;
-    width: 79%;
-    font-family:
+    width: 79%;    
 }
 .contactform input.btnsend {
     width: 130px;
