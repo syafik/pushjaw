@@ -26,7 +26,6 @@ gem 'fastercsv'
 gem 'rails_admin'
 gem "paperclip"
 gem 'paperclip-ffmpeg'
-gem 'jw_player_helper'
 gem 'mime'
 gem 'mime-types'
 gem 'cocaine'
@@ -51,8 +50,6 @@ gem 'kaminari'
 
 gem "devise"
 gem 'geokit-rails3'
-gem 'gmaps4rails'
-gem 'vimeo'
 gem "twitter-bootstrap-rails"
 gem 'kaminari'
 gem 'rich'
