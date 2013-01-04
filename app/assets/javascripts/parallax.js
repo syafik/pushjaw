@@ -1,71 +1,81 @@
 $(document).ready(function() {
 	
-	/* Scroll event handler */
+    /* Scroll event handler */
     $(window).bind('scroll',function(e){
-    	parallaxScroll();
+        parallaxScroll();
 		
     });
     
-	/* Next/prev and primary nav btn click handlers */
-	$('a.home').click(function(){
-    	$('html, body').animate({
-    		scrollTop:$('#home').offset().top
-    	}, 4000, function() {
-	    	parallaxScroll(); // Callback is required for iOS
-		});
-    	return false;
-	});
+    /* Next/prev and primary nav btn click handlers */
+    $('a.home').click(function(){
+        $('.navigation').hide();
+        $('html, body').animate({
+            scrollTop:$('#home').offset().top
+        }, 4000, function() {
+            parallaxScroll(); // Callback is required for iOS
+            $('.navigation').show();
+        });
+        return false;
+    });
     $('a.services').click(function(){
-    	$('html, body').animate({
-    		scrollTop:$('#services').offset().top
-    	}, 4000, function() {
-	    	parallaxScroll(); // Callback is required for iOS
-		});
-    	return false;
+        $('.navigation').hide();
+        $('html, body').animate({
+            scrollTop:$('#services').offset().top
+        }, 4000, function() {
+            parallaxScroll(); // Callback is required for iOS
+            $('.navigation').show();
+        });
+        return false;
     });
     $('a.portfolio').click(function(){
-    	$('html, body').animate({
-    		scrollTop:$('#portfolio').offset().top
-    	}, 4000, function() {
-	    	parallaxScroll(); // Callback is required for iOS
-		});
-    	return false;
+        $('.navigation').hide();
+        $('html, body').animate({
+            scrollTop:$('#portfolio').offset().top
+        }, 4000, function() {
+            parallaxScroll(); // Callback is required for iOS
+            $('.navigation').show();
+        });
+        return false;
     });
-	$('a.about').click(function(){
-    	$('html, body').animate({
-    		scrollTop:$('#About').offset().top
-    	}, 4000, function() {
-	    	parallaxScroll(); // Callback is required for iOS
-		});
-    	return false;
+    $('a.about').click(function(){
+        $('.navigation').hide();
+        $('html, body').animate({
+            scrollTop:$('#About').offset().top
+        }, 4000, function() {
+            parallaxScroll(); // Callback is required for iOS
+            $('.navigation').show();
+        });
+        return false;
     });
-	$('a.contact').click(function(){
-    	$('html, body').animate({
-    		scrollTop:$('#Contact').offset().top
-    	}, 4000, function() {
-	    	parallaxScroll(); // Callback is required for iOS
-		});
-    	return false;
+    $('a.contact').click(function(){
+        $('.navigation').hide();
+        $('html, body').animate({
+            scrollTop:$('#Contact').offset().top
+        }, 4000, function() {
+            parallaxScroll(); // Callback is required for iOS
+            $('.navigation').show();
+        });
+        return false;
     });
     
-    /* Show/hide dot lav labels on hover */
-    //$('nav#primary a').hover(
-    //	function () {
-	//		$(this).prev('h1').show();
-	//	},
-	//	function () {
-	//		$(this).prev('h1').hide();
-	//	}
-    //);
+/* Show/hide dot lav labels on hover */
+//$('nav#primary a').hover(
+//	function () {
+//		$(this).prev('h1').show();
+//	},
+//	function () {
+//		$(this).prev('h1').hide();
+//	}
+//);
     
 });
 
 /* Scroll the background layers */
 function parallaxScroll(){
-	var scrolled = $(window).scrollTop();
-	//$('.cloud').css('margin-top',(0-(scrolled*.25))+'px');
-	//$('.stork').css('margin-top',(0-(scrolled*.5))+'px');
-	//$('.worm').css('margin-top',(0-(scrolled*.75))+'px');
+    var scrolled = $(window).scrollTop();
+//$('.cloud').css('margin-top',(0-(scrolled*.25))+'px');
+//$('.stork').css('margin-top',(0-(scrolled*.5))+'px');
+//$('.worm').css('margin-top',(0-(scrolled*.75))+'px');
 }
 
 /* Set navigation dots to an active state as the user scrolls */
