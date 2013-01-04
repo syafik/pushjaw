@@ -182,8 +182,7 @@ RailsAdmin.config do |config|
     field :video
     field :title
     field :description
-    field :active
-    field :image
+    field :active    
   end
   
 end
