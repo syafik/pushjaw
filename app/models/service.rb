@@ -1,5 +1,5 @@
 class Service < Feature
-  # attr_accessible :title, :body
+  
   validates :name, :content, :title, presence: true
   has_many :images, :dependent => :destroy, :inverse_of => :service
   
@@ -7,5 +7,4 @@ class Service < Feature
     attr_accessible :images_attributes, :allow_destroy => true
     attr_accessible :image_ids
     
-  
 end
