@@ -39,3 +39,19 @@ end
   print '.'
   Image.create!(:portfolio_id => portfolio.id, :image => open(Rails.root.join('app/assets/images/pushjawcompany.png')))  
 end
+
+10.times do |blog|
+  blog = Blog.create!(:content => "Pushjaw",
+                      :title => "Pushjaw",
+                      :active => false)
+    print '.'
+end
+
+3.times do |video|
+  video = Video.create!(
+    :description => "Pushjaw",
+    :title => "Pushjaw",
+    :video => open(Rails.root.join('app/assets/video/11.mp4')),  
+    :active => false)
+  print '.'
+end
