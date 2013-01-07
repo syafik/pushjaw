@@ -94,7 +94,7 @@
   <div class="content">
     <%= image_tag "title.png", :width=>457, :height => 67 %>
     <p>
-      <%= @home.content %>
+      <%= @home.try(:content) %>
     </p>
   </div>
 
@@ -133,7 +133,7 @@
 
           <%= @comment.try(:comment) %>
         </div>
-        <p>- <%= @comment.try(:name) %>, <%= @comment.title %>, <%= @comment.address %></p>
+        <p>- <%= @comment.try(:name) %>, <%= @comment.try(:title) %>, <%= @comment.try(:address) %></p>
 
       </div>
 
