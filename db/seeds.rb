@@ -9,7 +9,7 @@ Comment.create(name: "Andreas Kisserk", title: "Developer in StablesConfusion", 
 Comment.create(name: "Dani", title: "Developer in Cijagra", address: "INA", comment: "Lorem Ipsum is simply dummy text of the printing and typesetting Lorem Ipsum has been the industry's standard dummy text ever 1500s, when an unknown printer took a galley of type and scrammake a type specimen book..", active: false)\
   
 Location.delete_all
-Location.create(address: "jln mig 3 no 1", mobile_phone: "+6281809466884", phone: "+622260001425", city: "Cimahi, West Java - Indonesia")
+Location.create(address: "jln mig 3 no 1", mobile_phone: "+6281809466884", phone: "+622260001425", city: "Cimahi, West Java - Indonesia", active: true)
 
 Team.delete_all
 Image.delete_all
