@@ -1,9 +1,16 @@
 class Comment < ActiveRecord::Base
+  before_update :check
+  before_create :check
+ 
   attr_accessible :name ,:title, :address, :comment, :active
-  
-  validates_each :active do |record, attr, value|
-  if value and Comment.count(:conditions => {:active => true}) >= 1
-    record.errors.add attr, 'There can only be one TRUE row'
+ 
+  scope :has_active, :conditions => {:active => true}
+     
+  def check
+    self.active == false || 
+      Comment.has_active.size == 0 || 
+      ( Comment.has_active.size == 1 && !self.active_changed?)
   end
-end
-end
+  
+end 
+
