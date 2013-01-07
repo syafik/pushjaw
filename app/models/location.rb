@@ -12,10 +12,15 @@ class Location < ActiveRecord::Base
     self.lat, self.lng = geo.lat,geo.lng if geo.success
   end
   
-  validates_each :address do |record, attr, value|
-  if value and Location.count >= 1
-    record.errors.add attr, 'There can only be one record'
+  before_update :make_false  
+  before_create :make_false
+  
+  scope :has_active, :conditions => {:active => true}
+  
+  def make_false
+    self.active == false || 
+      Location.has_active.size == 0 || 
+      ( Location.has_active.size == 1 && !self.active_changed?)
   end
-end
 
 end

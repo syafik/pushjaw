@@ -2,12 +2,18 @@ class Blog < Feature
   # attr_accessible :title, :body
   extend FriendlyId
   friendly_id :title
-  validates :content,:title, presence: true
+  validates :content,:title, :presence => true
   
-  validates_each :active do |record, attr, value|
-  if value and Blog.count(:conditions => {:active => true}) >= 2
-    record.errors.add attr, 'There can only be two TRUE row'
+  before_update :make_false  
+  before_create :make_false
+  
+  scope :has_active, :conditions => {:active => true}
+  
+  def make_false
+    self.active == false || 
+      Blog.has_active.size == 0 || 
+      Blog.has_active.size == 1 || 
+      ( Blog.has_active.size == 2 && !self.active_changed?)
   end
-end
 
 end

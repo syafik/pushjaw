@@ -10,10 +10,23 @@ class Video < ActiveRecord::Base
     :message => "Sorry, right now we only support MP4 video",
     :if => :is_type_of_video?
 
-  validates_each :active do |record, attr, value|
-    if value and Video.count(:conditions => {:active => true}) >= 3
-      record.errors.add attr, 'There can only be 3 TRUE row'
-    end
+#  validates_each :active do |record, attr, value|
+#    if value and Video.count(:conditions => {:active => true}) >= 3
+#      record.errors.add attr, 'There can only be 3 TRUE row'
+#    end
+#  end
+
+  before_update :make_false  
+  before_create :make_false
+  
+  scope :has_active, :conditions => {:active => true}
+  
+  def make_false
+    self.active == false || 
+      Video.has_active.size == 0 || 
+      Video.has_active.size == 1 || 
+      Video.has_active.size == 2 || 
+      ( Video.has_active.size == 3 && !self.active_changed?)
   end
   
   has_attached_file :video, :styles => { 

@@ -15,4 +15,5 @@ class Portfolio < Feature
   def image_id=(id)
     self.image = Image.find_by_id(id)
   end
+  
 end
