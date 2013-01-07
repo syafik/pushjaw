@@ -185,4 +185,10 @@ RailsAdmin.config do |config|
     field :active    
   end
   
+  config.model User do
+    field :email
+    field :password
+    field :password_confirmation
+  end
+  
 end

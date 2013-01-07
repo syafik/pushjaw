@@ -1,6 +1,6 @@
 <script type="text/javascript">
   function initialize() {
-    var myLatlng = new google.maps.LatLng(<%= @res.lat %>,<%= @res.lng %>);
+    var myLatlng = new google.maps.LatLng(<%= @res.try(:lat) %>,<%= @res.try(:lng) %>);
     var mapOptions = {
       zoom: 18,
       center: myLatlng,
@@ -69,10 +69,10 @@
       <div class="slides slider">
         <% @portfolios.each do |portfolio| %>
           <div>
-            <%= image_tag portfolio.image.image.url, :width=>"641", :height=>"399" %>
+            <%= image_tag portfolio.image.try(:image), :width=>"641", :height=>"399" %>
             <div class="Description">
-              <a href="<%= portfolio.url %>" target="_blank"><%= portfolio.title %></a>
-              <p><%= truncate(strip_tags(portfolio.content), length: 70 ) %></p>
+              <a href="<%= portfolio.try(:url) %>" target="_blank"><%= portfolio.try(:title) %></a>
+              <p><%= truncate(strip_tags(portfolio.try(:content)), length: 70 ) %></p>
             </div>
           </div>
         <% end %>
@@ -157,8 +157,8 @@
               </a>
             </a>
             <span>
-              <h1><%= video.title %></h1>
-              <p><%= video.description %></p>
+              <h1><%= video.try(:title) %></h1>
+              <p><%= video.try(:description) %></p>
             </span>
           </div>
         <% end %>
