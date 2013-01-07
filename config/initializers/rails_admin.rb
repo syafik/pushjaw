@@ -141,6 +141,7 @@ RailsAdmin.config do |config|
     field :phone
     field :mobile_phone
     field :city
+    field :active
   end
   
   config.model About do

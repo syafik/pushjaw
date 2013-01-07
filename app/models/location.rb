@@ -1,5 +1,5 @@
 class Location < ActiveRecord::Base
-  attr_accessible :address, :phone, :mobile_phone, :city
+  attr_accessible :address, :phone, :mobile_phone, :city, :active
   validates :address, :city, presence: true
   
   acts_as_mappable
