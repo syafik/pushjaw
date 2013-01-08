@@ -50,21 +50,21 @@
       $('.tooltips').poshytip({className: 'tip-twitter',showTimeout: 1,alignTo: 'target',alignX: 'center',offsetY: 5,allowTipHover: false,fade: false,slide: false});
       $("document").ready(function(){$("div#sliderwraper").jContent({orientation: 'horizontal', easing: "easeOutCirc", duration: 500,auto: true});});
       $('.cloudmoving').clouds({xmlMap: '../assets/clouds.xml',bobHeight: 0,speed: 20});
-      <%#*function init() {%>
-        <%#*$('html, body').animate({%>
-          <%#*scrollTop:$('#home').offset().top%>
-        <%#*}, 5000, function() {%>
-          <%#*parallaxScroll(); // Callback is required for iOS%>
-        <%#*});%>
-        <%#*return false;%>
-      <%#*}%>
-      <%#*window.onload = init;%>
-      <%#*$(".content_6").mCustomScrollbar({%>
-        <%#*horizontalScroll:true,%>
-        <%#*advanced:{%>
-          <%#*autoExpandHorizontalScroll:true%>
-        <%#*}%>
-      <%#*});%>
+      function init() {
+        $('html, body').animate({
+          scrollTop:$('#home').offset().top
+        }, 5000, function() {
+          parallaxScroll(); // Callback is required for iOS
+        });
+        return false;
+      }
+      window.onload = init;
+      $(".content_6").mCustomScrollbar({
+        horizontalScroll:true,
+        advanced:{
+          autoExpandHorizontalScroll:true
+        }
+      });
     </script> 
 
     <script type="text/javascript"
