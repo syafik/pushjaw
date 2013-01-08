@@ -22,6 +22,7 @@ class Video < ActiveRecord::Base
   scope :has_active, :conditions => {:active => true}
   
   def make_false
+    errors.add :active, "There can only be three TRUE row"
     self.active == false || 
       Video.has_active.size == 0 || 
       Video.has_active.size == 1 || 

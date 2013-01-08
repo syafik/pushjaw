@@ -18,6 +18,7 @@ class Location < ActiveRecord::Base
   scope :has_active, :conditions => {:active => true}
   
   def make_false
+    errors.add :active, "There can only be one TRUE row"
     self.active == false || 
       Location.has_active.size == 0 || 
       ( Location.has_active.size == 1 && !self.active_changed?)

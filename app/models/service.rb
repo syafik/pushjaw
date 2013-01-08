@@ -13,6 +13,7 @@ class Service < Feature
   scope :has_active, :conditions => {:active => true}
   
   def make_false
+    errors.add :active, "There can only be five TRUE row"
       self.active == false || 
         Service.has_active.size == 0 ||
         Service.has_active.size == 1 ||

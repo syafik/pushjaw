@@ -10,6 +10,7 @@ class Blog < Feature
   scope :has_active, :conditions => {:active => true}
   
   def make_false
+    errors.add :active, "There can only be two TRUE row"
     self.active == false || 
       Blog.has_active.size == 0 || 
       Blog.has_active.size == 1 || 
