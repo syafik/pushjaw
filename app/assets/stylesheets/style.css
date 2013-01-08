@@ -78,8 +78,11 @@ a:hover { text-decoration: underline; }
 }
 .navigation li a:hover {
     text-decoration: none;
-    background: url("../assets/menuhover_bg.png") no-repeat;
-    color: #ab4b00;
+    background: url("../assets/menu_bg.png") no-repeat;
+    color: #ab4b00d;
+    margin-top: -10px;
+    height: 50px;
+    padding-top: -10px;
     text-shadow: none;
 }
 .navigation li a.focus, .navigation li a.click .navigation li a.active {

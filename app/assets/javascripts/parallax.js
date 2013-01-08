@@ -7,53 +7,64 @@ $(document).ready(function() {
     });
     
     /* Next/prev and primary nav btn click handlers */
+    /* Next/prev and primary nav btn click handlers */
     $('a.home').click(function(){
-        $('.navigation').hide();
+       $("a.portfolio, a.services, a.about, a.contact").css('background-image', 'url("../assets/menu_bg.png")');
+        $('.navigation').fadeOut();
         $('html, body').animate({
             scrollTop:$('#home').offset().top
         }, 4000, function() {
             parallaxScroll(); // Callback is required for iOS
-            $('.navigation').show();
+            $('.navigation').fadeIn();
+           $("a.home").css('background-image', 'url("../assets/menuhover_bg.png")');
         });
         return false;
     });
     $('a.services').click(function(){
-        $('.navigation').hide();
+         $("a.home, a.portfolio, a.about, a.contact").css('background-image', 'url("../assets/menu_bg.png")');
+        $('.navigation').fadeOut();
         $('html, body').animate({
             scrollTop:$('#services').offset().top
         }, 4000, function() {
             parallaxScroll(); // Callback is required for iOS
-            $('.navigation').show();
+           $('.navigation').fadeIn();
+            $("a.services").css('background-image', 'url("../assets/menuhover_bg.png")');           
         });
         return false;
     });
     $('a.portfolio').click(function(){
-        $('.navigation').hide();
+       $("a.home, a.services, a.about, a.contact").css('background-image', 'url("../assets/menu_bg.png")');
+     $('.navigation').fadeOut();
         $('html, body').animate({
             scrollTop:$('#portfolio').offset().top
         }, 4000, function() {
             parallaxScroll(); // Callback is required for iOS
-            $('.navigation').show();
+          $('.navigation').fadeIn();
+            $("a.portfolio").css('background-image', 'url("../assets/menuhover_bg.png")');
         });
         return false;
     });
     $('a.about').click(function(){
-        $('.navigation').hide();
+       $("a.home, a.portfolio, a.services, a.contact").css('background-image', 'url("../assets/menu_bg.png")');
+       $('.navigation').fadeOut();
         $('html, body').animate({
             scrollTop:$('#About').offset().top
         }, 4000, function() {
             parallaxScroll(); // Callback is required for iOS
-            $('.navigation').show();
+           $('.navigation').fadeIn();
+            $("a.about").css('background-image', 'url("../assets/menuhover_bg.png")');
         });
         return false;
     });
     $('a.contact').click(function(){
-        $('.navigation').hide();
+       $("a.home, a.portfolio, a.about, a.services").css('background-image', 'url("../assets/menu_bg.png")');
+       $('.navigation').fadeOut();
         $('html, body').animate({
             scrollTop:$('#Contact').offset().top
         }, 4000, function() {
             parallaxScroll(); // Callback is required for iOS
-            $('.navigation').show();
+          $('.navigation').fadeIn();
+            $("a.contact").css('background-image', 'url("../assets/menuhover_bg.png")');
         });
         return false;
     });
