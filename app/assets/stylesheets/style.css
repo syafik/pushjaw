@@ -888,7 +888,7 @@ ul.tabs li.current a
 .tab-container {
     border-top: none;
     clear: both;
-
+    position: absolute;
 }
 .tab-content {
     padding: 20px;
