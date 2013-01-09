@@ -78,7 +78,7 @@ a:hover { text-decoration: underline; }
 }
 
 .navigation li a.active{
-    background-image: url(http://localhost:3000/assets/menuhover_bg.png);
+    background-image: url("../assets/menuhover_bg.png");
 }
 
 .navigation li a:hover {
