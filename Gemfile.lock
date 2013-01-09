@@ -60,13 +60,8 @@ GEM
     geokit-rails3 (0.1.5)
       geokit (~> 1.5)
       rails (~> 3.0)
-    gmaps4rails (1.5.6)
     haml (3.1.7)
     hike (1.2.1)
-    httparty (0.9.0)
-      multi_json (~> 1.0)
-      multi_xml
-    httpclient (2.3.1)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (2.1.4)
@@ -76,7 +71,6 @@ GEM
       jquery-rails
       railties (>= 3.1.0)
     json (1.7.5)
-    jw_player_helper (0.0.1)
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -87,11 +81,8 @@ GEM
     mime (0.1)
     mime-types (1.19)
     multi_json (1.5.0)
-    multi_xml (0.5.1)
-    multipart-post (1.1.5)
     nested_form (0.3.1)
     nokogiri (1.5.5)
-    oauth (0.4.7)
     orm_adapter (0.4.0)
     paperclip (3.3.1)
       activemodel (>= 3.0.0)
@@ -181,12 +172,6 @@ GEM
     uglifier (1.3.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
-    vimeo (1.5.3)
-      httparty (>= 0.4.5)
-      httpclient (>= 2.1.5.2)
-      json (>= 1.1.9)
-      multipart-post (>= 1.0.1)
-      oauth (>= 0.4.3)
     warden (1.2.1)
       rack (>= 1.0)
 
@@ -201,9 +186,7 @@ DEPENDENCIES
   ffmpeg
   friendly_id (~> 4.0.1)
   geokit-rails3
-  gmaps4rails
   jquery-rails
-  jw_player_helper
   kaminari
   mime
   mime-types
@@ -217,4 +200,3 @@ DEPENDENCIES
   sqlite3
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
-  vimeo

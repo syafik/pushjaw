@@ -109,8 +109,8 @@ a:hover { text-decoration: underline; }
 .ufo {
     background: url("../assets/ufo.png") no-repeat;
     height: 237px;
-    margin-left: 100px;
-    margin-top: 350px;
+    margin-left: 75px;
+    margin-top: 390px;
     position: absolute;
     width: 218px;
 }
@@ -132,7 +132,7 @@ a:hover { text-decoration: underline; }
 .ct_services {
     color: #FFFFFF;
     float: right;
-    margin-left: 275px;
+    margin-left: 260px;
     margin-top: 155px;
     line-height: 20px;
     font-size: 13px;
@@ -853,7 +853,7 @@ div.js-circle
 
 }
 ul.tabs {
-    margin: 125px 0 0 285px;
+    margin: 125px 0 0 270px;
     padding: 0;
     list-style: none;
     position: absolute;
@@ -1225,4 +1225,27 @@ a:hover,a:active {
 .slides_control{
     height:500px;
 
+}
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(0,0,255,0.3);
+    -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(0,0,255,0.5); 
 }
