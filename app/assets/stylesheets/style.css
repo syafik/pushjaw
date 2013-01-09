@@ -15,7 +15,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     outline: none;
 }
 html { height: 101%; } /* always display scrollbars */
-body { font-size: 62.5%; line-height: 1; font-family: Arial, Tahoma, Verdana, sans-serif; background: #83b9e1;overflow-y: auto;overflow-x: hidden;}
+body { font-size: 62.5%; line-height: 1; font-family: Arial, Tahoma, Verdana, sans-serif; background: #83b9e1;overflow-y: true;overflow-x: hidden;}
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
 ol, ul { list-style: none; }
@@ -127,7 +127,7 @@ a:hover { text-decoration: underline; }
 .ct_services {
     color: #FFFFFF;
     float: right;
-    margin-left: 318px;
+    margin-left: 275px;
     margin-top: 155px;
     line-height: 20px;
     font-size: 13px;
@@ -848,7 +848,7 @@ div.js-circle
 
 }
 ul.tabs {
-    margin: 125px 0 0 330px;
+    margin: 125px 0 0 285px;
     padding: 0;
     list-style: none;
     position: absolute;
