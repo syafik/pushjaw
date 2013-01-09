@@ -9,64 +9,97 @@ $(document).ready(function() {
     /* Next/prev and primary nav btn click handlers */
     /* Next/prev and primary nav btn click handlers */
     $('a.home').click(function(){
-       $("a.portfolio, a.services, a.about, a.contact").css('background-image', 'url("../assets/menu_bg.png")');
-        $('.navigation').fadeOut();
-        $('html, body').animate({
-            scrollTop:$('#home').offset().top
-        }, 4000, function() {
-            parallaxScroll(); // Callback is required for iOS
-            $('.navigation').fadeIn();
-           $("a.home").css('background-image', 'url("../assets/menuhover_bg.png")');
-        });
-        return false;
+        if (!$(this).hasClass('active')){
+            $('ul.navigation li a').removeClass('active');
+            $(this).addClass('active');
+            $('.navigation').fadeOut();
+            $('html, body').animate({
+                scrollTop:$('#home').offset().top
+            }, 4000, function() {
+                parallaxScroll(); // Callback is required for iOS
+                $('.navigation').fadeIn();
+            });
+            return false;
+        }
+        else
+        {
+                
+    }    
     });
+    
     $('a.services').click(function(){
-         $("a.home, a.portfolio, a.about, a.contact").css('background-image', 'url("../assets/menu_bg.png")');
-        $('.navigation').fadeOut();
-        $('html, body').animate({
-            scrollTop:$('#services').offset().top
-        }, 4000, function() {
-            parallaxScroll(); // Callback is required for iOS
-           $('.navigation').fadeIn();
-            $("a.services").css('background-image', 'url("../assets/menuhover_bg.png")');           
-        });
-        return false;
+        if (!$(this).hasClass('active')){
+            $('ul.navigation li a').removeClass('active');
+            $(this).addClass('active');
+            $('.navigation').fadeOut();
+            $('html, body').animate({
+                scrollTop:$('#services').offset().top
+            }, 4000, function() {
+                parallaxScroll(); // Callback is required for iOS
+                $('.navigation').fadeIn();
+            });
+            return false;
+        }
+        else
+        {
+                
+    }  
     });
+    
     $('a.portfolio').click(function(){
-       $("a.home, a.services, a.about, a.contact").css('background-image', 'url("../assets/menu_bg.png")');
-     $('.navigation').fadeOut();
-        $('html, body').animate({
-            scrollTop:$('#portfolio').offset().top
-        }, 4000, function() {
-            parallaxScroll(); // Callback is required for iOS
-          $('.navigation').fadeIn();
-            $("a.portfolio").css('background-image', 'url("../assets/menuhover_bg.png")');
-        });
-        return false;
+        if (!$(this).hasClass('active')){
+            $('ul.navigation li a').removeClass('active');
+            $(this).addClass('active');
+            $('.navigation').fadeOut();
+            $('html, body').animate({
+                scrollTop:$('#portfolio').offset().top
+            }, 4000, function() {
+                parallaxScroll(); // Callback is required for iOS
+                $('.navigation').fadeIn();
+            });
+            return false;
+        }
+        else
+        {
+                
+    }  
     });
+    
     $('a.about').click(function(){
-       $("a.home, a.portfolio, a.services, a.contact").css('background-image', 'url("../assets/menu_bg.png")');
-       $('.navigation').fadeOut();
-        $('html, body').animate({
-            scrollTop:$('#About').offset().top
-        }, 4000, function() {
-            parallaxScroll(); // Callback is required for iOS
-           $('.navigation').fadeIn();
-            $("a.about").css('background-image', 'url("../assets/menuhover_bg.png")');
-        });
-        return false;
+        if (!$(this).hasClass('active')){
+            $('ul.navigation li a').removeClass('active');
+            $(this).addClass('active');
+            $('.navigation').fadeOut();
+            $('html, body').animate({
+                scrollTop:$('#About').offset().top
+            }, 4000, function() {
+                parallaxScroll(); // Callback is required for iOS
+                $('.navigation').fadeIn();
+            });
+            return false;
+        }
+        else
+        {
+                
+    } 
     });
     $('a.contact').click(function(){
-       $("a.home, a.portfolio, a.about, a.services").css('background-image', 'url("../assets/menu_bg.png")');
-       $('.navigation').fadeOut();
-        $('html, body').animate({
-            scrollTop:$('#Contact').offset().top
-        }, 4000, function() {
-            parallaxScroll(); // Callback is required for iOS
-          $('.navigation').fadeIn();
-            $("a.contact").css('background-image', 'url("../assets/menuhover_bg.png")');
-        });
-        return false;
+        if (!$(this).hasClass('active')){
+            $('ul.navigation li a').removeClass('active');
+            $(this).addClass('active');
+            $('.navigation').fadeOut();
+            $('html, body').animate({
+                scrollTop:$('#Contact').offset().top
+            }, 4000, function() {
+                parallaxScroll(); // Callback is required for iOS
+                $('.navigation').fadeIn();
+            });
+            return false;
+        }
+        else
+        {
+                
+    }
     });
     
 /* Show/hide dot lav labels on hover */
