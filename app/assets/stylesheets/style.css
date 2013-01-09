@@ -1053,114 +1053,114 @@ ul.tabs li.current a
 /* video slider*/
 
 #container {
-	width:800px;
-	padding:0px;
-	margin:0 auto;
-	position:relative;
-	z-index:0;
+    width:800px;
+    padding:0px;
+    margin:0 auto;
+    position:relative;
+    z-index:0;
 }
 
 /*#products_example {
-	width:800px;
-	height:550px;
-	position:relative;
+        width:800px;
+        height:550px;
+        position:relative;
 }*/
 
 /*
-	Slideshow
+        Slideshow
 */
 
 /*#products {
-	margin-left:-110px;
+        margin-left:-110px;
 }*/
 
 /*
-	Slides container
-	Important:
-	Set the width of your slides container
-	Set to display none, prevents content flash
+        Slides container
+        Important:
+        Set the width of your slides container
+        Set to display none, prevents content flash
 */
 
 /*#products .slides_container {
-	width:800px;
-	overflow:hidden;
-	float:left;
-	position:relative;
-	border:1px solid #dfdfdf;
-	border:none;
-	display:none;
+        width:800px;
+        overflow:hidden;
+        float:left;
+        position:relative;
+        border:1px solid #dfdfdf;
+        border:none;
+        display:none;
 }*/
 
 /*
-	Each slide
-	Important:
-	Set the width of your slides
-	If height not specified height will be set by the slide content
-	Set to display block
+        Each slide
+        Important:
+        Set the width of your slides
+        If height not specified height will be set by the slide content
+        Set to display block
 */
 /*
 .slides_container a {
-	width:700px;
-	height:500px;
-	display:block;
+        width:700px;
+        height:500px;
+        display:block;
 }*/
 
 /*
-	Next/prev buttons
+        Next/prev buttons
 */
 
 /*#products .next,#products .prev {
-	position:absolute;
-	top:127px;
-	left:0;
-	width:21px;
-	height:0;
-	padding-top:21px;
-	overflow:hidden;
-	display:block;
-	z-index:101;
-	z-index:1010;
+        position:absolute;
+        top:127px;
+        left:0;
+        width:21px;
+        height:0;
+        padding-top:21px;
+        overflow:hidden;
+        display:block;
+        z-index:101;
+        z-index:1010;
 }
 
 #products .prev {
-	background:url(../assets/slide/arrow-prev.png);
+        background:url(../assets/slide/arrow-prev.png);
 }
 
 #products .next {
-	left:398px;
-	background:url(../assets/slide/arrow-next.png);
+        left:398px;
+        background:url(../assets/slide/arrow-next.png);
 }*/
 
 /*
-	Pagination
+        Pagination
 */
 
 /*#products .pagination {
-	background:#dfdfdf;
-	background:none;
-	width:60px;
-	padding:5px 5px;
-	float:left;
-	margin-left:30px;
-	border-radius:5px;
-	-webkit-border-radius:5px;
-	-moz-border-radius:5px;
+        background:#dfdfdf;
+        background:none;
+        width:60px;
+        padding:5px 5px;
+        float:left;
+        margin-left:30px;
+        border-radius:5px;
+        -webkit-border-radius:5px;
+        -moz-border-radius:5px;
 }
 
 #products .pagination li {
-	float:left;
-	margin:2px 4px;
-	margin:2px 2px;
-	list-style:none;
+        float:left;
+        margin:2px 4px;
+        margin:2px 2px;
+        list-style:none;
 }
 
 #products .pagination li a {
-	display:block;
-	width:55px;
-	height:55px;
-	margin:1px;
-	float:left;
-	background:#f9f9f9;
+        display:block;
+        width:55px;
+        height:55px;
+        margin:1px;
+        float:left;
+        background:#f9f9f9;
 }
 
 #products .pagination li a img{
@@ -1173,41 +1173,41 @@ ul.tabs li.current a
 
 
 #products .pagination li.current a {
-	border:1px solid #7f7f7f;
-	border:none;
-	margin:0;
+        border:1px solid #7f7f7f;
+        border:none;
+        margin:0;
 }*/
 
 /*
-	Footer
+        Footer
 */
 
 #footer {
-	clear:both;
-	text-align:center;
-	width:580px;
-	margin-top:9px;
-	padding:4.5px 0 18px;
-	border-top:1px solid #dfdfdf;
+    clear:both;
+    text-align:center;
+    width:580px;
+    margin-top:9px;
+    padding:4.5px 0 18px;
+    border-top:1px solid #dfdfdf;
 }
 
 #footer p {
-	margin:4.5px 0;
-	font-size:1.0em;
+    margin:4.5px 0;
+    font-size:1.0em;
 }
 
 /*
-	Anchors
+        Anchors
 */
 
 a:link,a:visited {
-	color:#599100;
-	text-decoration:none;
+    color:#599100;
+    text-decoration:none;
 }
 
 a:hover,a:active {
-	color:#599100;
-	text-decoration:underline;
+    color:#599100;
+    text-decoration:underline;
 }
 
 
@@ -1221,14 +1221,14 @@ a:hover,a:active {
 ::-webkit-scrollbar {
     width: 10px;
 }
- 
+
 /* Track */
 ::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
     -webkit-border-radius: 10px;
     border-radius: 10px;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 10px;
@@ -1237,5 +1237,17 @@ a:hover,a:active {
     -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.5); 
 }
 ::-webkit-scrollbar-thumb:window-inactive {
-	background: rgba(0,0,255,0.5); 
+    background: rgba(0,0,255,0.5); 
+}
+
+input.btn {
+    background-image: url("../assets/close.png");  
+    height: 40px;
+    width: 40px;
+    background-color: transparent;  
+    background-repeat: no-repeat;  
+    background-position: -3px 0px;   
+    border: none;     
+    margin-left: 800px;
+    cursor: pointer;         
 }
