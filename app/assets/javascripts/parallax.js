@@ -10,8 +10,10 @@ $(document).ready(function() {
     /* Next/prev and primary nav btn click handlers */
     $('a.home').click(function(){
         if (!$(this).hasClass('active')){
+            $('#site div.active').removeClass('active');
             $('ul.navigation li a').removeClass('active');
             $(this).addClass('active');
+            $('#site #home').addClass('active');
             $('.navigation').fadeOut();
             $('html, body').animate({
                 scrollTop:$('#home').offset().top
@@ -31,6 +33,7 @@ $(document).ready(function() {
         if (!$(this).hasClass('active')){
             $('ul.navigation li a').removeClass('active');
             $(this).addClass('active');
+            $('#site #services').addClass('active');
             $('.navigation').fadeOut();
             $('html, body').animate({
                 scrollTop:$('#services').offset().top
@@ -50,6 +53,7 @@ $(document).ready(function() {
         if (!$(this).hasClass('active')){
             $('ul.navigation li a').removeClass('active');
             $(this).addClass('active');
+            $('#site #portfolio').addClass('active');
             $('.navigation').fadeOut();
             $('html, body').animate({
                 scrollTop:$('#portfolio').offset().top
@@ -69,6 +73,7 @@ $(document).ready(function() {
         if (!$(this).hasClass('active')){
             $('ul.navigation li a').removeClass('active');
             $(this).addClass('active');
+            $('#site #about').addClass('active');
             $('.navigation').fadeOut();
             $('html, body').animate({
                 scrollTop:$('#About').offset().top
@@ -87,6 +92,7 @@ $(document).ready(function() {
         if (!$(this).hasClass('active')){
             $('ul.navigation li a').removeClass('active');
             $(this).addClass('active');
+            $('#site #contact').addClass('active');
             $('.navigation').fadeOut();
             $('html, body').animate({
                 scrollTop:$('#Contact').offset().top
