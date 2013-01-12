@@ -56,3 +56,6 @@ $(document).ready(function(){
     });
 })
 }
+
+//$(window).bind('mousewheel', function(){ return false; })
+//$('body').unmousewheel()

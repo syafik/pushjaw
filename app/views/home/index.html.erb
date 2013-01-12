@@ -1,26 +1,8 @@
-<script type="text/javascript">
-  function initialize() {
-    var myLatlng = new google.maps.LatLng(<%= @res.try(:lat) %>,<%= @res.try(:lng) %>);
-    var mapOptions = {
-      zoom: 18,
-      center: myLatlng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
-    var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-
-    var marker = new google.maps.Marker({
-      position: myLatlng,
-      map: map,
-      title:"Hello World!"
-    });
-  }
-</script>
-
 <div class="nav">
   <ul class="navigation">
     <li><a class="home active" href="#home">Home</a></li> 
-    <li><a class="services" href="#services">Services</a></li>
     <li><a class="portfolio" href="#portfolio">Portfolio</a></li>
+    <li><a class="services" href="#services">Services</a></li>
     <li><a class="about" href="#About">About Us</a></li>
     <li><a class="contact" href="#Contact">Contact Us</a></li>
     <li><a class="Blogs" href=<%= blogs_path %> target="_blank">Blog</a></li>
@@ -29,7 +11,7 @@
 
 <div id="site">
   <div id="section-wrapper">
-    <div class ="section" id="services">
+    <div id="services">
       <div class="page">
         <ul class="tabs">
           <% @services.each_with_index do |service, i|%>
@@ -87,7 +69,7 @@
 
     </div>
 
-    <div id="home" class="clearfix section">
+    <div id="home" class="clearfix">
       <div class="cloudmoving"/></div>
     <div class="cloud3"></div>
     <div class="birds"></div>
@@ -115,7 +97,7 @@
       <div class="tree"></div>
     </div>
   </div>
-  <div id="About" class="clearfix section">
+  <div id="About" class="clearfix">
 
     <div class="water">
       <%= image_tag 'jawshadow.png', :class => 'pos' %>
@@ -170,7 +152,7 @@
     </div>
     <%= image_tag 'reef.png', :class=>'reef',:width=>"100%" %>
   </div>
-  <div id="Contact" class="section">
+  <div id="Contact">
     <div class="border"></div>
     <div class="border3"></div>
     <div class="cyrcle"></div>
@@ -228,7 +210,23 @@
   &copy; copyright pushjaw 2012
 </footer>
 
-
 <%= render 'video' %>
 
+<script type="text/javascript">
+  function initialize() {
+    var myLatlng = new google.maps.LatLng(<%= @res.try(:lat) %>,<%= @res.try(:lng) %>);
+    var mapOptions = {
+      zoom: 18,
+      center: myLatlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+    var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+    var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title:"Hello World!"
+    });
+  }
+</script>
 
