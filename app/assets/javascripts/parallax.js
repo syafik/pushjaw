@@ -17,7 +17,7 @@ $(document).ready(function() {
             $('.navigation').fadeOut();
             $('html, body').animate({
                 scrollTop:$('#home').offset().top
-            }, 4000, function() {
+            }, 2000, function() {
                 parallaxScroll(); // Callback is required for iOS
                 $('.navigation').fadeIn();
             });
@@ -37,7 +37,7 @@ $(document).ready(function() {
             $('.navigation').fadeOut();
             $('html, body').animate({
                 scrollTop:$('#services').offset().top
-            }, 4000, function() {
+            }, 2000, function() {
                 parallaxScroll(); // Callback is required for iOS
                 $('.navigation').fadeIn();
             });
@@ -57,7 +57,7 @@ $(document).ready(function() {
             $('.navigation').fadeOut();
             $('html, body').animate({
                 scrollTop:$('#portfolio').offset().top
-            }, 4000, function() {
+            }, 2000, function() {
                 parallaxScroll(); // Callback is required for iOS
                 $('.navigation').fadeIn();
             });
@@ -77,7 +77,7 @@ $(document).ready(function() {
             $('.navigation').fadeOut();
             $('html, body').animate({
                 scrollTop:$('#About').offset().top
-            }, 4000, function() {
+            }, 2000, function() {
                 parallaxScroll(); // Callback is required for iOS
                 $('.navigation').fadeIn();
             });
@@ -96,7 +96,7 @@ $(document).ready(function() {
             $('.navigation').fadeOut();
             $('html, body').animate({
                 scrollTop:$('#Contact').offset().top
-            }, 4000, function() {
+            }, 2000, function() {
                 parallaxScroll(); // Callback is required for iOS
                 $('.navigation').fadeIn();
             });
