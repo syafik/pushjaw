@@ -1,11 +1,13 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
+gem 'execjs'
+gem 'therubyracer'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+#gem 'sqlite3'
 
 
 # Gems used only for assets and not required
@@ -21,7 +23,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'pg', '~> 0.14.1'
+#gem 'pg', '~> 0.14.1'
+gem 'mysql2'
 gem 'fastercsv'
 gem 'rails_admin'
 gem "paperclip"
