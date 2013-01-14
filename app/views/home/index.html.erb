@@ -228,5 +228,12 @@
       title:"Hello World!"
     });
   }
+
+<% @videos.each_with_index do |video,i| %>
+    $('#myModal<%= i+1 %>  .btn, .modal-backdrop').live('click',function(){ 
+      $('#myModal<%= i+1 %>').hide(); 
+      _V_('#my_video_<%= i %>_html5_api').pause();
+    });
+<% end %>
 </script>
 
