@@ -76,12 +76,12 @@ Blog.limit(2).each do |blog|
   blog.update_attribute("active", true)
 end
 
-#3.times do |video|
-#  video = Video.create!(
-#    :description => "Pushjaw",
-#    :title => "Pushjaw",
-#    :video => open(Rails.root.join('app/assets/video/11.mp4')),  
-#    :active => true)
-#  print '.'
-#end
+3.times do |video|
+  video = Video.create!(
+    :description => "Pushjaw",
+    :title => "Pushjaw",
+    :video => open(Rails.root.join('app/assets/video/11.mp4')),  
+    :active => true)
+  print '.'
+end
 
