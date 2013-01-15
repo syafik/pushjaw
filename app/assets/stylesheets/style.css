@@ -476,11 +476,8 @@ div.jc-horizontal div.Description p {
 }
 
 .teamwrap img:hover {
-    border: 5px solid #fff;
-    margin: 15px;
-    margin-top: -10px;
-    height: 120px;
-    padding-top: -10px;
+    border: 5px solid #aad;
+    margin-top: -20px;
 }
 
 .gall h3 {
