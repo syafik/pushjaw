@@ -944,7 +944,7 @@ ul.tabs li.current a
     left: 0;
     position: relative;
     top: 0;
-    width: 100%;
+    width: 90%;
 }
 
 .modal-backdrop {
@@ -1069,124 +1069,6 @@ ul.tabs li.current a
     z-index:0;
 }
 
-/*#products_example {
-        width:800px;
-        height:550px;
-        position:relative;
-}*/
-
-/*
-        Slideshow
-*/
-
-/*#products {
-        margin-left:-110px;
-}*/
-
-/*
-        Slides container
-        Important:
-        Set the width of your slides container
-        Set to display none, prevents content flash
-*/
-
-/*#products .slides_container {
-        width:800px;
-        overflow:hidden;
-        float:left;
-        position:relative;
-        border:1px solid #dfdfdf;
-        border:none;
-        display:none;
-}*/
-
-/*
-        Each slide
-        Important:
-        Set the width of your slides
-        If height not specified height will be set by the slide content
-        Set to display block
-*/
-/*
-.slides_container a {
-        width:700px;
-        height:500px;
-        display:block;
-}*/
-
-/*
-        Next/prev buttons
-*/
-
-/*#products .next,#products .prev {
-        position:absolute;
-        top:127px;
-        left:0;
-        width:21px;
-        height:0;
-        padding-top:21px;
-        overflow:hidden;
-        display:block;
-        z-index:101;
-        z-index:1010;
-}
-
-#products .prev {
-        background:url(../assets/slide/arrow-prev.png);
-}
-
-#products .next {
-        left:398px;
-        background:url(../assets/slide/arrow-next.png);
-}*/
-
-/*
-        Pagination
-*/
-
-/*#products .pagination {
-        background:#dfdfdf;
-        background:none;
-        width:60px;
-        padding:5px 5px;
-        float:left;
-        margin-left:30px;
-        border-radius:5px;
-        -webkit-border-radius:5px;
-        -moz-border-radius:5px;
-}
-
-#products .pagination li {
-        float:left;
-        margin:2px 4px;
-        margin:2px 2px;
-        list-style:none;
-}
-
-#products .pagination li a {
-        display:block;
-        width:55px;
-        height:55px;
-        margin:1px;
-        float:left;
-        background:#f9f9f9;
-}
-
-#products .pagination li a img{
-        padding:5px;
-        border:none;
-        padding-left:3px;
-        padding-top:2px;
-}
-
-
-
-#products .pagination li.current a {
-        border:1px solid #7f7f7f;
-        border:none;
-        margin:0;
-}*/
-
 /*
         Footer
 */
@@ -1259,15 +1141,5 @@ input.btn {
     border: none;     
     margin-left: 800px;
     margin-top: -11px;
-    cursor: pointer;         
-}
-
-input.btn_foot {
-    height: 27px;
-    width: 40px;
-    background-color: transparent;  
-    background-repeat: no-repeat;  
-    border: none;     
-    margin-left: 800px;
     cursor: pointer;         
 }
