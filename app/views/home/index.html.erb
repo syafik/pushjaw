@@ -190,6 +190,7 @@
         <div class="descmap">
           <h2>Here We Are !</h2>
           <%= @location.try(:address) %>  <br />
+          <%= @location.try(:city) %>  <br />
           <%= @location.try(:mobile_phone) %> <br />
           <%= @location.try(:phone) %>  <br />
           <h3>Find Us :</h3>
@@ -213,6 +214,7 @@
 <%= render 'video' %>
 
 <script type="text/javascript">
+  
   function initialize() {
     var myLatlng = new google.maps.LatLng(<%= @res.try(:lat) %>,<%= @res.try(:lng) %>);
     var mapOptions = {
@@ -236,4 +238,6 @@
     });
 <% end %>
 </script>
+
+
 
