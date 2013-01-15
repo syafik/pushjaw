@@ -475,6 +475,14 @@ div.jc-horizontal div.Description p {
     margin: 15px;
 }
 
+.teamwrap img:hover {
+    border: 5px solid #fff;
+    margin: 15px;
+    margin-top: -10px;
+    height: 120px;
+    padding-top: -10px;
+}
+
 .gall h3 {
     color: #FFFFFF;
     font-size: 22px;
@@ -1243,18 +1251,19 @@ a:hover,a:active {
 
 input.btn {
     background-image: url("../assets/close.png");  
-    height: 21px;
+    height: 27px;
     width: 40px;
     background-color: transparent;  
     background-repeat: no-repeat;  
-    background-position: -4px -2px;   
+    background-position: -3px -2px;   
     border: none;     
     margin-left: 800px;
+    margin-top: -11px;
     cursor: pointer;         
 }
 
 input.btn_foot {
-    height: 21px;
+    height: 27px;
     width: 40px;
     background-color: transparent;  
     background-repeat: no-repeat;  

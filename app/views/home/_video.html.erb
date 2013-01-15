@@ -4,11 +4,10 @@
       <div id="container">          
         <input class="btn" data-dismiss="modal" aria-hidden="true" />
         <video id="my_video_<%= i %>" class="video-js vjs-default-skin" controls
-               preload="auto" width="800" height="500" poster="<%= video.video.url(:thumb) %>"
+               preload="auto" width="800" height="500" margin-top="-18" poster="<%= video.video.url(:thumb) %>"
                data-setup="{}">
           <source src="<%= video.video.url %> " type='video/mp4'>
         </video>
-        <input class="btn_foot" data-dismiss="modal" aria-hidden="true" />
       </div>
     </div>
   </div>
