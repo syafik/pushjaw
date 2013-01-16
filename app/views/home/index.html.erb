@@ -213,31 +213,38 @@
 
 <%= render 'video' %>
 
-<script type="text/javascript">
-  
-  function initialize() {
-    var myLatlng = new google.maps.LatLng(<%= @res.try(:lat) %>,<%= @res.try(:lng) %>);
-    var mapOptions = {
-      zoom: 18,
-      center: myLatlng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+<%= content_for :javascript do %>
+  <script type="text/javascript">
+    function initialize() {
+      console.log("ok")
+      var myLatlng = new google.maps.LatLng(<%= @res.try(:lat) %>,<%= @res.try(:lng) %>);
+      var mapOptions = {
+        zoom: 18,
+        center: myLatlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+      var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title:"Hello World!"
+      });
     }
-    var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-
-    var marker = new google.maps.Marker({
-      position: myLatlng,
-      map: map,
-      title:"Hello World!"
+    
+    jQuery(document).ready(function() {
+      initialize();
     });
-  }
 
-<% @videos.each_with_index do |video,i| %>
-    $('#myModal<%= i+1 %>  .btn, .modal-backdrop').live('click',function(){ 
-      $('#myModal<%= i+1 %>').hide(); 
-      _V_('#my_video_<%= i %>_html5_api').pause();
-    });
+  <% @videos.each_with_index do |video, i| %>
+      $('#myModal<%= i+1 %> .btn, .modal-backdrop').live('click',function(){
+        console.log("pause")
+        _V_('#my_video_<%= i %>').pause();
+        _V_('#my_video_<%= i %>').pause();
+      });
+  <% end %>
+
+  </script>
 <% end %>
-</script>
-
 
 
