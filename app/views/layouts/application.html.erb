@@ -3,12 +3,12 @@
   <head>
     <title>Pushjaw</title>
     <%= stylesheet_link_tag    "style", :media => "all" %>
-    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
 
     <link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
-    <script src="http://vjs.zencdn.net/c/video.js"></script>
 
+    <%= javascript_include_tag "application" %>
+    <script src="http://vjs.zencdn.net/c/video.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -20,7 +20,6 @@
     <link rel="shortcut icon" href="/assets/favicon.gif">
     <link rel="icon" href="/assets/images/favicon.ico">
     <!--[if IE]><link rel="stylesheet" type="text/css" href="/assets/style.css" /><![endif]-->
-
     <link rel="stylesheet" type="text/css" href="/assets/jquery.mCustomScrollbar.css">
     <link rel="icon" href="/assets/favicon.ico">
 
@@ -29,12 +28,13 @@
   <body onload="#home">
 
     <%= yield %>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="/assets/jquery.poshytip.js"></script>
 
     <script type="text/javascript" src="/assets/slides.min.jquery.js"></script>
     <script type="text/javascript" src="/assets/imgpreload.js"></script>
-<%#*<script type="text/javascript" src="/assets/parallax.js"></script>%>
+    <script type="text/javascript" src="/assets/parallax.js"></script>
     <script type="text/javascript" src="/assets/easing.js"></script>
     <script type="text/javascript" src="/assets/jcontent.js"></script>
     <script type="text/javascript" src="/assets/tabs.js"></script>
@@ -46,26 +46,24 @@
 
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
     <script>!window.jQuery.ui && document.write(unescape('%3Cscript src="/assets/jquery-ui-1.8.21.custom.min.js"%3E%3C/script%3E'))</script>
+
     <script type="text/javascript">
-  $("document").ready(function(){$("div#sliderwraper").jContent({orientation: 'horizontal', easing: "easeOutCirc", duration: 500,auto: true});});
-  $('.cloudmoving').clouds({xmlMap: '/assets/clouds.xml',bobHeight: 0,speed: 20});
-      
-  $(".content_6").mCustomScrollbar({
-    horizontalScroll:true,
-    advanced:{
-      autoExpandHorizontalScroll:true
-    }
-  });
+      $("document").ready(function(){$("div#sliderwraper").jContent({orientation: 'horizontal', easing: "easeOutCirc", duration: 500,auto: true});});
+
+      $('.cloudmoving').clouds({xmlMap: '/assets/clouds.xml',bobHeight: 2,speed: 12});      
+
+      $(".content_6").mCustomScrollbar({
+        horizontalScroll:true,
+        advanced:{
+          autoExpandHorizontalScroll:true
+        }
+      });
     </script> 
 
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOXOBmlC8dhsb4hNqiCJJQe-orUQvRrbo&sensor=true">
     </script>
 
     <script type="text/javascript">
-      jQuery(document).ready(function() {
-        initialize();
-      });
-      
       function load_home() {
         $("document").ready(function(){
           window.location.href = "#home";
@@ -74,7 +72,7 @@
       window.onload = load_home;
       
     </script>
-
+    <%= yield :javascript %>
 
   </body>
 </html>
