@@ -10,7 +10,6 @@ $(document).ready(function() {
     /* Next/prev and primary nav btn click handlers */
     $('a.home').click(function(){
         if (!$(this).hasClass('active')){
-            $('#site div.active').removeClass('active');
             $('ul.navigation li a').removeClass('active');
             $(this).addClass('active');
             $('#site #home').addClass('active');
