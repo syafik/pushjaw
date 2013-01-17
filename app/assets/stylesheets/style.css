@@ -538,7 +538,8 @@ div.jc-horizontal div.Description p {
     position: absolute;
 }
 .gall {
-    width: 500px;
+    width: 607px;
+    height: 305px;
     padding-top: 11px;
     float:left;
     margin-left: 30px;
@@ -1608,6 +1609,10 @@ input.btn {
 .nav-bootstrap > li > a:hover {
   text-decoration: none;
   background-color: #eeeeee;
+}
+
+.nav-bootstrap > li.active > a > h2 {
+ color:#3272dc;
 }
 
 .nav-bootstrap > li > a > h2:hover {
