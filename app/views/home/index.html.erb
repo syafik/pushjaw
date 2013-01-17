@@ -75,6 +75,7 @@
     <div class="birds"></div>
     <div class="page">
 
+
       <div class="content">
         <%= image_tag "title.png", :width=>457, :height => 67 %>
         <p>
@@ -114,38 +115,47 @@
           <p><%= @about.try(:content) %></p>
           <h3>What people sayings about us ?</h3>
           <div class="testimonial">
-
             <%= @comment.try(:comment) %>
           </div>
           <p>- <%= @comment.try(:name) %>, <%= @comment.try(:title) %>, <%= @comment.try(:address) %></p>
 
         </div>
+        <div class="teamwrap_nav">
+          <ul class="nav-bootstrap nav-tabs">
+            <li><a href="#our_team" data-toggle="tab"><h2>Team</h2></a></li>
+            <li><a href="#our_video" data-toggle="tab"><h2>Video</h2></a></li>
+          </ul>
 
-        <div class="teamwrap">
-          <h3>Our Teams</h3>
-          <div class="teamwrap_team">
-            <%= render 'index' %>
-          </div>
-          <div id="paginator">
-            <%= paginate @teams, :remote => true %>
-          </div>
-        </div>
-
-        <div class="gall">
-          <h3>Gallery Video</h3>
-          <% @videos.each_with_index do |video,i| %>
-            <div class="gall_desc">
-              <a class="video" title=<%= video.title %> >
-                <a href="#myModal<%= i+1 %>" role="button" class="btn" data-toggle="modal">
-                  <%= image_tag video.video.url(:thumb), :width => "100" , :height => "66" %>
-                </a>
-              </a>
-              <span>
-                <h1><%= video.try(:title) %></h1>
-                <p><%= video.try(:description) %></p>
-              </span>
+          <div class="tab-content-bootstrap">
+            <div class="tab-pane active" id="our_team">
+              <div class="teamwrap">
+                <div class="teamwrap_team">
+                  <%= render 'index' %>
+                </div>
+                <div id="paginator">
+                  <%= paginate @teams, :remote => true %>
+                </div>
+              </div>
             </div>
-          <% end %>
+
+            <div class="tab-pane" id="our_video">
+              <div class="gall">
+                <% @videos.each_with_index do |video,i| %>
+                  <div class="gall_desc">
+                    <a class="video" title=<%= video.title %> >
+                      <a href="#myModal<%= i+1 %>" role="button" class="btn" data-toggle="modal">
+                        <%= image_tag video.video.url(:thumb), :width => "100" , :height => "66" %>
+                      </a>
+                    </a>
+                    <span>
+                      <h1><%= video.try(:title) %></h1>
+                      <p><%= video.try(:description) %></p>
+                    </span>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -243,6 +253,10 @@
         _V_('#my_video_<%= i %>').pause();
       });
   <% end %>
+
+    $(function () {
+      $('#myTab a:last').tab('show');
+    })
 
   </script>
 <% end %>
