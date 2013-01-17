@@ -3,7 +3,7 @@ class Video < ActiveRecord::Base
 
   validates :video, :title, :description, :presence => true
   
-  validates_length_of :description, :maximum => 100
+#  validates_length_of :description, :maximum => 255
   
   validates_attachment_content_type :video,
     :content_type => ['video/mp4'],
@@ -22,12 +22,15 @@ class Video < ActiveRecord::Base
   scope :has_active, :conditions => {:active => true}
   
   def make_false
-    errors.add :active, "There can only be three TRUE row"
+    errors.add :active, "There can only be six TRUE row"
     self.active == false || 
       Video.has_active.size == 0 || 
       Video.has_active.size == 1 || 
       Video.has_active.size == 2 || 
-      ( Video.has_active.size == 3 && !self.active_changed?)
+      Video.has_active.size == 3 || 
+      Video.has_active.size == 4 || 
+      Video.has_active.size == 5 || 
+      ( Video.has_active.size == 6 && !self.active_changed?)
   end
   
   has_attached_file :video, :styles => { 
