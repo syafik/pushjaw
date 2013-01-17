@@ -2,7 +2,7 @@
 
 ab = [
   ["Save videos to watch later, watch recommendations just for you, or subscribe to get ... See videos shared by your friends across all your social networks", true],
-     ["watch later, watchs shared by your friends across all your social networks", false]]
+  ["watch later, watchs shared by your friends across all your social networks", false]]
 
 ab.each do |about|
   About.create!(:content => about[0], :active => about[1])
@@ -19,7 +19,7 @@ Location.create(address: "jln mig 3 no 1", mobile_phone: "+6281809466884", phone
     content: "hello my name is john, i am is a web developer")
     
   Image.create(team_id: team.id,
-  image: open(Rails.root.join('app/assets/images/sample2.png')))
+    image: open(Rails.root.join('app/assets/images/sample2.png')))
 end
 
 User.create(email: 'pushjaw@pushjaw.com', password: 'pushjaw123456')
@@ -67,18 +67,22 @@ end
 
 5.times do |blog|
   blog = Blog.create!(:content => "Pushjaw Pushjaw Pushjaw Pushjaw Pushjaw Pushjaw Pushjaw Pushjaw",
-                      :title => "Pushjaw",
-                      :active => false)
-    print '.'
+    :title => "Pushjaw",
+    :active => false)
+  print '.'
 end
 
 Blog.limit(2).each do |blog|
   blog.update_attribute("active", true)
 end
 
-3.times do |video|
+6.times do |video|
   video = Video.create!(
-    :description => "Pushjaw",
+    :description => "Lorem Ipsum is simply dummy text of the 
+                     printing and typesetting industry. Lorem Ipsum 
+                      has been the industry's standard dummy text ever
+                      since the 1500s, when an unknown printer took a galley o
+                     f type and scrambled it to make a type specimen book. It",
     :title => "Pushjaw",
     :video => open(Rails.root.join('app/assets/video/11.mp4')),  
     :active => true)

@@ -120,10 +120,11 @@
           <p>- <%= @comment.try(:name) %>, <%= @comment.try(:title) %>, <%= @comment.try(:address) %></p>
 
         </div>
+
         <div class="teamwrap_nav">
           <ul class="nav-bootstrap nav-tabs">
-            <li><a href="#our_team" data-toggle="tab"><h2>Team</h2></a></li>
-            <li><a href="#our_video" data-toggle="tab"><h2>Video</h2></a></li>
+            <li><a href="#our_team" data-toggle="tab"><h2>Our Team</h2></a></li>
+            <li><a href="#our_video" data-toggle="tab"><h2>Our Video</h2></a></li>
           </ul>
 
           <div class="tab-content-bootstrap">
@@ -140,22 +141,25 @@
 
             <div class="tab-pane" id="our_video">
               <div class="gall">
-                <% @videos.each_with_index do |video,i| %>
-                  <div class="gall_desc">
-                    <a class="video" title=<%= video.title %> >
-                      <a href="#myModal<%= i+1 %>" role="button" class="btn" data-toggle="modal">
-                        <%= image_tag video.video.url(:thumb), :width => "100" , :height => "66" %>
+                <div class="gall_video">
+                  <% @videos.each_with_index do |video,i| %>
+                    <div class="gall_desc">
+                      <a class="video" title=<%= video.title %> >
+                        <a href="#myModal<%= i+1 %>" role="button" class="btn" data-toggle="modal">
+                          <%= image_tag video.video.url(:thumb), :width => "100" , :height => "66" %>
+                        </a>
                       </a>
-                    </a>
-                    <span>
-                      <h1><%= video.try(:title) %></h1>
-                      <p><%= video.try(:description) %></p>
-                    </span>
-                  </div>
-                <% end %>
+                      <span>
+                        <h1><%= video.try(:title) %></h1>
+                        <p><%= video.try(:description) %></p>
+                      </span>
+                    </div>
+                  <% end %>
+                </div>
               </div>
             </div>
           </div>
+
         </div>
       </div>
 
@@ -226,7 +230,6 @@
 <%= content_for :javascript do %>
   <script type="text/javascript">
     function initialize() {
-      console.log("ok")
       var myLatlng = new google.maps.LatLng(<%= @res.try(:lat) %>,<%= @res.try(:lng) %>);
       var mapOptions = {
         zoom: 18,
@@ -255,7 +258,11 @@
   <% end %>
 
     $(function () {
-      $('#myTab a:last').tab('show');
+      $('#myTab a:first').tab('show');
+    });
+    
+    $(function(){
+      $('.nav-bootstrap li').first().addClass('active')
     })
 
   </script>

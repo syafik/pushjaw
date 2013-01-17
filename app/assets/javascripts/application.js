@@ -14,8 +14,3 @@
 //= require jquery_ujs
 //= require rich
 //= require twitter/bootstrap
-
-
-
-
-
