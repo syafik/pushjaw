@@ -78,7 +78,7 @@
             <div class="blogspotlight">
 
               <h3><%= truncate blog.try(:title), length: 20 %></h3>
-              <p><%= sanitize(truncate blog.try(:content), length: 60) %><a href="<%= blog_url(:id => blog, :subdomain => 'blogs') %>" target="_blank">more</a></p>
+              <p><%= sanitize(truncate blog.try(:content), length: 60) %><a href="<%= blog_path(:id=>blog) %>" target="_blank">more</a></p>
 
             </div>
           <% end %>
