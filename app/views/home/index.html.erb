@@ -78,7 +78,7 @@
             <div class="blogspotlight">
 
               <h3><%= truncate blog.try(:title), length: 20 %></h3>
-              <p><%= sanitize(truncate blog.try(:content), length: 60) %><a href="<%= blog_path(:id=>blog) %>" target="_blank">more</a></p>
+              <p><%= sanitize(truncate blog.try(:content), length: 60) %><a href="<%= blog_url(:id => blog, :subdomain => 'blogs') %>" target="_blank">more</a></p>
 
             </div>
           <% end %>
@@ -112,8 +112,8 @@
 
         <div class="teamwrap_nav">
           <ul class="nav-bootstrap nav-tabs">
-            <li class="active"><a href="#our_team" data-toggle="tab"><h2>Our Team</h2></a></li>
-            <li><a href="#our_video" data-toggle="tab"><h2>Our Video</h2></a></li>
+            <li class="active"><a href="#our_team" data-toggle="tab"><h2>Teams</h2></a></li>
+            <li><a href="#our_video" data-toggle="tab"><h2>Videos</h2></a></li>
           </ul>
 
           <div class="tab-content-bootstrap">
@@ -122,9 +122,11 @@
                 <div class="teamwrap_team">
                   <%= render 'index' %>
                 </div>
-                <div id="paginator">
-                  <%= paginate @teams, :remote => true %>
-                </div>
+                <center>
+                  <div id="paginator">
+                    <%= paginate @teams, :remote => true %>
+                  </div>
+                </center>
               </div>
             </div>
 
@@ -210,6 +212,7 @@
   </div>
 </div>
 </div>
+
 
 
 <%= render 'video' %>
