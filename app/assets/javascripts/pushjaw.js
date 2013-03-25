@@ -34,24 +34,9 @@ $('.cloudmoving').clouds({
   speed: 12
 });
 
-function initialize() {
-  var myLatlng = new google.maps.LatLng(-6.924984, 107.552818);
-  var mapOptions = {
-    zoom: 18,
-    center: myLatlng,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  }
-  var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 
-  var marker = new google.maps.Marker({
-    position: myLatlng,
-    map: map,
-    title:"Hello World!"
-  });
-}
 
 $(document).ready(function() {
-  initialize();
   $("#tab-services").tabs();
   $("#pushjaw_team.teamwrap_nav").tabs();
   $('.tooltips').poshytip({

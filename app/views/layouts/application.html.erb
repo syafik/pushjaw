@@ -53,8 +53,32 @@
   <script type="text/javascript" src="/assets/jquery.mousewheel.min.js"></script>
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOXOBmlC8dhsb4hNqiCJJQe-orUQvRrbo&sensor=true">
   </script>
+
   <script type="text/javascript" src="/assets/pushjaw.js"></script>
   <%= jwplayer_assets %>
   <%= yield :javascript %>
+  <script type="text/javascript">
+<% if controller_name.eql?("sessions") %>
+    $(document).ready(function(){
+      $('.nav').hide();
+    });
+<% else %>
+    generateMap;
+    function generateMap() {
+      var myLatlng = new google.maps.LatLng(<%= @location.try(:lat) || "-6.924984" %>, <%= @location.try(:lng) || "107.552818" %>);
+      var mapOptions = {
+        zoom: 18,
+        center: myLatlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+      var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title:"Hello World!"
+      });
+    }
+<% end %>
+  </script>
 </body>
 </html>
