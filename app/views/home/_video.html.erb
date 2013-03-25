@@ -1,15 +1,13 @@
-<% @videos.each_with_index do |video,i| %>
-  <div id="myModal<%= i+1 %>" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-body">
-      <div id="container">          
-        <input class="btn" data-dismiss="modal" aria-hidden="true" />
-        <video id="my_video_<%= i %>" class="video-js vjs-default-skin" controls
-               preload="auto" width="800" height="500" margin-top="-18" poster="<%= video.video.url(:thumb) %>"
-               data-setup="{}">
-          <source src="<%= video.video.url %> " type='video/mp4'>
-        </video>
-      </div>
-    </div>
+<!-- Modal -->
+<div id="myModal" class="modal hide" style="width: 630px;">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel"><%= video.title %></h3>
   </div>
-<% end %>
-
+  <div class="modal-body">
+    <p><div id="player_video"></div></p>
+  </div>
+  <div class="modal-footer">
+    <p><%= video.description %></p>
+  </div>
+</div>

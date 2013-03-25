@@ -52,7 +52,7 @@ a:hover { text-decoration: underline; }
 	margin: 0 auto;
 	padding: 0px;
 	height: 1108px;
-	background: url("../assets/services_bg.png") repeat-x center top;
+	background: url("/assetsservices_bg.png") repeat-x center top;
 }
 .page {
 	width: 1200px;
@@ -81,16 +81,16 @@ a:hover { text-decoration: underline; }
 	float:left;
 	text-align: center;
 	height: 36px;
-	background: url("../assets/menu_bg.png") no-repeat;
+	background: url("/assetsmenu_bg.png") no-repeat;
 }
 .navigation li a:hover {
 	text-decoration: none;
-	background: url("../assets/menuhover_bg.png") no-repeat;
+	background: url("/assetsmenuhover_bg.png") no-repeat;
 	color: #ab4b00;
 	text-shadow: none;
 }
 .navigation li a.focus, .navigation li a.click .navigation li a.active {
-	background: url("../assets/menuhover_bg.png") no-repeat;
+	background: url("/assetsmenuhover_bg.png") no-repeat;
 	margin-top: -11px;
 	height: 27px;
 	padding-top: 20px;
@@ -98,7 +98,7 @@ a:hover { text-decoration: underline; }
 	color: #ab4b00;
 }
 .moon {
-	background: url("../assets/moon.png") no-repeat;
+	background: url("/assetsmoon.png") no-repeat;
 	height: 382px;
     margin-top: -80px;
     position: absolute;
@@ -106,7 +106,7 @@ a:hover { text-decoration: underline; }
 	left: -90px;
 }
 .ufo {
-	background: url("../assets/ufo.png") no-repeat;
+	background: url("/assetsufo.png") no-repeat;
 	height: 237px;
     margin-left: 100px;
     margin-top: 350px;
@@ -114,7 +114,7 @@ a:hover { text-decoration: underline; }
     width: 218px;
 }
 .rocket {
-	background: url("../assets/rocket.png") no-repeat;
+	background: url("/assetsrocket.png") no-repeat;
 	height: 216px;
     margin-top: 400px;
     position: absolute;
@@ -122,7 +122,7 @@ a:hover { text-decoration: underline; }
     width: 204px;
 }
 .rocket2 {
-	background: url("../assets/rocket2.png") no-repeat;
+	background: url("/assetsrocket2.png") no-repeat;
 	height: 216px;
     margin-top: 700px;
     position: absolute;
@@ -155,25 +155,25 @@ a:hover { text-decoration: underline; }
 	margin-right: 3px;
 }
 .cloud {
-	background: url("../assets/cloud.png") repeat-x;
+	background: url("/assetscloud.png") repeat-x;
 	height: 421px;
     margin-top: -300px;
     position: relative;
 }
 .cloud2 {
-	background: url("../assets/cloud.png") repeat-x;
+	background: url("/assetscloud.png") repeat-x;
 	height: 421px;
     margin-top: 10px;
     position: relative;
 }
 .cloud3 {
-	background: url("../assets/cloud2.png") repeat-x;
+	background: url("/assetscloud2.png") repeat-x;
 	height: 225px;
     margin-top: 65px;
     position: relative;
 }
 .balloon1 {
-	background: url("../assets/balloon1.png") no-repeat;
+	background: url("/assetsballoon1.png") no-repeat;
 	height: 176px;
     left: 50px;
     margin-top: -105px;
@@ -181,7 +181,7 @@ a:hover { text-decoration: underline; }
     width: 452px;
 }
 .balloon2 {
-	background: url("../assets/balloon2.png") no-repeat;
+	background: url("/assetsballoon2.png") no-repeat;
 	height: 356px;
     left: 10px;
     margin-top: 300px;
@@ -189,14 +189,14 @@ a:hover { text-decoration: underline; }
     width: 251px;
 }
 .balloon3 {
-	background: url("../assets/balloon3.png") no-repeat;
+	background: url("/assetsballoon3.png") no-repeat;
 	height: 228px;
     right: 100px;
     position: absolute;
     width: 160px;
 }
 .balloon4 {
-	background: url("../assets/balloon4.png") no-repeat;
+	background: url("/assetsballoon4.png") no-repeat;
 	height: 164px;
     width: 184px;
 	margin: 0px auto 0;
@@ -261,12 +261,12 @@ div.jc-horizontal div.Description p {
 }
 
 #home {
-	background: url("../assets/bg_home.png") repeat-x 0 -10em;
+	background: url("/assetsbg_home.png") repeat-x 0 -10em;
 	z-index: -2;
 	height: 1150px;
 }
 .tree {
-	background: url("../assets/tree.png") no-repeat;
+	background: url("/assetstree.png") no-repeat;
 	height: 201px;
     left: 100px;
     margin-top: -115px;
@@ -274,7 +274,7 @@ div.jc-horizontal div.Description p {
     width: 190px;
 }
 .stork {
-	background: url("../assets/stork.png") no-repeat;
+	background: url("/assetsstork.png") no-repeat;
 	height: 338px;
 	right: 100px;
     position: absolute;
@@ -341,7 +341,7 @@ div.jc-horizontal div.Description p {
 	margin-top: 165px;
 }
 .water {
-	background: url("../assets/water.png") repeat-x;
+	background: url("/assetswater.png") repeat-x;
 	height: 39px;
     position: relative;
 }
@@ -517,7 +517,7 @@ div.jc-horizontal div.Description p {
 	color: #fff;
 }
 .cyrcle {
-	background: url("../assets/cyrcle.png") no-repeat;
+	background: url("/assetscyrcle.png") no-repeat;
 	width: 135px;
 	margin-left: 20px;
 	height: 89px;
@@ -530,7 +530,7 @@ div.jc-horizontal div.Description p {
 	margin-top: 55px;
 }
 .cyrcle2 {
-	background: url("../assets/cyrcle.png") no-repeat;
+	background: url("/assetscyrcle.png") no-repeat;
 	height: 89px;
     margin-left: 400px;
     margin-top: 50px;
@@ -538,7 +538,7 @@ div.jc-horizontal div.Description p {
     width: 135px;
 }
 .cyrcle3 {
-	background: url("../assets/cyrcle.png") no-repeat;
+	background: url("/assetscyrcle.png") no-repeat;
 	height: 89px;
     margin-left: 800px;
     margin-top: 10px;
@@ -546,7 +546,7 @@ div.jc-horizontal div.Description p {
     width: 135px;
 }
 .cyrcle4 {
-	background: url("../assets/cyrcle.png") no-repeat;
+	background: url("/assetscyrcle.png") no-repeat;
 	height: 89px;
     right: 20px;
     position: absolute;
@@ -637,20 +637,20 @@ ul.socialtag {
 	margin-top: 10px;
 }
 .fb {
-	background: url("../assets/socialicon.png") no-repeat scroll -2.4em 0 transparent;
+	background: url("/assetssocialicon.png") no-repeat scroll -2.4em 0 transparent;
 	width: 25px;
 	height: 24px;
 	float:left;
 	margin-right: 5px;
 }
 .tw {
-	background: url("../assets/socialicon.png") no-repeat;
+	background: url("/assetssocialicon.png") no-repeat;
 	width: 25px;
 	height: 24px;
 	float:left;
 }
 .worm {
-	background: url("../assets/worm.png") no-repeat;
+	background: url("/assetsworm.png") no-repeat;
 	height: 161px;
     margin-left: 600px;
     margin-top: 300px;
@@ -659,21 +659,21 @@ ul.socialtag {
     width: 67px;
 }
 .border {
-	background: url("../assets/border.png") repeat-x;
+	background: url("/assetsborder.png") repeat-x;
 	height: 3px;
     margin-top: 150px;
     position: absolute;
     width: 500px;
 }
 .border3 {
-	background: url("../assets/border.png") repeat-x;
+	background: url("/assetsborder.png") repeat-x;
 	 height: 3px;
     margin-top: 525px;
     position: absolute;
     width: 300px;
 }
 .border2 {
-	background: url("../assets/border.png") repeat-x;
+	background: url("/assetsborder.png") repeat-x;
 	 height: 3px;
     margin-top: 440px;
     position: absolute;
@@ -787,23 +787,23 @@ div.jc-horizontal a
 div.jc-horizontal a.prev
 {
 	margin: 55px 10px 0px 0px;
-	background: url('../assets/wleft.png') no-repeat;
+	background: url('/assetswleft.png') no-repeat;
 }
 
 div.jc-horizontal a.prev:hover
 {
-	background: url('../assets/bleft.png') no-repeat;
+	background: url('/assetsbleft.png') no-repeat;
 }
 
 div.jc-horizontal a.next
 {
 	margin: 55px 0px 0px 10px;
-	background: url('../assets/wright.png') no-repeat;
+	background: url('/assetswright.png') no-repeat;
 }
 
 div.jc-horizontal a.next:hover
 {
-	background: url('../assets/bright.png') no-repeat;
+	background: url('/assetsbright.png') no-repeat;
 }
 
 /* vertical */
@@ -822,23 +822,23 @@ div.jc-vertical a
 div.jc-vertical a.prev
 {
 	margin: 0px 0px 5px 0px;
-	background: url('../assets/wup.png') no-repeat top center;
+	background: url('/assetswup.png') no-repeat top center;
 }
 
 div.jc-vertical a.prev:hover
 {
-	background: url('../assets/bup.png') no-repeat top center;
+	background: url('/assetsbup.png') no-repeat top center;
 }
 
 div.jc-vertical a.next
 {
 	margin: 5px 0px 0px 0px;
-	background: url('../assets/wdown.png') no-repeat top center;
+	background: url('/assetswdown.png') no-repeat top center;
 }
 
 div.jc-vertical a.bottom-arr:hover
 {
-	background: url('../assets/bdown.png') no-repeat top center;
+	background: url('/assetsbdown.png') no-repeat top center;
 }
 
 /* auto and circle */
@@ -920,11 +920,11 @@ ul.tabs li.current a
 	padding: 5px;
 }
 .cloudis {
-	background-image: url("../assets/clouds.png") !important;
+	background-image: url("/assetsclouds.png") !important;
 	opacity: 0.2;
 }
 .birds {
-	background: url("../assets/birds.png") no-repeat;
+	background: url("/assetsbirds.png") no-repeat;
 	height: 77px;
     margin-left: 160px;
     margin-top: -250px;
@@ -1240,12 +1240,12 @@ ul.tabs li.current a
 }
 
 #products .prev {
-	background:url(../assets/slide/arrow-prev.png);
+	background:url(/assetsslide/arrow-prev.png);
 }
 
 #products .next {
 	left:435px;
-	background:url(../assets/slide/arrow-next.png);
+	background:url(/assetsslide/arrow-next.png);
 }
 
 /*

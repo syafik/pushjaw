@@ -11,12 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121218084939) do
-
-  create_table "blogs", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20130107063742) do
 
   create_table "comments", :force => true do |t|
     t.string   "name"
@@ -25,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20121218084939) do
     t.text     "comment"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.boolean  "active"
   end
 
   create_table "contacts", :force => true do |t|
@@ -38,21 +34,17 @@ ActiveRecord::Schema.define(:version => 20121218084939) do
 
   create_table "features", :force => true do |t|
     t.string   "name"
-    t.string   "title"
     t.text     "content"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
-    t.string   "type"
-    t.string   "picture_file_name"
-    t.string   "picture_content_type"
-    t.integer  "picture_file_size"
-    t.datetime "picture_updated_at"
-  end
-
-  create_table "homes", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "type"
+    t.string   "url"
+    t.boolean  "active"
+    t.string   "slug"
+    t.string   "title"
   end
+
+  add_index "features", ["slug"], :name => "index_features_on_slug"
 
   create_table "images", :force => true do |t|
     t.datetime "created_at",         :null => false
@@ -62,6 +54,23 @@ ActiveRecord::Schema.define(:version => 20121218084939) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "service_id"
+    t.integer  "team_id"
+    t.integer  "portfolio_id"
+  end
+
+  create_table "locations", :force => true do |t|
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "address"
+    t.float    "lat"
+    t.float    "lng"
+    t.string   "geocode_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "phone"
+    t.string   "mobile_phone"
+    t.boolean  "active"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -76,6 +85,19 @@ ActiveRecord::Schema.define(:version => 20121218084939) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
+  create_table "rich_rich_files", :force => true do |t|
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+    t.string   "rich_file_file_name"
+    t.string   "rich_file_content_type"
+    t.integer  "rich_file_file_size"
+    t.datetime "rich_file_updated_at"
+    t.string   "owner_type"
+    t.integer  "owner_id"
+    t.text     "uri_cache"
+    t.string   "simplified_type",        :default => "file"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -94,5 +116,17 @@ ActiveRecord::Schema.define(:version => 20121218084939) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "videos", :force => true do |t|
+    t.string   "video_file_name"
+    t.string   "video_content_type"
+    t.integer  "video_file_size"
+    t.datetime "video_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "title"
+    t.text     "description"
+    t.boolean  "active"
+  end
 
 end

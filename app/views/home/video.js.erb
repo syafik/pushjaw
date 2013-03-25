@@ -1,0 +1,9 @@
+$("#modal_video").html("<%=escape_javascript render :partial => "video", :locals => {:video => @video} %>");
+$('#myModal').modal('show');
+
+jwplayer("player_video").setup({
+  flashplayer: '/assets/flash.swf',
+  file: "<%= @video.video %>",
+  height: 400,
+  width: 600
+});

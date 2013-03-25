@@ -22,13 +22,8 @@ Released   : 20120307
       <div id="wrapper2">
         <div id="header" class="container">
           <div id="logo">
-            <h1><a href="#">Pushjaw Blog </a></h1>
+            <h1><%= link_to "Pushjaw Blog", blogs_path %></h1>
           </div>
-          <%#*<div id="menu">%>
-            <%#*<ul>%>
-              <%#*<li class="current_page_item"><a href="#">Homepage</a></li>%>
-            <%#*</ul>%>
-          <%#*</div>%>
         </div>
 
         <%= yield %>
@@ -40,7 +35,9 @@ Released   : 20120307
     </div>
     <div id="footer-content">
       <div id="footer">
-        <p>Copyright (c) 2013 pushjaw.com. All rights reserved. Design by <a href="http://www.pushjaw.com">Pushjaw Company</a>.</p>
+        <%= link_to root_path do %>
+          <p>Copyright (c) 2013 pushjaw.com. All rights reserved. Design by Pushjaw Company.</p>
+        <% end %>
       </div>
     </div>
     <!-- end #footer -->

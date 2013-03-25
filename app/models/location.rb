@@ -1,10 +1,7 @@
 class Location < ActiveRecord::Base
-  attr_accessible :address, :phone, :mobile_phone, :city, :active
-  validates :address, :city, presence: true
+  attr_accessible :address, :phone, :mobile_phone, :city, :active, :lat, :lng
+  validates :address, :city, :presence => true
   
-  acts_as_mappable
-  before_validation :geocode_address, :on => :create
-
   before_update :make_false  
   before_create :make_false
   
@@ -17,11 +14,4 @@ class Location < ActiveRecord::Base
       ( Location.has_active.size == 1 && !self.active_changed?)
   end
 
-  private
-  def geocode_address
-    geo=Geokit::Geocoders::MultiGeocoder.geocode ('jln mig 3 cimahi')
-    errors.add(:address, "Could not Geocode address") if !geo.success
-    self.lat, self.lng = geo.lat,geo.lng if geo.success
-  end
-  
 end

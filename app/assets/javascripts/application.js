@@ -10,7 +10,8 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
-//= require jquery_ujs
-//= require rich
-//= require twitter/bootstrap
+//= require jquery-1.8.3.min.js
+//= require jquery-ui-1.8.4.min.js
+//= require jquery_ujs.js
+
+//= require_tree .

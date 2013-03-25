@@ -489,6 +489,7 @@ div.jc-horizontal div.Description p {
 .teamwrap img:hover {
     border: 5px solid #aad;
     margin-top: -20px;
+    cursor:pointer;
 }
 
 .gall h3 {

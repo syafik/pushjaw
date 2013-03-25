@@ -1,9 +1,4 @@
 class Blog < Feature
-  # attr_accessible :title, :body
-  extend FriendlyId
-  friendly_id :title
-  validates :content,:title, :presence => true
-  
   before_update :make_false  
   before_create :make_false
   

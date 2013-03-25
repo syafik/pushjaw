@@ -2,20 +2,20 @@
   <div id="section-wrapper">
     <div id="services">
       <div class="page">
-        <ul class="tabs">
+        <ul id="tab-services" class="tabs">
           <% @services.each_with_index do |service, i|%>
-            <li><a href="#tab<%=  i+1 %>"><%= service.try(:title) %></a></li>
+            <li><a href="#<%= service.slug %>"><%= service.try(:name) %></a></li>
           <% end %>
         </ul>
         <div class="tab-container">
           <% @services.each_with_index do |service, i|%>
-            <div id="tab<%=  i+1 %>" class="tab-content">
+            <div id="<%= service.slug %>" class="tab-contentx">
               <div class="ct_services">
                 <%= service.try(:content) %>
                 <% service.images.each do |image| %>
                   <div class="service_img">
                     <div><%= image_tag image.image.url(:thumb), :width=>"120px", :height=>"80px" %></div>
-                  </div>       
+                  </div>
                 <% end %>
               </div>
             </div>
@@ -33,7 +33,7 @@
     <div id="portfolio" class="clearfix section">
       <div class="cloud"></div>
       <div class="page">
-        <div class="shadow"><img src="../assets/shadow.png" width="100%" height=""/></div>
+        <div class="shadow"><img src="/assets/shadow.png" width="100%" height=""/></div>
         <div class="balloon1"></div>
         <div class="balloon2"></div>
         <div class="balloon4"></div>
@@ -44,18 +44,15 @@
               <div>
                 <%= image_tag portfolio.image.try(:image), :width=>"641", :height=>"399" %>
                 <div class="Description">
-                  <a href="<%= portfolio.try(:url) %>" target="_blank"><%= portfolio.try(:title) %></a>
+                  <a href="<%= portfolio.try(:url) %>" target="_blank"><%= portfolio.try(:name) %></a>
                   <p><%= truncate(strip_tags(portfolio.try(:content)), length: 70 ) %></p>
                 </div>
               </div>
             <% end %>
           </div>
-
         </div>
       </div>
-
       <div class="cloud2"></div>
-
     </div>
 
     <div id="home" class="clearfix">
@@ -64,22 +61,17 @@
     <div class="birds"></div>
     <div class="page">
 
-
       <div class="content">
         <%= image_tag "title.png", :width=>457, :height => 67 %>
-        <p>
-          <%= @home.try(:content) %>
-        </p>
+        <p><%= @home.try(:content) %></p>
       </div>
 
       <div class="stork">
         <div class="blogwraper">
           <% @blog.each do |blog| %>
             <div class="blogspotlight">
-
-              <h3><%= truncate blog.try(:title), length: 20 %></h3>
-              <p><%= sanitize(truncate blog.try(:content), length: 60) %><a href="<%= blog_path(:id=>blog) %>" target="_blank">more</a></p>
-
+              <h3><%= truncate blog.try(:name), length: 20 %></h3>
+              <p><%= sanitize(truncate blog.try(:content), length: 60) %><a href="<%= blog_path(blog) %>" target="_blank">more</a></p>
             </div>
           <% end %>
         </div>
@@ -107,39 +99,36 @@
             <%= @comment.try(:comment) %>
           </div>
           <p>- <%= @comment.try(:name) %>, <%= @comment.try(:title) %>, <%= @comment.try(:address) %></p>
-
         </div>
 
-        <div class="teamwrap_nav">
+        <div id="pushjaw_team" class="teamwrap_nav">
           <ul class="nav-bootstrap nav-tabs">
-            <li class="active"><a href="#our_team" data-toggle="tab"><h2>Teams</h2></a></li>
-            <li><a href="#our_video" data-toggle="tab"><h2>Videos</h2></a></li>
+            <li><a href="#our_team"><h2>Teams</h2></a></li>
+            <li><a href="#our_video"><h2>Videos</h2></a></li>
           </ul>
 
           <div class="tab-content-bootstrap">
-            <div class="tab-pane active" id="our_team">
+            <div id="our_team">
               <div class="teamwrap">
-                <div class="teamwrap_team">
-                  <%= render 'index' %>
+                <div class="teamwrap_team" style="height: 360px;">
+                  <% @teams.each do |team| %>
+                    <a class="fancybox-profile-team" rel="gallery1" href="<%= team.image.image.url %>" title="<%= team.content.html_safe %>">
+                      <%= image_tag(team.image.image.url(:thumb), :width => 89, :height=> 105, :class => "tooltips fancybox",
+                        :title => ("#{team.name} as #{team.title}") ) %>
+                    </a>
+                  <% end %>
                 </div>
-                <center>
-                  <div id="paginator">
-                    <%= paginate @teams, :remote => true %>
-                  </div>
-                </center>
               </div>
             </div>
 
-            <div class="tab-pane" id="our_video">
+            <div id="our_video">
               <div class="gall">
                 <div class="gall_video">
-                  <% @videos.each_with_index do |video,i| %>
+                  <% @videos.each_with_index do |video| %>
                     <div class="gall_desc">
-                      <a class="video" title=<%= video.title %> >
-                        <a href="#myModal<%= i+1 %>" role="button" class="btn" data-toggle="modal">
-                          <%= image_tag video.video.url(:thumb), :width => "100" , :height => "66" %>
-                        </a>
-                      </a>
+                      <%= link_to video_home_path(video.id), :remote => true do %>
+                        <%= image_tag video.video.url(:thumb), :width => "100" , :height => "66" %>
+                      <% end %>
                       <span>
                         <h1><%= video.try(:title) %></h1>
                         <p><%= video.try(:description) %></p>
@@ -150,7 +139,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -194,10 +182,10 @@
         </div>
         <div class="descmap">
           <h2>Here We Are !</h2>
-          <%= @location.try(:address) %>  <br />
-          <%= @location.try(:city) %>  <br />
+          <%= @location.try(:address) %> <br />
+          <%= @location.try(:city) %> <br />
           <%= @location.try(:mobile_phone) %> <br />
-          <%= @location.try(:phone) %>  <br />
+          <%= @location.try(:phone) %> <br />
           <h3>Find Us :</h3>
           <ul class="socialtag">
             <li><a title="Follow us on Pushjaw" href="https://www.facebook.com/pushjaws" class="fb tooltips"></a></li>
@@ -205,49 +193,8 @@
           </ul>
         </div>
       </div>
-
     </div>
     <div class="worm"></div>
     <div class="border2"></div>
   </div>
 </div>
-</div>
-
-
-
-<%= render 'video' %>
-
-<%= content_for :javascript do %>
-  <script type="text/javascript">
-    function initialize() {
-      var myLatlng = new google.maps.LatLng(<%= @res.try(:lat) %>,<%= @res.try(:lng) %>);
-      var mapOptions = {
-        zoom: 18,
-        center: myLatlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      }
-      var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-
-      var marker = new google.maps.Marker({
-        position: myLatlng,
-        map: map,
-        title:"Hello World!"
-      });
-    }
-    
-    jQuery(document).ready(function() {
-      initialize();
-    });
-
-  <% @videos.each_with_index do |video, i| %>
-      $('#myModal<%= i+1 %> .btn, .modal-backdrop').live('click',function(){
-        console.log("pause")
-        _V_('#my_video_<%= i %>').pause();
-        _V_('#my_video_<%= i %>').pause();
-      });
-  <% end %>
-
-  </script>
-<% end %>
-
-
