@@ -112,10 +112,10 @@
               <div class="teamwrap">
                 <div class="teamwrap_team" style="height: 360px;">
                   <% @teams.each do |team| %>
-                    <a class="fancybox-profile-team" rel="gallery1" href="<%= team.image.image.url %>" title="<%= team.content.html_safe if team.content %>">
+                  <%= link_to team.image.image.url, :title => "#{team.content.html_safe if team.content}", :class => "fancybox-profile-team" do %>
                       <%= image_tag(team.image.image.url(:thumb), :width => 89, :height=> 105, :class => "tooltips fancybox",
                         :title => ("#{team.name} as #{team.title}") ) %>
-                    </a>
+                    <% end if team.image.image %>
                   <% end %>
                 </div>
               </div>
