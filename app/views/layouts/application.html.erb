@@ -63,7 +63,10 @@
       $('.nav').hide();
     });
 <% else %>
-    generateMap;
+    $(document).ready(function(){
+      generateMap();
+    });
+    
     function generateMap() {
       var myLatlng = new google.maps.LatLng(<%= @location.try(:lat) || "-6.924984" %>, <%= @location.try(:lng) || "107.552818" %>);
       var mapOptions = {

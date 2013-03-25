@@ -22,7 +22,7 @@ Location.create!(address: "jln mig 3 no 1", mobile_phone: "+6281809466884", phon
     image: open(Rails.root.join('app/assets/images/sample2.png')))
 end
 
-User.create!(email: 'admin@pushjaw.com', password: 'password')
+User.create!(email: 'admin@pushjaw.com', password: 'pu5hj4wt34')
 
 print 'seeding database'
 5.times.each_with_index do |home, index|
@@ -38,7 +38,7 @@ end
 
 Home.last.update_attribute("active", true)
 
-10.times do |service|
+3.times do |service|
   service = Service.create!(:name => "Web Developer",
     :content => "Lorem Ipsum is simply dummy text of the 
                                printing and typesetting industry. Lorem Ipsum has been the industry's 

@@ -2,13 +2,13 @@ class HomeController < ApplicationController
   
   def index
     @teams = Team.all
-    @services = Service.where(:active => true).first(5)
+    @services = Service.where(:active => true)
     @home = Home.where(:active => true).first
-    @blog = Blog.where(:active => true).first(2)
+    @blog = Blog.where(:active => true).first
     @portfolios = Portfolio.where(:active => true)
     @comment = Comment.where(:active => true).first
     @location = Location.where(:active => true).first
-    @videos = Video.where(:active => true).first(6)
+    @videos = Video.where(:active => true)
     @about = About.where(:active => true).first
   end
 
