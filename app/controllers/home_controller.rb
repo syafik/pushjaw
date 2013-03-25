@@ -4,7 +4,7 @@ class HomeController < ApplicationController
     @teams = Team.all
     @services = Service.where(:active => true)
     @home = Home.where(:active => true).first
-    @blog = Blog.where(:active => true).first
+    @blogs = Blog.where(:active => true)
     @portfolios = Portfolio.where(:active => true)
     @comment = Comment.where(:active => true).first
     @location = Location.where(:active => true).first
