@@ -42,7 +42,7 @@
           <div class="slides slider">
             <% @portfolios.each do |portfolio| %>
               <div>
-                <%= image_tag portfolio.image.try(:image), :width=>"641" %>
+                <%= image_tag portfolio.image.try(:image), :width=>"640", :height =>"400" %>
                 <div class="Description">
                   <a href="<%= portfolio.try(:url) %>" target="_blank"><%= portfolio.try(:name) %></a>
                   <p><%= truncate(strip_tags(portfolio.try(:content)), length: 70 ) %></p>
@@ -188,8 +188,8 @@
           <%= @location.try(:phone) %> <br />
           <h3>Find Us :</h3>
           <ul class="socialtag">
-            <li><a title="Follow us on Pushjaw" href="https://www.facebook.com/pushjaw" class="fb tooltips"></a></li>
-            <li><a title="Follow us on @pushjaw" href="https://twitter.com/pushjaw" class="tw tooltips"></a></li>
+            <li><a title="Follow us on Pushjaw" href="https://www.facebook.com/pushjaw" class="fb tooltips" target="_blank"></a></li>
+            <li><a title="Follow us on @pushjaw" href="https://twitter.com/pushjaw" class="tw tooltips"  target="_blank"></a></li>
           </ul>
         </div>
       </div>
