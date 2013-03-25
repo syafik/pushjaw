@@ -42,7 +42,7 @@
           <div class="slides slider">
             <% @portfolios.each do |portfolio| %>
               <div>
-                <%= image_tag portfolio.image.try(:image), :width=>"641", :height=>"399" %>
+                <%= image_tag portfolio.image.try(:image), :width=>"641" %>
                 <div class="Description">
                   <a href="<%= portfolio.try(:url) %>" target="_blank"><%= portfolio.try(:name) %></a>
                   <p><%= truncate(strip_tags(portfolio.try(:content)), length: 70 ) %></p>
@@ -63,7 +63,7 @@
 
       <div class="content">
         <%= image_tag "title.png", :width=>457, :height => 67 %>
-        <p><%= @home.try(:content) %></p>
+        <p><%= @home.content.html_safe if @home.content %></p>
       </div>
 
       <div class="stork">
@@ -93,10 +93,10 @@
 
         <div class="abwrap">
           <h2>About Us</h2>
-          <p><%= @about.try(:content) %></p>
+          <p><%= @about.content.html_safe if @about.content %></p>
           <h3>What people sayings about us ?</h3>
           <div class="testimonial">
-            <%= @comment.try(:comment) %>
+            <%= @comment.comment.html_safe if @comment.comment %>
           </div>
           <p>- <%= @comment.try(:name) %>, <%= @comment.try(:title) %>, <%= @comment.try(:address) %></p>
         </div>
@@ -112,7 +112,7 @@
               <div class="teamwrap">
                 <div class="teamwrap_team" style="height: 360px;">
                   <% @teams.each do |team| %>
-                    <a class="fancybox-profile-team" rel="gallery1" href="<%= team.image.image.url %>" title="<%= team.content.html_safe %>">
+                    <a class="fancybox-profile-team" rel="gallery1" href="<%= team.image.image.url %>" title="<%= team.content.html_safe if team.content %>">
                       <%= image_tag(team.image.image.url(:thumb), :width => 89, :height=> 105, :class => "tooltips fancybox",
                         :title => ("#{team.name} as #{team.title}") ) %>
                     </a>
