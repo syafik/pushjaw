@@ -9,7 +9,7 @@
         </ul>
         <div class="tab-container">
           <% @services.each_with_index do |service, i|%>
-            <div id="<%= service.slug %>" class="tab-contentx">
+            <div id="<%= service.slug %>" class="tab-content">
               <div class="ct_services">
                 <%= service.try(:content) %>
                 <% service.images.each do |image| %>
