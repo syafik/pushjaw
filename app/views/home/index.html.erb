@@ -113,7 +113,7 @@
                 <div class="teamwrap_team" style="height: 360px;">
                   <% @teams.each do |team| %>
                   <%= link_to team.image.image.url, :title => "#{team.content.html_safe if team.content}", :class => "fancybox-profile-team" do %>
-                      <%= image_tag(team.image.image.url(:thumb), :class => "tooltips fancybox",
+                      <%= image_tag(team.image.image.url(:team_thumb), :class => "tooltips fancybox",
                         :title => ("#{team.name} as #{team.title}") ) %>
                     <% end if team.image.image %>
                   <% end %>
@@ -127,7 +127,7 @@
                   <% @videos.each_with_index do |video| %>
                     <div class="gall_desc">
                       <%= link_to video_home_path(video.id), :remote => true do %>
-                        <%= image_tag video.video.url(:team_thumb), :width => "100" , :height => "66" %>
+                        <%= image_tag video.video.url(:thumb), :width => "100" , :height => "66" %>
                       <% end %>
                       <span>
                         <h1><%= video.try(:title) %></h1>
